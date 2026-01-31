@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Caveat, Poppins } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/navbar";
+import { Navbar } from "@/components/navbar/navbar";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -29,6 +29,7 @@ export default function RootLayout({
         className={`${caveat.variable} ${poppins.variable} antialiased`}
       >
         {children}
+        
       </body>
     </html>
   );
