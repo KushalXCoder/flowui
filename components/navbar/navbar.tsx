@@ -1,17 +1,19 @@
 "use client"
 
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "../ui/button"
-import { Github } from "lucide-react"
-import { Sun } from "../animate-ui/icons/sun"
-import NumberTicker from "../number-ticket"
-import { Divider } from "../divider"
-import { motion, AnimatePresence } from "motion/react"
-import { useEffect, useRef, useState } from "react"
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "../ui/button";
+import { Github } from "lucide-react";
+import { Sun } from "../animate-ui/icons/sun";
+import NumberTicker from "../number-ticket";
+import { motion, AnimatePresence } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 
 export const Navbar = () => {
   const [showFixed, setShowFixed] = useState<boolean>(false);
+  const [delay, setDelay] = useState<number>(2.4);
+
+  const isFirstTime = useRef<boolean>(true);
   const hasNumberAnimated = useRef<boolean>(false);
 
   useEffect(() => {
@@ -23,11 +25,23 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll)
   }, []);
 
+  useEffect(() => {
+    if(isFirstTime.current) {
+      isFirstTime.current = false;
+      setDelay(0);
+      return;
+    }
+  }, []);
+
   const NavContent = () => (
     <>
-      <div className={`flex justify-between items-center ${showFixed ? `border-x border-dashed border-gray-400 px-10 py-3` : ``}`}>
+      <motion.div
+        initial={{ opacity: 0, y: -12, filter: "blur(4px)" }}
+        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: delay }}
+        className={`flex justify-between items-center ${showFixed ? `border-x border-dashed border-gray-400 px-10 py-3` : ``}`}
+      >
         <Image src="/logo.svg" alt="Logo" width={32} height={32} />
-
         <ul className="flex items-center gap-4 text-sm font-poppins">
           <Link href="/docs">Docs</Link>
           <Link href="/components">Components</Link>
@@ -41,9 +55,7 @@ export const Navbar = () => {
 
           <Sun animateOnHover className="size-8 p-2 rounded-lg hover:bg-accent" />
         </ul>
-      </div>
-
-      {!showFixed && <Divider type="full" className="mt-4" />}
+      </motion.div>
     </>
   )
 
