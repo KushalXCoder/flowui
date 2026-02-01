@@ -1,1 +1,1 @@
-export const labels = ["Flow based", "Composable", "Motion ready", "Themeable"];
+export const labels = ["Productive", "Reusable", "Shadcn", "Themeable"];

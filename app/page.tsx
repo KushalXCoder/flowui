@@ -1,8 +1,7 @@
 "use client";
 
-import { Divider } from "@/components/divider";
-import Footer from "@/components/footer";
-import LandingPage from "@/components/landing-page/landing-page";
+import Footer from "@/components/app-components/footer";
+import LandingPage from "@/components/app-components/landing-page/landing-page";
 
 export default function Home() {
   return (
