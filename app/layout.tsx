@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Caveat, Poppins } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/navbar/navbar";
+import { RootProvider } from 'fumadocs-ui/provider/next';
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -28,8 +28,9 @@ export default function RootLayout({
       <body
         className={`${caveat.variable} ${poppins.variable} antialiased`}
       >
-        {children}
-        
+        <RootProvider>
+          {children}
+        </RootProvider>
       </body>
     </html>
   );

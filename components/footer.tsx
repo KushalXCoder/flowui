@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Divider } from "./divider";
 import { motion, Variants } from "motion/react";
 
@@ -28,7 +29,20 @@ const Footer = () => {
             >
                 <div>
                     <h1 className="text-7xl font-semibold font-caveat">FLOWUI</h1>
-                    <p className="text-gray-500 text-[12px] mt-1">© 2026 FlowUI. All rights reserved.</p>
+                    <p className="text-gray-500 text-[12px] mt-1">
+                        Built by {""}
+                        <span className="text-gray-800">
+                            <Link href="https://kushalxcoder.vercel.app" target="_blank">
+                                TheCodster
+                            </Link>
+                        </span>.
+                        Proudly {""}
+                        <span className="text-gray-800">
+                            <Link href="https://github.com/kushalxcoder/flowui" target="_blank">
+                                Open Source
+                            </Link>
+                        </span>
+                    </p>
                 </div>
                 <div>
                     <p className="mb-4"></p>

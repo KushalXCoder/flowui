@@ -8,6 +8,7 @@ import { Sun } from "../animate-ui/icons/sun";
 import NumberTicker from "../number-ticket";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import Logo from "../logo";
 
 export const Navbar = () => {
   const [showFixed, setShowFixed] = useState<boolean>(false);
@@ -41,7 +42,7 @@ export const Navbar = () => {
         transition={{ duration: 0.6, ease: "easeOut", delay: delay }}
         className={`flex justify-between items-center ${showFixed ? `border-x border-dashed border-gray-400 px-10 py-3` : ``}`}
       >
-        <Image src="/logo.svg" alt="Logo" width={32} height={32} />
+        <Logo />
         <ul className="flex items-center gap-4 text-sm font-poppins">
           <Link href="/docs">Docs</Link>
           <Link href="/components">Components</Link>

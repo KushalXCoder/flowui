@@ -1,0 +1,10 @@
+{
+    "pages": [
+        "---Getting Started---",
+        "introduction",
+        "theming",
+        "mdx-presets",
+        "---Components---",
+        "components"
+    ]
+}
