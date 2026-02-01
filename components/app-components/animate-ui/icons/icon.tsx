@@ -13,7 +13,7 @@ import {
 
 import { cn } from '@/lib/utils';
 import { useIsInView } from '@/hooks/use-is-in-view';
-import { Slot, type WithAsChild } from '@/components/animate-ui/primitives/animate/slot';
+import { Slot, type WithAsChild } from '@/components/app-components/animate-ui/primitives/animate/slot';
 
 const staticAnimations = {
   path: {

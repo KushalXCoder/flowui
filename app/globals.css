@@ -138,7 +138,7 @@
 
 /* Tighten spacing for prose */
 .prose :where(h1, h2, h3, h4, h5, h6) {
-  margin-top: 1.5em;
+  /* margin-top: 1.5em; */
   margin-bottom: 0.5em;
   line-height: 1.2;
   font-weight: 200;

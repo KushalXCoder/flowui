@@ -1,8 +1,8 @@
 import { Navbar } from "../navbar/navbar";
 import { motion } from "motion/react";
-import { Divider } from "../divider";
 import { Animations } from "./animations";
 import { Content } from "./content";
+import { Divider } from "../divider";
 
 const LandingPage = () => {
     return (

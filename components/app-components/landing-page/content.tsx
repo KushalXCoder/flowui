@@ -1,6 +1,6 @@
 import { labels } from "@/lib/data";
 import { motion } from "motion/react";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
@@ -19,8 +19,7 @@ export const Content = () => {
                         Flow UI
                     </h1>
                     <p className="max-w-2xl text-sm text-gray-700">
-                        Opinionated, flow first UI components built for modern React
-                        applications. Build connected systems — not isolated components.
+                        Polished, composable components built on top of shadcn, designed to cover the UI patterns developers rebuild in every React app.
                     </p>
                 </div>
 

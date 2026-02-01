@@ -1,4 +1,4 @@
-import Logo from '@/components/logo';
+import Logo from '@/components/app-components/logo';
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 
 export function baseOptions(): BaseLayoutProps {

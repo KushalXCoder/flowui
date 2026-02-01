@@ -1,14 +1,13 @@
 "use client"
 
-import Image from "next/image";
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { Github } from "lucide-react";
 import { Sun } from "../animate-ui/icons/sun";
-import NumberTicker from "../number-ticket";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import Logo from "../logo";
+import NumberTicker from "../number-ticket";
 
 export const Navbar = () => {
   const [showFixed, setShowFixed] = useState<boolean>(false);
