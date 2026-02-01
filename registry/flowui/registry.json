@@ -1,0 +1,9 @@
+{
+  "name": "flowui",
+  "type": "ui",
+  "registry": {
+    "field": {
+      "files": ["components/field.tsx"]
+    }
+  }
+}
