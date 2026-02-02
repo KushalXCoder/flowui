@@ -2,6 +2,7 @@
     "pages": [
         "---Getting Started---",
         "introduction",
+        "installation",
         "---Components---",
         "components/debounced-input"
     ]
