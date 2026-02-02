@@ -9,62 +9,6 @@ import { Callout } from 'fumadocs-ui/components/callout';
 import DebouncedInput from '@/components/flowui/input';
 import { Timer, Search, Zap } from 'lucide-react';
 
-<h3>Example</h3>
-
-import { DebouncedInputDemo } from '@/components/previews/debounced-input-demo';
-
-<div className="rounded-xl border bg-card text-card-foreground shadow-sm px-6 pt-2 pb-6">
-    <p className="text-sm text-muted-foreground">Try typing below to see the debouncing effect.</p>
-    <div className="mt-1">
-        <DebouncedInputDemo />
-    </div>
-</div>
-
-<Callout title="Note" type="warn">
-  Check your `console` to see the debouncing effect.
-</Callout>
-
-## Concepts
-<h3 className="mt-8">What is debouncing ?</h3>
-
-Debouncing is a programming practice used to ensure that time-consuming tasks do not fire so often, making them inefficient. In the context of an Input, it limits the rate at which a function fires.
-
-<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
-  <div className="p-4 border rounded-lg bg-card">
-    <div className="flex items-center gap-2 mb-2 font-semibold text-red-500">
-      <Zap size={20} />
-      <span>Without Debouncing</span>
-    </div>
-    <p className="text-sm text-muted-foreground mb-4">
-      An API call or state update happens on <strong>every keystroke</strong>.
-    </p>
-    <div className="space-y-1 text-xs font-mono bg-muted p-2 rounded">
-      <div>Input: "S" -> Call API</div>
-      <div>Input: "Se" -> Call API</div>
-      <div>Input: "Sea" -> Call API</div>
-      <div>Input: "Sear" -> Call API</div>
-      <div>Input: "Search" -> Call API</div>
-    </div>
-  </div>
-  
-  <div className="p-4 border rounded-lg bg-card">
-    <div className="flex items-center gap-2 mb-2 font-semibold text-green-500">
-      <Timer size={20} />
-      <span>With Debouncing</span>
-    </div>
-    <p className="text-sm text-muted-foreground mb-4">
-      The action waits until the user <strong>stops typing</strong> for a set duration.
-    </p>
-    <div className="space-y-1 text-xs font-mono bg-muted p-2 rounded">
-      <div>Input: "S" ...</div>
-      <div>Input: "Se" ...</div>
-      <div>Input: "Sea" ...</div>
-      <div>Input: "Sear" ...</div>
-      <div>Input: "Search" -> <strong>Call API (Once)</strong></div>
-    </div>
-  </div>
-</div>
-
 ## Installation
 
 <Steps>
@@ -223,3 +167,59 @@ The `DebouncedInput` accepts all props from the standard HTML input element (via
 <Callout title="Note" type="warn">
   If `debouncing` is false, `onDebouncedChange` will **not** be called. You should use the standard `onChange` prop in that case, or ensure `debouncing` is true if you want the delayed callback.
 </Callout>
+
+<h3>Example</h3>
+
+import { DebouncedInputDemo } from '@/components/previews/debounced-input-demo';
+
+<div className="rounded-xl border bg-card text-card-foreground shadow-sm px-6 pt-2 pb-6">
+    <p className="text-sm text-muted-foreground">Try typing below to see the debouncing effect.</p>
+    <div className="mt-1">
+        <DebouncedInputDemo />
+    </div>
+</div>
+
+<Callout title="Note" type="warn">
+  Check your `console` to see the debouncing effect.
+</Callout>
+
+## Concepts
+<h3 className="mt-8">What is debouncing ?</h3>
+
+Debouncing is a programming practice used to ensure that time-consuming tasks do not fire so often, making them inefficient. In the context of an Input, it limits the rate at which a function fires.
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-4 border rounded-lg bg-card">
+    <div className="flex items-center gap-2 mb-2 font-semibold text-red-500">
+      <Zap size={20} />
+      <span>Without Debouncing</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-4">
+      An API call or state update happens on <strong>every keystroke</strong>.
+    </p>
+    <div className="space-y-1 text-xs font-mono bg-muted p-2 rounded">
+      <div>Input: "S" -> Call API</div>
+      <div>Input: "Se" -> Call API</div>
+      <div>Input: "Sea" -> Call API</div>
+      <div>Input: "Sear" -> Call API</div>
+      <div>Input: "Search" -> Call API</div>
+    </div>
+  </div>
+  
+  <div className="p-4 border rounded-lg bg-card">
+    <div className="flex items-center gap-2 mb-2 font-semibold text-green-500">
+      <Timer size={20} />
+      <span>With Debouncing</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-4">
+      The action waits until the user <strong>stops typing</strong> for a set duration.
+    </p>
+    <div className="space-y-1 text-xs font-mono bg-muted p-2 rounded">
+      <div>Input: "S" ...</div>
+      <div>Input: "Se" ...</div>
+      <div>Input: "Sea" ...</div>
+      <div>Input: "Sear" ...</div>
+      <div>Input: "Search" -> <strong>Call API (Once)</strong></div>
+    </div>
+  </div>
+</div>
