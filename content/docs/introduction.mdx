@@ -1,57 +1,28 @@
 ---
 title: Introduction
-description: Welcome to the Flow UI documentation.
+description: Beautifully designed components built with Radix UI and Tailwind CSS.
 ---
 
-import { Book, Code, Palette, Zap, ArrowRight, Star } from 'lucide-react';
+**Flow UI** is a collection of re-usable components that you can copy and paste into your apps.
 
-<div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary/5 via-primary/10 to-transparent p-10 mb-10 border border-primary/10">
-  <div className="relative z-10 max-w-2xl">
-    <h1 className="text-4xl font-bold tracking-tight mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">Build Beautiful Typesafe UIs</h1>
-    <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-      Flow UI is a carefully crafted collection of modern, accessible, and customizable UI components. 
-      Designed to streamline your development process while delivering stunning aesthetics.
-    </p>
-    <div className="flex flex-wrap gap-4">
-      <a href="/docs/components/button" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-medium shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:-translate-y-0.5 transition-all">
-        Explore Components <ArrowRight className="w-4 h-4" />
-      </a>
-      <a href="https://github.com/your-repo" className="inline-flex items-center gap-2 bg-background border border-input px-6 py-3 rounded-full font-medium hover:bg-accent hover:text-accent-foreground transition-colors">
-        <Star className="w-4 h-4" /> Star on GitHub
-      </a>
-    </div>
-  </div>
-  <div className="absolute top-0 right-0 -translate-y-12 translate-x-12 opacity-10 rotate-12">
-    <Zap className="w-96 h-96" />
-  </div>
-</div>
+It is build as an extension registry for [shadcn/ui](https://ui.shadcn.com), adding new complex components while maintaining the same design philosophy.
 
-## Why Flow UI?
+## Features
 
-<div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-  <Card title="Design Engineering" icon={<Palette className="text-pink-500" />} href="/docs/theming">
-    Meticulously designed with attention to detail. Every pixel counts. Features a robust theming system powered by CSS variables and Tailwind.
-  </Card>
-  <Card title="Type Safe" icon={<Code className="text-blue-500" />} href="/docs/components/button">
-    Built with TypeScript for a superior developer experience. Catch errors at compile time, not runtime.
-  </Card>
-  <Card title="Accessible" icon={<Book className="text-green-500" />} href="#">
-    Follows WAI-ARIA guidelines to ensure your application is usable by everyone. Keyboard navigation and screen reader support out of the box.
-  </Card>
-  <Card title="Performance" icon={<Zap className="text-amber-500" />} href="#">
-    Lightweight and optimized. Zero runtime styles (mostly). Components are tree-shakeable to keep your bundle size small.
-  </Card>
-</div>
+- **Beautiful**: Ultra-modern UI components that look great out of the box.
+- **Customizable**: Built with Tailwind CSS, so you can easily customize them to match your brand.
+- **Copy & Paste**: You own the code. No npm dependencies for the UI components themselves.
 
-## Community
+## FAQ
 
-Join our community to get help, suggest features, and contribute.
+### Why copy/paste?
 
-<Cards>
-  <Card title="Discord" href="#" external>
-    Chat with other developers and the core team.
-  </Card>
-  <Card title="Twitter" href="#" external>
-    Follow us for the latest updates and announcements.
-  </Card>
-</Cards>
+The idea behind this is to give you full control over the code. You can decide how the components differ or evolve. You can modify the code to your liking.
+
+### Do I need to use Shadcn UI?
+
+Yes. These components are designed to work within the Shadcn UI ecosystem, often reusing base components like `Button`, `Input`, or `Card` from your existing Shadcn installation.
+
+### Is it free?
+
+Yes. Flow UI is open source and free to use for personal and commercial projects.
