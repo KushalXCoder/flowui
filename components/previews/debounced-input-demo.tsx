@@ -1,6 +1,6 @@
 "use client";
 
-import DebouncedInput from "@/components/flowui/input";
+import DebouncedInput from "@/registry/flowui/debounced-input";
 
 export function DebouncedInputDemo() {
     return (
