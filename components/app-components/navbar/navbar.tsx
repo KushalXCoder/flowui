@@ -43,8 +43,8 @@ export const Navbar = () => {
       >
         <Logo />
         <ul className="flex items-center gap-4 text-sm font-poppins">
-          <Link href="/docs">Docs</Link>
-          <Link href="/components">Components</Link>
+          <Link href="/docs/introduction">Docs</Link>
+          <Link href="/docs/installation">Components</Link>
 
           <div className="h-4 w-px border border-dashed border-gray-500" />
 
