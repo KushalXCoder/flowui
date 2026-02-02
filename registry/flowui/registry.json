@@ -1,9 +1,16 @@
 {
   "name": "flowui",
-  "type": "ui",
-  "registry": {
-    "field": {
-      "files": ["components/field.tsx"]
+  "components": {
+    "debounced-input": {
+      "files": [
+        {
+          "path": "components/debounced-input.tsx",
+          "type": "component"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["input"],
+      "description": "An input component with optional debouncing support."
     }
   }
 }
