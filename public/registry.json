@@ -5,6 +5,7 @@
       "files": [
         {
           "path": "components/debounced-input.tsx",
+          "source": "https://flowui-ten.vercel.app/registry/flowui/components/debounced-input.tsx",
           "type": "component"
         }
       ],
