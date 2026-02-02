@@ -4,6 +4,7 @@
         "introduction",
         "installation",
         "---Components---",
-        "components/debounced-input"
+        "components/debounced-input",
+        "components/text-divider"
     ]
 }

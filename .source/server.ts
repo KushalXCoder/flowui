@@ -1,4 +1,5 @@
 // @ts-nocheck
+import * as __fd_glob_5 from "../content/docs/components/text-divider.mdx?collection=docs"
 import * as __fd_glob_4 from "../content/docs/components/debounced-input.mdx?collection=docs"
 import * as __fd_glob_3 from "../content/docs/introduction.mdx?collection=docs"
 import * as __fd_glob_2 from "../content/docs/installation.mdx?collection=docs"
@@ -12,4 +13,4 @@ const create = server<typeof Config, import("fumadocs-mdx/runtime/types").Intern
   }
 }>({"doc":{"passthroughs":["extractedReferences"]}});
 
-export const docs = await create.docs("docs", "content/docs", {"meta.json": __fd_glob_0, "components/meta.json": __fd_glob_1, }, {"installation.mdx": __fd_glob_2, "introduction.mdx": __fd_glob_3, "components/debounced-input.mdx": __fd_glob_4, });
+export const docs = await create.docs("docs", "content/docs", {"meta.json": __fd_glob_0, "components/meta.json": __fd_glob_1, }, {"installation.mdx": __fd_glob_2, "introduction.mdx": __fd_glob_3, "components/debounced-input.mdx": __fd_glob_4, "components/text-divider.mdx": __fd_glob_5, });

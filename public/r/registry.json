@@ -16,6 +16,20 @@
       ],
       "dependencies": [],
       "registryDependencies": ["input"]
+    },
+    {
+      "name": "text-divider",
+      "type": "registry:component",
+      "title": "Text Divider",
+      "description": "A simple text divider component to separate content sections.",
+      "files": [
+        {
+          "path": "registry/flowui/text-divider.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": []
     }
   ]
 }

@@ -1,6 +1,7 @@
 {
     "title": "Components",
     "pages": [
-        "debounced-input"
+        "debounced-input",
+        "text-divider"
     ]
 }

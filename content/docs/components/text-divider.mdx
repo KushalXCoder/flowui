@@ -1,0 +1,227 @@
+---
+title: Text Divider
+description: A sleek, horizontal divider with centered text, perfect for semantic separation of content sections.
+---
+
+import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Callout } from 'fumadocs-ui/components/callout';
+import TextDividerDemo from "@/components/previews/text-divider-demo";
+import { BasicExample, ColorExample, StylingExample, IconExample } from "@/components/previews/text-divider-examples";
+
+<div className="w-full flex items-center justify-center min-h-[350px] rounded-xl border bg-card text-card-foreground shadow-sm px-6 py-12">
+    <TextDividerDemo />
+</div>
+
+## Installation
+
+<Tabs items={['CLI', 'Manual']}>
+<Tab value="CLI">
+
+Run the following command to add the `text-divider` component to your project using the Flow UI registry:
+
+```bash
+npx shadcn@latest add @flowui/text-divider
+```
+
+</Tab>
+<Tab value="Manual">
+
+<Steps>
+<Step>
+
+### Install Utilities
+Ensure you have the `cn` utility and `class-variance-authority` (cva) installed.
+
+```bash
+npm install class-variance-authority clsx tailwind-merge
+```
+
+</Step>
+<Step>
+
+### Copy the Component
+Create a new file named `text-divider.tsx` in your components folder (e.g., `components/ui/text-divider.tsx`) and copy the code below.
+
+```tsx title="components/ui/text-divider.tsx"
+import { cn } from "@/lib/utils";
+import { cva } from "class-variance-authority";
+
+type CommonProps = {
+    variant?: "default" | "thin" | "thick" | "rounded";
+    lineColor?: string;
+}
+
+type LineProps = CommonProps;
+
+type TextDividerProps = {
+    text: string;
+    className?: string;
+} & CommonProps;
+
+const dividerVariants = cva(
+    "w-1/2",
+    {
+        variants: {
+            variant: {
+                default: "h-px",
+                thin: "h-[0.5px]",
+                thick: "h-2",
+                rounded: "h-px rounded-full",
+            }
+        },
+        defaultVariants: {
+            variant: "default",
+        }
+    }
+);
+
+const Line = (
+    { variant, lineColor = "bg-border" } : LineProps
+) => {
+    return (
+        <div
+            aria-hidden="true"
+            className={cn(
+                dividerVariants({ variant }),
+                lineColor
+            )}
+        />
+    )
+}
+
+const TextDivider = ({
+    variant = "default",
+    text,
+    lineColor,
+    className
+} : TextDividerProps) => {
+    return (
+        <div className={cn("flex items-center gap-2", className)}>
+            <Line variant={variant} lineColor={lineColor} />
+            <span>{text}</span>
+            <Line variant={variant} lineColor={lineColor} />
+        </div>
+    )
+}
+
+export default TextDivider;
+```
+
+</Step>
+</Steps>
+
+</Tab>
+</Tabs>
+
+## Examples
+
+### Basic Usage
+
+<div className="flex items-center justify-center p-6 border rounded-lg mt-4 mb-2">
+    <BasicExample />
+</div>
+
+```tsx
+import TextDivider from "@/components/ui/text-divider";
+
+export function BasicExample() {
+  return (
+    <div className="w-full">
+      <TextDivider text="OR" />
+    </div>
+  )
+}
+```
+
+### Custom Colors
+
+<div className="flex items-center justify-center p-6 border rounded-lg mt-4 mb-2">
+    <ColorExample />
+</div>
+
+```tsx
+import TextDivider from "@/components/ui/text-divider";
+
+export function ColorExample() {
+  return (
+    <div className="flex flex-col gap-8 w-full">
+      <TextDivider 
+        text="Section Break" 
+        lineColor="bg-blue-500/50" 
+        variant="rounded"
+      />
+      <TextDivider 
+        text="Alert" 
+        lineColor="bg-red-500/50" 
+        variant="thick"
+      />
+    </div>
+  )
+}
+```
+
+### Advanced Styling
+
+<div className="flex items-center justify-center p-6 border rounded-lg mt-4 mb-2">
+    <StylingExample />
+</div>
+
+```tsx
+import TextDivider from "@/components/ui/text-divider";
+
+export function StylingExample() {
+  return (
+    <div className="w-full">
+      <TextDivider 
+        text="Chapter One" 
+        className="text-primary font-bold uppercase tracking-widest text-xs"
+        lineColor="bg-primary/20"
+      />
+    </div>
+  )
+}
+```
+
+### With Icons (Custom Implementation)
+
+You can easily adapt the pattern to include icons by customizing the content.
+
+<div className="flex items-center justify-center p-6 border rounded-lg mt-4 mb-2">
+    <IconExample />
+</div>
+
+```tsx
+import { Lock, AlertCircle } from "lucide-react";
+import TextDivider from "@/components/ui/text-divider";
+
+export function IconExample() {
+    return (
+        <div className="flex flex-col gap-8 w-full">
+            {/* Custom structure manually creating lines if needed, or using TextDivider for simplicity */}
+             <div className="flex items-center gap-2">
+                <div className="h-px bg-border flex-1" />
+                <span className="text-xs text-muted-foreground flex items-center gap-1">
+                    <Lock className="w-3 h-3" /> Encrypted
+                </span>
+                <div className="h-px bg-border flex-1" />
+            </div>
+        </div>
+    )
+}
+```
+
+## Props
+
+The `TextDivider` component accepts the following props:
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `text` | `string` | - | The text to display in the middle of the divider. |
+| `variant` | `"default" \| "thin" \| "thick" \| "rounded"` | `"default"` | The style of the divider line. |
+| `lineColor` | `string` | `"bg-border"` | The background color utility class for the divider lines. |
+| `className` | `string` | - | Additional CSS classes for the container (e.g., margins, text styling). |
+
+<Callout title="Design Tip" className="mt-6">
+  Use the `lineColor` prop with transparency (e.g., `bg-primary/20`) to create subtle, professional-looking dividers that don't distract from the main content.
+</Callout>
