@@ -3,7 +3,7 @@ import TextDivider from "@/registry/flowui/text-divider";
 
 export default function TextDividerDemo() {
     return (
-        <div className="flex flex-col gap-6 w-full max-w-md mx-auto p-4 animate-in fade-in zoom-in duration-500">
+        <div className="flex flex-col gap-6 w-ful min-w-3xl p-4 animate-in fade-in zoom-in duration-500">
             <div className="space-y-1">
                 <h4 className="text-sm font-medium leading-none">Default</h4>
                 <p className="text-xs text-muted-foreground">The default text divider.</p>

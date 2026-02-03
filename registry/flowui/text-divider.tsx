@@ -14,7 +14,7 @@ type TextDividerProps = {
 } & CommonProps;
 
 const dividerVariants = cva(
-    "w-1/2",
+    "flex-1",
     {
         variants: {
             variant: {
@@ -51,7 +51,7 @@ const TextDivider = ({
     className
 } : TextDividerProps) => {
     return (
-        <div className={cn("flex items-center gap-2", className)}>
+        <div className={cn("flex flex-nowrap items-center gap-2", className)}>
             <Line variant={variant} lineColor={lineColor} />
             <span>{text}</span>
             <Line variant={variant} lineColor={lineColor} />
