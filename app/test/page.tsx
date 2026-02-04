@@ -1,9 +1,11 @@
-import TextDivider from "@/components/previews/text-divider-demo"
+"use client";
+
+import { CopyButton } from "@/registry/flowui/copy-button/copy-button";
 
 const TestPage = () => {
     return (
-        <div className="h-screen w-screen flex justify-center items-center">
-            <h1>This is a testing page</h1>
+        <div className="h-screen flex flex-col justify-center items-center font-poppins">
+            <CopyButton animated />
         </div>
     )
 }

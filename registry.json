@@ -15,7 +15,9 @@
         }
       ],
       "dependencies": [],
-      "registryDependencies": ["input"]
+      "registryDependencies": [
+        "input"
+      ]
     },
     {
       "name": "text-divider",
@@ -30,6 +32,33 @@
       ],
       "dependencies": [],
       "registryDependencies": []
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:component",
+      "title": "Copy Button",
+      "description": "A copy button component with two types: normal and animated.",
+      "files": [
+        {
+          "path": "registry/flowui/copy-button/copy-button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/flowui/copy-button/animated-copy-button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/flowui/copy-button/animation-wrapper.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "button"
+      ]
     }
   ]
 }

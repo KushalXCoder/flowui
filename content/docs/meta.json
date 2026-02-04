@@ -5,6 +5,7 @@
         "installation",
         "---Components---",
         "components/debounced-input",
-        "components/text-divider"
+        "components/text-divider",
+        "components/copy-button"
     ]
 }
