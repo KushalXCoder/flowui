@@ -48,10 +48,12 @@ export const Navbar = () => {
 
           <div className="h-4 w-px border border-dashed border-gray-500" />
 
-          <Button className="gap-2 bg-transparent text-black hover:bg-accent">
-            <Github />
-            <NumberTicker value={100} hasNumberAnimated={hasNumberAnimated} />
-          </Button>
+          <Link href="https://github.com/kushalxcoder/flowui">
+            <Button className="gap-2 bg-transparent text-black hover:bg-accent cursor-pointer">
+                <Github />
+              <NumberTicker value={0} hasNumberAnimated={hasNumberAnimated} />
+            </Button>
+          </Link>
 
           <Sun animateOnHover className="size-8 p-2 rounded-lg hover:bg-accent" />
         </ul>

@@ -53,7 +53,7 @@ export const CopyButton = ({
     const iconNode = (
         <Icon
             className={cn(
-                "size-4 shrink-0",
+                "",
                 iconType === "rotated" && mode === "copy" && "rotate-90"
             )}
         />

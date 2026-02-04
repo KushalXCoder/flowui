@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { Button } from "../../ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export const Content = () => {
     return (
@@ -34,10 +35,12 @@ export const Content = () => {
                     ))}
                 </div>
 
-                <Button className="w-fit flex items-center gap-2 mt-2 hover:gap-4">
-                    Explore Flows
-                    <ArrowRight />
-                </Button>
+                <Link href="/docs/introduction">
+                    <Button className="w-fit flex items-center gap-2 mt-2 hover:gap-4 cursor-pointer">
+                        Explore Components
+                        <ArrowRight />
+                    </Button>
+                </Link>
             </div>
 
             <div className="relative flex items-center justify-center w-105 h-90">
