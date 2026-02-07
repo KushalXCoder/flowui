@@ -7,6 +7,8 @@
         "components/auth-buttons",
         "components/copy-button",
         "components/debounced-input",
-        "components/text-divider"
+        "components/text-divider",
+        "---Animated Components---",
+        "animated-components/changing-text"
     ]
 }

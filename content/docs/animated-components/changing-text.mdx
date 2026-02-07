@@ -1,0 +1,155 @@
+---
+title: Changing Text
+description: An animated component that transitions between two text states on hover.
+---
+
+import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Callout } from 'fumadocs-ui/components/callout';
+import ChangingTextDemo from "@/components/previews/changing-text-demo";
+import { DefaultExample, BlurExample } from "@/components/previews/changing-text-examples";
+
+<div className="w-full flex items-center justify-center min-h-[350px] rounded-xl border bg-card text-card-foreground shadow-sm">
+    <ChangingTextDemo />
+</div>
+
+<hr />
+
+## Installation
+
+<Tabs items={['CLI', 'Manual']}>
+<Tab value="CLI">
+
+Run the following command to add the `changing-text` component to your project:
+
+```bash
+npx shadcn@latest add @flowui/changing-text
+```
+
+</Tab>
+<Tab value="Manual">
+
+<Steps>
+<Step>
+
+### Install Dependencies
+Ensure you have `motion` installed.
+
+```bash
+npm install motion
+```
+
+</Step>
+<Step>
+
+### Create Changing Text
+Create the component `changing-text.tsx`.
+
+```tsx title="components/ui/changing-text.tsx"
+"use client";
+
+import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
+
+type ChangingTextProps = {
+    initialText: string;
+    finalText: string;
+    className?: string;
+    variant?: "default" | "blur";
+    blurValue?: number;
+    speed?: number;
+};
+
+const ChangingText = ({
+    initialText,
+    finalText,
+    className,
+    variant = "default",
+    blurValue = 4,
+    speed = 0.3,
+} : ChangingTextProps) => {
+    const [mode, setMode] = useState<"initial" | "final">("initial");
+    return (
+        <AnimatePresence mode="wait">
+            <motion.h1
+                key={mode}
+                className={cn(className)}
+                initial={{ opacity: 0, x: -20, filter: variant === "blur" ? `blur(${blurValue}px)` : "none" }}
+                animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                exit={{ opacity: 0, x: 20, filter: variant === "blur" ? `blur(${blurValue}px)` : "none" }}
+                transition={{ duration: speed }}
+                onMouseEnter={() => setMode("final")}
+                onMouseLeave={() => setMode("initial")}
+            >
+                {mode === "initial" ? initialText : finalText}
+            </motion.h1>
+        </AnimatePresence>
+    )
+}
+
+export default ChangingText;
+```
+
+</Step>
+</Steps>
+
+</Tab>
+</Tabs>
+
+<hr />
+
+## Usage
+
+### Default Usage
+
+<div className="flex items-center justify-center p-6 border rounded-lg mt-4 mb-2">
+    <DefaultExample />
+</div>
+
+```tsx
+import ChangingText from "@/components/ui/changing-text";
+
+export function DefaultExample() {
+    return (
+        <ChangingText initialText="Hover me" finalText="Surprise!" className="text-2xl font-semibold" />
+    )
+}
+```
+
+### Blur Variant
+
+<div className="flex items-center justify-center p-6 border rounded-lg mt-4 mb-2">
+    <BlurExample />
+</div>
+
+```tsx
+import ChangingText from "@/components/ui/changing-text";
+
+export function BlurExample() {
+    return (
+        <ChangingText 
+            initialText="Blur Effect" 
+            finalText="Focused View" 
+            variant="blur"
+            blurValue={6}
+            className="text-2xl font-bold text-primary" 
+        />
+    )
+}
+```
+
+<hr />
+
+## Props
+
+The `ChangingText` component accepts the following props:
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `initialText` | `string` | - | The text to display initially. |
+| `finalText` | `string` | - | The text to display on hover. |
+| `className` | `string` | `undefined` | Additional class names to apply to the component. |
+| `variant` | `"default" \| "blur"` | `"default"` | The animation variant. |
+| `blurValue` | `number` | `4` | The blur value in pixels when using the `blur` variant. |
+| `speed` | `number` | `0.3` | The duration of the animation in seconds. |
