@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import Logo from "../logo";
 import NumberTicker from "../number-ticket";
+import { Divider } from "../divider";
 
 export const Navbar = () => {
   const [showFixed, setShowFixed] = useState<boolean>(false);
@@ -63,7 +64,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="px-10 py-4">
+      <nav className="px-10 py-3">
         <NavContent />
       </nav>
       <AnimatePresence>
