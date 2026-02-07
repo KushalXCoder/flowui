@@ -71,7 +71,10 @@ export const CopyButton = ({
         <Button
             {...props}
             onClick={handleCopy}
-            className={cn("relative", className)}
+            className={cn(
+                "relative size-9",
+                className
+            )}
         >
             {content}
         </Button>

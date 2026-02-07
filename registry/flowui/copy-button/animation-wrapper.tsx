@@ -8,14 +8,15 @@ type AnimatedLogicProps = {
 const AnimationWrapper = ({ children, mode }: AnimatedLogicProps) => {
     return (
         <AnimatePresence mode="wait">
-            <motion.div
+            <motion.span
                 key={mode}
+                className="absolute"
                 initial={{ scale: 0.6, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.6, opacity: 0 }}
             >
                 {children}
-            </motion.div>
+            </motion.span>
         </AnimatePresence>
     )
 }
