@@ -13,6 +13,7 @@
   --font-playwrite: var(--font-playwrite);
   --font-caveat: var(--font-caveat);
   --font-poppins: var(--font-poppins);
+  --fd-code-font: var(--font-mono);
 
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -50,7 +51,8 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
-  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: var(--font-poppins);
+  --font-mono: var(--font-mono);
 }
 
 :root {
@@ -136,10 +138,7 @@
   scrollbar-width: none;
 }
 
-/* Tighten spacing for prose */
 .prose :where(h1, h2, h3, h4, h5, h6) {
-  /* margin-top: 1.5em; */
-  margin-bottom: 0.5em;
   line-height: 1.2;
   font-weight: 200;
 }
@@ -161,4 +160,8 @@
 
 #nd-toc {
   font-family: var(--font-poppins);
+}
+
+code {
+  font-family: var(--font-mono) !important;
 }

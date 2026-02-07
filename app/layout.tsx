@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Caveat, Poppins } from "next/font/google";
+import { Caveat, Poppins, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { RootProvider } from 'fumadocs-ui/provider/next';
 
@@ -11,6 +11,11 @@ const poppins = Poppins({
 
 const caveat = Caveat({
   variable: "--font-caveat",
+});
+
+const mono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
@@ -26,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${caveat.variable} ${poppins.variable} antialiased`}
+        className={`${caveat.variable} ${poppins.variable} ${mono.variable} antialiased`}
       >
         <RootProvider>
           {children}
