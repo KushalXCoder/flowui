@@ -4,8 +4,9 @@
         "introduction",
         "installation",
         "---Components---",
+        "components/auth-buttons",
+        "components/copy-button",
         "components/debounced-input",
-        "components/text-divider",
-        "components/copy-button"
+        "components/text-divider"
     ]
 }

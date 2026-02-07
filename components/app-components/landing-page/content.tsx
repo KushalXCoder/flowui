@@ -28,7 +28,7 @@ export const Content = () => {
                     {labels.map((label) => (
                         <span
                             key={label}
-                            className="px-4 py-1 rounded-2xl border border-dashed border-gray-300 text-sm"
+                            className="px-4 py-1 rounded-2xl border border-dashed border-gray-300 text-sm hover:border-black"
                         >
                             {label}
                         </span>
