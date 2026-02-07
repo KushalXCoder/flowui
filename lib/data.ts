@@ -1,1 +1,1 @@
-export const labels = ["Productive", "Reusable", "Shadcn", "Themeable"];
+export const labels = ["UI","Reusable", "Shadcn", "Motion"];
