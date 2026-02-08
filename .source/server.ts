@@ -1,5 +1,6 @@
 // @ts-nocheck
-import * as __fd_glob_9 from "../content/docs/components/text-divider.mdx?collection=docs"
+import * as __fd_glob_10 from "../content/docs/components/text-divider.mdx?collection=docs"
+import * as __fd_glob_9 from "../content/docs/components/speaker.mdx?collection=docs"
 import * as __fd_glob_8 from "../content/docs/components/debounced-input.mdx?collection=docs"
 import * as __fd_glob_7 from "../content/docs/components/copy-button.mdx?collection=docs"
 import * as __fd_glob_6 from "../content/docs/components/auth-buttons.mdx?collection=docs"
@@ -17,4 +18,4 @@ const create = server<typeof Config, import("fumadocs-mdx/runtime/types").Intern
   }
 }>({"doc":{"passthroughs":["extractedReferences"]}});
 
-export const docs = await create.docs("docs", "content/docs", {"meta.json": __fd_glob_0, "animated-components/meta.json": __fd_glob_1, "components/meta.json": __fd_glob_2, }, {"installation.mdx": __fd_glob_3, "introduction.mdx": __fd_glob_4, "animated-components/changing-text.mdx": __fd_glob_5, "components/auth-buttons.mdx": __fd_glob_6, "components/copy-button.mdx": __fd_glob_7, "components/debounced-input.mdx": __fd_glob_8, "components/text-divider.mdx": __fd_glob_9, });
+export const docs = await create.docs("docs", "content/docs", {"meta.json": __fd_glob_0, "animated-components/meta.json": __fd_glob_1, "components/meta.json": __fd_glob_2, }, {"installation.mdx": __fd_glob_3, "introduction.mdx": __fd_glob_4, "animated-components/changing-text.mdx": __fd_glob_5, "components/auth-buttons.mdx": __fd_glob_6, "components/copy-button.mdx": __fd_glob_7, "components/debounced-input.mdx": __fd_glob_8, "components/speaker.mdx": __fd_glob_9, "components/text-divider.mdx": __fd_glob_10, });
