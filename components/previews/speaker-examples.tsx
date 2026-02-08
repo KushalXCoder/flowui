@@ -41,7 +41,6 @@ export function FrenchExample() {
 
 export function GermanExample() {
     return (
-        
         <ExampleGenerator
             text="Dies ist ein Beispiel für Text-zu-Sprache."
             lang="de-DE"
