@@ -10,7 +10,7 @@ export const Content = () => {
         <motion.div
             initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 3.4 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0 }}
             className="w-full flex justify-center items-center px-0 py-10"
         >
             <div className="flex flex-col gap-4 border-l border-dashed border-gray-400 px-10">
@@ -20,7 +20,7 @@ export const Content = () => {
                         Flow UI
                     </h1>
                     <p className="max-w-2xl text-sm text-gray-700">
-                        Polished, composable components built on top of shadcn, designed to cover the UI patterns developers rebuild in every React app.
+                        A shadcn/ui–based library of reusable, production-ready components, including common UI patterns and animated elements.
                     </p>
                 </div>
 

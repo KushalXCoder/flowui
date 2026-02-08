@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Caveat, Poppins, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { RootProvider } from 'fumadocs-ui/provider/next';
+import { ThemeProvider } from "@/provider/theme-provider";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -29,13 +30,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${caveat.variable} ${poppins.variable} ${mono.variable} antialiased`}
       >
-        <RootProvider>
-          {children}
-        </RootProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+        >
+          <RootProvider>
+            {children}
+          </RootProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

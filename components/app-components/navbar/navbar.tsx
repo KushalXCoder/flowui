@@ -3,12 +3,11 @@
 import Link from "next/link";
 import { Button } from "../../ui/button";
 import { Github } from "lucide-react";
-import { Sun } from "../animate-ui/icons/sun";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import Logo from "../logo";
 import NumberTicker from "../number-ticket";
-import { Divider } from "../divider";
+import { ModeToggle } from "../mode-toggle";
 
 export const Navbar = () => {
   const [showFixed, setShowFixed] = useState<boolean>(false);
@@ -49,14 +48,15 @@ export const Navbar = () => {
 
           <div className="h-4 w-px border border-dashed border-gray-500" />
 
-          <Link href="https://github.com/kushalxcoder/flowui">
-            <Button className="gap-2 bg-transparent text-black hover:bg-accent cursor-pointer">
-                <Github />
-              <NumberTicker value={0} hasNumberAnimated={hasNumberAnimated} />
-            </Button>
-          </Link>
-
-          <Sun animateOnHover className="size-8 p-2 rounded-lg hover:bg-accent" />
+          <div className="flex items-center gap-2">
+            <Link href="https://github.com/kushalxcoder/flowui">
+              <Button className="gap-2 bg-transparent text-black hover:bg-accent cursor-pointer">
+                  <Github />
+                <NumberTicker value={0} hasNumberAnimated={hasNumberAnimated} />
+              </Button>
+            </Link>
+            <ModeToggle />
+          </div>
         </ul>
       </motion.div>
     </>
