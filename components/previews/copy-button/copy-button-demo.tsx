@@ -1,4 +1,4 @@
-import { CopyButton } from "@/registry/flowui/copy-button/copy-button"
+import { CopyButton } from "@/registry/flowui/components/copy-button/copy-button"
 
 const CopyButtonDemo = () => {
     return (

@@ -1,10 +1,10 @@
-import Speaker from "@/registry/flowui/speaker";
+import Speaker from "@/registry/flowui/components/speaker";
 
 const ExampleGenerator = ({ text, lang, label }: { text: string; lang: string, label: string }) => {
     return (
         <div className="flex items-center gap-3 border px-4 py-2 rounded-lg bg-background shadow-sm">
-            <span className="font-medium text-gray-400">{label}</span>
-            <Speaker text={text} lang={lang} />
+            <span className="text-sm text-gray-400 mt-0.5">{label}</span>
+            <Speaker text={text} lang={lang} className="size-5" />
         </div>
     )
 }

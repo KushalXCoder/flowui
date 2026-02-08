@@ -11,7 +11,7 @@ export const Content = () => {
             initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0 }}
-            className="w-full flex justify-center items-center px-0 py-10"
+            className="w-full flex justify-center items-center px-0 py-10 bg-secondary dark:bg-black"
         >
             <div className="flex flex-col gap-4 border-l border-dashed border-gray-400 px-10">
                 <div className="flex flex-col gap-3">

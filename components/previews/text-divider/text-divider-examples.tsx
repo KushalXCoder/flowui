@@ -1,5 +1,5 @@
 
-import TextDivider from "@/registry/flowui/text-divider";
+import TextDivider from "@/registry/flowui/components/text-divider";
 import { Lock, AlertCircle } from "lucide-react";
 
 export function BasicExample() {

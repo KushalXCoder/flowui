@@ -1,7 +1,9 @@
 "use client";
 
-import { CopyButton } from "@/registry/flowui/copy-button/copy-button";
-import { GithubAuthButton, GoogleAuthButton } from "@/registry/flowui/auth-buttons";
+import { CopyButton } from "@/registry/flowui/components/copy-button/copy-button";
+import { GithubAuthButton, GoogleAuthButton } from "@/registry/flowui/components/auth-buttons";
+import ChangingText from "@/registry/flowui/animated-components/changing-text";
+import Speaker from "@/registry/flowui/components/speaker";
 
 const TestPage = () => {
     const handleClick = () => {
@@ -16,13 +18,16 @@ const TestPage = () => {
                 <GoogleAuthButton />
                 <GithubAuthButton />
             </div>
-            {/* <div className="mt-5">
+            <div className="mt-5">
                 <ChangingText
                     initialText="Hello"
                     finalText="World"
                     className="text-5xl font-bold"
                 />
-            </div> */}
+            </div>
+            <div className="mt-5">
+                <Speaker text="Hi this is kushal" />
+            </div>
         </div>
     )
 }
