@@ -1,4 +1,4 @@
-import { GoogleAuthButton, GithubAuthButton } from "@/registry/flowui/auth-buttons";
+import { GoogleAuthButton, GithubAuthButton } from "@/registry/flowui/components/auth-buttons";
 
 export function GoogleExample() {
     return (

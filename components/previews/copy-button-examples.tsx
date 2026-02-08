@@ -1,5 +1,5 @@
-import { CopyButton } from "@/registry/flowui/copy-button/copy-button";
-import { AnimatedCopyButton } from "@/registry/flowui/copy-button/animated-copy-button";
+import { CopyButton } from "@/registry/flowui/components/copy-button/copy-button";
+import { AnimatedCopyButton } from "@/registry/flowui/components/copy-button/animated-copy-button";
 
 export function BasicExample() {
     return (

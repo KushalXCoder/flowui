@@ -10,7 +10,7 @@
       "description": "An input component with optional debouncing support.",
       "files": [
         {
-          "path": "registry/flowui/debounced-input.tsx",
+          "path": "registry/flowui/components/debounced-input.tsx",
           "type": "registry:component"
         }
       ],
@@ -24,7 +24,7 @@
       "description": "A simple text divider component to separate content sections.",
       "files": [
         {
-          "path": "registry/flowui/text-divider.tsx",
+          "path": "registry/flowui/components/text-divider.tsx",
           "type": "registry:component"
         }
       ],

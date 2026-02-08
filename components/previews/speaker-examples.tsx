@@ -1,4 +1,4 @@
-import Speaker from "@/registry/flowui/speaker";
+import Speaker from "@/registry/flowui/components/speaker";
 
 const ExampleGenerator = ({ text, lang, label }: { text: string; lang: string, label: string }) => {
     return (

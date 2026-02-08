@@ -1,4 +1,4 @@
-import Speaker from "@/registry/flowui/speaker";
+import Speaker from "@/registry/flowui/components/speaker";
 
 export default function SpeakerDemo() {
     return (
