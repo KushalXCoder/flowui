@@ -4,6 +4,7 @@ import { CopyButton } from "@/registry/flowui/components/copy-button/copy-button
 import { GithubAuthButton, GoogleAuthButton } from "@/registry/flowui/components/auth-buttons";
 import ChangingText from "@/registry/flowui/animated-components/changing-text";
 import Speaker from "@/registry/flowui/components/speaker";
+import StackedCard from "@/registry/flowui/animated-components/stacked-card";
 
 const TestPage = () => {
     const handleClick = () => {
@@ -28,6 +29,11 @@ const TestPage = () => {
             <div className="mt-5">
                 <Speaker text="Hi this is kushal" />
             </div>
+            <StackedCard>
+                <div className="size-50 flex justify-center items-center bg-accent rounded-2xl">Hello</div>
+                <div className="size-50 flex justify-center items-center bg-accent rounded-2xl">Hi</div>
+                <div className="size-50 flex justify-center items-center bg-accent rounded-2xl">I am Kushal</div>
+            </StackedCard>
         </div>
     )
 }
