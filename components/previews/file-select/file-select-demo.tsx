@@ -1,7 +1,7 @@
 
 import { FileSelect, FileSelectLogo, FileSelectText } from "@/registry/flowui/components/file-select/file-select";
 
-export default function FileSelectDemo() {
+export const FileSelectDemo = () => {
   return (
     <FileSelect className="min-h-40 w-full max-w-lg mx-auto bg-background hover:bg-muted/50 transition-colors">
       <FileSelectLogo className="size-8 text-muted-foreground mb-2" />
