@@ -13,9 +13,13 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   const MDX = page.data.body;
 
   return (
-    <DocsPage toc={page.data.toc} full={page.data.full} className='font-poppins'>
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription className='mb-4 text-md'>{page.data.description}</DocsDescription>
+    <DocsPage toc={page.data.toc} full={page.data.full} className='font-poppins technical-docs-page'>
+      {page.data.title !== 'Introduction' && (
+        <>
+          <DocsTitle>{page.data.title}</DocsTitle>
+          <DocsDescription className='mb-4 text-sm'>{page.data.description}</DocsDescription>
+        </>
+      )}
       <DocsBody>
         <MDX
           components={getMDXComponents({
