@@ -1,0 +1,254 @@
+---
+title: File Select
+description: A drag-and-drop file upload component with customizable styling and file constraints.
+---
+
+import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { FileSelectDemo, FileSelectMultiple, FileSelectAccept, FileSelectCompact, FileSelectProfile } from "@/components/previews/file-select";
+import { FileUp, File, Upload, FolderUp, ImageUp, User, CloudUpload } from "lucide-react";
+
+<div className="w-full flex items-center justify-center min-h-[350px] rounded-xl border bg-card text-card-foreground shadow-sm p-10">
+    <FileSelectDemo />
+</div>
+
+<hr />
+
+## Installation
+
+<Tabs items={['CLI', 'Manual']}>
+<Tab value="CLI">
+
+Run the following command to add the function to your project:
+
+```bash
+npx shadcn@latest add @flowui/file-select
+```
+
+</Tab>
+<Tab value="Manual">
+
+<Steps>
+<Step>
+
+### Install Dependencies
+
+Ensure you have `lucide-react` installed for the icons.
+
+```bash
+npm install lucide-react
+```
+
+</Step>
+<Step>
+
+### Create File Select Component
+
+Create the component `file-select.tsx` and copy the following code:
+
+```tsx title="components/ui/file-select.tsx"
+"use client";
+
+import { cn } from "@/lib/utils";
+import { Upload } from "lucide-react";
+import { useId, useRef } from "react";
+
+type SlotProps = {
+    children?: React.ReactNode;
+    className?: string;
+};
+
+type FileSelectProps = {
+    accept?: string;
+    multiple?: boolean;
+} & SlotProps;
+
+type FileSelectTextProps = SlotProps;
+
+export const FileSelectLogo = ({ children, className } : SlotProps) => {
+    return children ?? <Upload className={cn(className)} />
+}
+
+export const FileSelectText = ({ children, className } : FileSelectTextProps) => {
+    return (
+        <div className={cn(
+            "text-sm text-center",
+            className
+            )}
+        >
+            {children}
+        </div>
+    )
+}
+
+export const FileSelect = ({
+    className,
+    children,
+    accept,
+    multiple
+} : FileSelectProps) => {
+    const inputId = useId();
+    const inputRef = useRef<HTMLInputElement>(null);
+    
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLLabelElement>) => {
+        if(e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            inputRef.current?.click();
+        }
+    }
+    return (
+        <>
+            <input
+                id={inputId}
+                ref={inputRef}
+                type="file"
+                className="hidden"
+                accept={accept}
+                multiple={multiple}
+            />
+            <label
+                tabIndex={0}
+                role="button"
+                onKeyDown={handleKeyDown}
+                htmlFor={inputId}
+                className={cn(
+                    "flex flex-col justify-center items-center size-50 border border-dashed rounded-lg cursor-pointer hover:bg-accent hover:text-accent-foreground transition-colors",
+                    className
+                )}
+            >
+                {children}
+            </label>
+        </>
+    )
+}
+```
+
+</Step>
+</Steps>
+
+</Tab>
+</Tabs>
+
+<hr />
+
+## Usage
+
+### Basic Structure
+
+The `FileSelect` component is built with composability in mind. It consists of three main parts:
+- `<FileSelect>`: The main container that handles the file input logic.
+- `<FileSelectLogo>`: The icon or visual indicator (drag handle).
+- `<FileSelectText>`: The helper text instructions.
+
+Here is a basic skeleton of how to use it:
+
+```tsx
+<FileSelect>
+    <FileSelectLogo />
+    <FileSelectText>
+        Drop files here
+    </FileSelectText>
+</FileSelect>
+```
+
+#### Profile Upload (Compact)
+
+Use the component for profile picture uploads or other compact scenarios.
+
+<div className="flex flex-col gap-4 p-6 border rounded-lg mt-4 mb-2">
+    <FileSelectProfile />
+</div>
+
+```tsx
+import { FileSelect } from "@/components/ui/file-select";
+import { User, Upload } from "lucide-react";
+
+export const FileSelectProfile = () => {
+    return (
+        <FileSelect className="size-10 rounded-full">
+            <FileSelectLogo className="size-4" />
+        </FileSelect>
+    )
+}
+```
+
+#### Button Style
+
+Sometimes you just want a simple button.
+
+<div className="flex flex-col gap-4 p-6 border rounded-lg mt-4 mb-2">
+    <FileSelectCompact />
+</div>
+
+```tsx
+import { FileSelect } from "@/components/ui/file-select";
+import { Upload } from "lucide-react";
+
+export const FileSelectCompact = () => {
+    return (
+        <FileSelect className="h-12 w-full max-w-xs mx-auto flex flex-row items-center justify-center gap-3 rounded-full border border-input bg-background px-4 py-2 hover:bg-accent hover:text-accent-foreground cursor-pointer transition-colors shadow-sm">
+            <FileSelectLogo className="size-4" />
+            <FileSelectText>
+                Upload Document
+            </FileSelectText>
+        </FileSelect>
+    )
+}
+```
+
+### Configuration
+
+#### Multiple Files
+
+Set the `multiple` prop to allow selecting more than one file.
+
+<div className="flex flex-col gap-4 p-6 border rounded-lg mt-4 mb-2">
+    <FileSelectMultiple />
+</div>
+
+```tsx
+<FileSelect multiple className="...">
+    ...
+</FileSelect>
+```
+
+#### Accepted File Types
+
+Use the `accept` prop to restrict the selectable file types (e.g., images only).
+
+<div className="flex flex-col gap-4 p-6 border rounded-lg mt-4 mb-2">
+    <FileSelectAccept />
+</div>
+
+```tsx
+<FileSelect accept="image/png, image/jpeg" className="...">
+    ...
+</FileSelect>
+```
+
+<hr />
+
+## Props
+
+### FileSelect
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `children` | `React.ReactNode` | - | Content to be rendered inside the drop area. |
+| `className` | `string` | - | Additional class names to apply to the container. |
+| `accept` | `string` | - | A string that defines the file types the file input should accept. |
+| `multiple` | `boolean` | `false` | When true, allows the user to select more than one file. |
+
+### FileSelectLogo
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `children` | `React.ReactNode` | - | Optional custom icon or content. Defaults to `<Upload />` from lucide-react. |
+| `className` | `string` | - | Additional class names for the logo container. |
+
+### FileSelectText
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `children` | `React.ReactNode` | - | Text content to display. |
+| `className` | `string` | - | Additional class names for the text container. |
