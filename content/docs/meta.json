@@ -7,9 +7,11 @@
         "components/auth-buttons",
         "components/copy-button",
         "components/debounced-input",
+        "components/file-select",
         "components/speaker",
         "components/text-divider",
         "---Animated Components---",
-        "animated-components/changing-text"
+        "animated-components/changing-text",
+        "animated-components/scrollbar"
     ]
 }
