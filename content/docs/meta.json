@@ -11,6 +11,7 @@
         "components/speaker",
         "components/text-divider",
         "---Animated Components---",
-        "animated-components/changing-text"
+        "animated-components/changing-text",
+        "animated-components/scrollbar"
     ]
 }
