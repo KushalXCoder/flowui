@@ -9,7 +9,7 @@ import { Callout } from 'fumadocs-ui/components/callout';
 import ScrollbarDemo from "@/components/previews/scrollbar/scrollbar-demo";
 import { DefaultExample, SpringExample } from "@/components/previews/scrollbar/scrollbar-examples";
 
-<div className="w-full flex items-center justify-center min-h-[350px] relative rounded-xl border bg-card text-card-foreground shadow-sm overflow-hidden">
+<div className="w-full flex items-center justify-center min-h-fit relative rounded-xl border bg-card text-card-foreground shadow-sm overflow-hidden">
     <ScrollbarDemo />
 </div>
 
@@ -116,9 +116,7 @@ export default Scrollbar;
 
 ### Default Usage (Linear)
 
-<div className="flex items-center justify-center p-6 border rounded-lg mt-4 mb-2 relative overflow-hidden h-24 bg-muted">
-    <DefaultExample />
-</div>
+<DefaultExample />
 
 ```tsx
 import Scrollbar from "@/components/ui/scrollbar";
@@ -132,9 +130,7 @@ export function DefaultExample() {
 
 ### Spring Animation
 
-<div className="flex items-center justify-center p-6 border rounded-lg mt-4 mb-2 relative overflow-hidden h-24 bg-muted">
-    <SpringExample />
-</div>
+<SpringExample />
 
 ```tsx
 import Scrollbar from "@/components/ui/scrollbar";

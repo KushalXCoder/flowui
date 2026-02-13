@@ -10,10 +10,11 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --font-playwrite: var(--font-playwrite);
   --font-caveat: var(--font-caveat);
   --font-poppins: var(--font-poppins);
   --fd-code-font: var(--font-mono);
+  --font-mono: var(--font-mono);
+  --font-sans: var(--font-sans);
 
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -51,8 +52,6 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
-  --font-sans: var(--font-poppins);
-  --font-mono: var(--font-mono);
 }
 
 :root {
@@ -138,71 +137,18 @@
   scrollbar-width: none;
 }
 
-.prose :where(p) {
-  margin-top: 0.75em;
-  margin-bottom: 0.75em;
-}
-
-/* HR — FumaDocs default is 3em+3em = 96px gap. Tighten to subtle separator. */
-.prose :where(hr) {
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
-}
-
-/* H2 — section headings like "Installation", "Usage", "Props" */
-.prose :where(h2) {
-  font-weight: 200;
-  font-size: 1.3em;
-  margin-top: 1.75em;
-  margin-bottom: 0.75em;
-  line-height: 1.4;
-  letter-spacing: -0.02em;
-}
-
-/* H3 — sub-section headings */
-.prose :where(h3) {
-  font-weight: 200;
-  font-size: 1.125em;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-  line-height: 1.4;
-  letter-spacing: -0.01em;
-}
-
-/* H4 — minor headings */
-.prose :where(h4) {
-  font-weight: 200;
-  margin-top: 1.25em;
-  margin-bottom: 0.5em;
-}
-
-/* Remove top-margin from the first element after a heading or hr */
-.prose :where(h2 + *, h3 + *, h4 + *, hr + *) {
-  margin-top: 0;
-}
-
-/* Callouts — tighter spacing */
-.prose :where(.callout) {
-  margin-top: 0.75em;
-  margin-bottom: 0.75em;
-}
-
-/* Tabs — tighter spacing */
-.prose :where(.tabs) {
-  margin-top: 0.5em;
-  margin-bottom: 0.75em;
-}
-
-/* Steps — tighter spacing */
-.prose :where(.steps) {
-  margin-top: 0.5em;
-  margin-bottom: 0.75em;
-}
-
 #nd-toc {
   font-family: var(--font-poppins);
 }
 
 code {
   font-family: var(--font-mono) !important;
+}
+
+.fd-step h3 {
+  margin-top: 0px;
+}
+
+.prose h2 {
+  margin-bottom: 10px;
 }
