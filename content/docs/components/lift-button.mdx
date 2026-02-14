@@ -1,0 +1,272 @@
+---
+title: Lift Button
+description: A floating scroll-to-top button that gracefully appears on scroll, with support for custom containers, target-based navigation, and fully customizable styling.
+---
+
+import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Callout } from 'fumadocs-ui/components/callout';
+import LiftButtonDemo from "@/components/previews/lift-button/lift-button-demo";
+import { AlwaysVisibleExample, ScrollToSectionExample, ThresholdExample, CustomChildrenExample, CustomStylingExample, ReusableWrapperExample } from "@/components/previews/lift-button/lift-button-examples";
+
+<LiftButtonDemo />
+
+## Installation
+
+<Tabs items={['CLI', 'Manual']}>
+<Tab value="CLI">
+
+Run the following command to add the `lift-button` component to your project using the Flow UI registry:
+
+```bash
+npx shadcn@latest add @flowui/lift-button
+```
+
+</Tab>
+<Tab value="Manual">
+
+<Steps>
+<Step>
+
+### Install Dependencies
+
+Ensure you have `lucide-react` installed for the default icon.
+
+```bash
+npm install lucide-react
+```
+
+</Step>
+<Step>
+
+### Create Lift Button Component
+
+Create a new file `lift-button.tsx` in your components folder (e.g., `components/ui/lift-button.tsx`) and copy the code below.
+
+```tsx title="components/ui/lift-button.tsx"
+"use client";
+
+import { cn } from "@/lib/utils";
+import { ArrowUp } from "lucide-react";
+import { ComponentProps, useEffect, useState } from "react";
+
+type LiftButtonProps = {
+    className?: string;
+    children?: React.ReactNode;
+    scrollContainerId?: string;
+    targetId?: string;
+    alwaysVisible?: boolean;
+    threshold?: number;
+} & ComponentProps<"button">;
+
+const LiftButton = ({
+    className,
+    children,
+    scrollContainerId,
+    targetId,
+    alwaysVisible = false,
+    threshold = 0,
+    ...props
+}: LiftButtonProps) => {
+    // State to control the visibility
+    const [visible, setVisible] = useState<boolean>(alwaysVisible);
+
+    // Scroll based button visibility
+    useEffect(() => {
+        if (alwaysVisible) return;
+
+        // Get the scroll container
+        const container = scrollContainerId ? document.getElementById(scrollContainerId) : window;
+
+        if (!container) return;
+
+        const handleScroll = () => {
+            const scrollPosition = container === window ?
+                window.pageYOffset || document.documentElement.scrollTop :
+                (container as HTMLElement).scrollTop;
+
+            setVisible(scrollPosition > threshold);
+        };
+
+        container?.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll();
+
+        return () => container?.removeEventListener("scroll", handleScroll);
+    }, [alwaysVisible, threshold, scrollContainerId]);
+
+    // Scroll to top functionality
+    const handleClick = () => {
+        if(scrollContainerId) {
+            const container = document.getElementById(scrollContainerId);
+            if(!container) return;
+
+            if(targetId) {
+                const target = document.getElementById(targetId);
+                if(!target) return;
+
+                const containerRec = container.getBoundingClientRect();
+                const targetRec = target.getBoundingClientRect();
+
+                const offset = targetRec.top - containerRec.top + container.scrollTop;
+                container.scrollTo({ top: offset, behavior: "smooth" });
+            } else {
+                container.scrollTo({ top: 0, behavior: "smooth" });
+            }
+
+            return;
+        }
+        if(targetId) {
+            const target = document.getElementById(targetId);
+            target?.scrollIntoView({ behavior: "smooth" });
+            return;
+        } else {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    }
+
+    return (
+        <button
+            className={cn(
+                "inline-flex justify-center items-center transition-all duration-300",
+                className,
+                visible ? "opacity-100" : "opacity-0 pointer-events-none"
+            )}
+            {...props}
+            onClick={handleClick}
+        >
+            {children ? (
+                children
+            ) : (
+                <ArrowUp className="size-5" />
+            )}
+        </button>
+    )
+}
+
+export default LiftButton;
+```
+
+</Step>
+</Steps>
+
+</Tab>
+</Tabs>
+
+
+
+## Usage
+
+### Always Visible
+
+Set the `alwaysVisible` prop to keep the button permanently visible without requiring any scroll.
+
+<div className="flex items-center justify-center p-6 border rounded-lg mt-4 mb-2">
+    <AlwaysVisibleExample />
+</div>
+
+```tsx title=" "
+import LiftButton from "@/components/ui/lift-button";
+import { ArrowUp } from "lucide-react";
+
+export function AlwaysVisibleExample() {
+    return (
+        <LiftButton
+            alwaysVisible
+            className="size-9 rounded-full bg-primary text-primary-foreground shadow-lg hover:bg-primary/90"
+        >
+            <ArrowUp className="size-4" />
+        </LiftButton>
+    );
+}
+```
+
+### Scroll to a Specific Section
+
+Use the `targetId` prop to scroll to a specific DOM element instead of the top of the page/container. Combine with `scrollContainerId` to scope scrolling within a container.
+
+<div className="flex items-center justify-center p-6 border rounded-lg mt-4 mb-2">
+    <ScrollToSectionExample />
+</div>
+
+```tsx title=" "
+import LiftButton from "@/components/ui/lift-button";
+
+export const ScrollToSectionExample = () => {
+    return (
+        <div className="relative h-75">
+            {/* Scrollable area */}
+            <div id="my-container" className="h-full overflow-y-auto pr-12">
+                <div id="target-section">
+                    {/* Content */}
+                </div>
+            </div>
+            {/* Button */}
+            <LiftButton
+                scrollContainerId="my-container"
+                targetId="target-section"
+            >
+                {/* Icon */}
+            </LiftButton>
+        </div>
+    );
+}
+```
+
+### Custom Threshold
+
+Control how far the user must scroll before the button appears by setting the `threshold` prop (in pixels).
+
+<div className="flex items-center justify-center p-6 border rounded-lg mt-4 mb-2">
+    <ThresholdExample />
+</div>
+
+```tsx title=" "
+import LiftButton from "@/components/ui/lift-button";
+
+// Button appears only after scrolling 200px
+<LiftButton threshold={200} className="...">
+    <ArrowUp className="size-4" />
+</LiftButton>
+```
+
+## Understand the positioning
+
+```tsx title=" "
+import LiftButton from "@/components/ui/lift-button";
+export const ScrollToSectionExample = () => {
+    return (
+        // Outer Container - Help to position the button, if using absolute styling
+        <div className="relative h-75">
+            {/* Main Scrollable Container + Target Element */}
+            <div id="my-container" className="w-full h-full overflow-y-auto">
+                <div id="target-section"></div>
+            </div>
+            {/* Button - Inside the outer container */}
+            <LiftButton scrollContainerId="my-container" targetId="target-section">
+            </LiftButton>
+        </div>
+    );
+}
+```
+
+<Callout title="Positioning" className="mt-6">
+    The LiftButton does not apply any positioning by default.
+    You must provide positioning styles such as <code>fixed</code>, <code>absolute</code>, or <code>sticky</code> via <code>className</code> depending on your layout needs.
+</Callout>
+
+## Props
+
+The `LiftButton` component accepts all native `<button>` HTML attributes, plus the following:
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `className` | `string` | - | Additional CSS classes for styling the button. |
+| `children` | `React.ReactNode` | `<ArrowUp />` | Custom content inside the button. Defaults to an `ArrowUp` icon from lucide-react. |
+| `scrollContainerId` | `string` | - | The `id` of a scrollable container to listen to. Defaults to `window` if not provided. |
+| `targetId` | `string` | - | The `id` of a target element to scroll into view. If not set, scrolls to the top of the container. |
+| `alwaysVisible` | `boolean` | `false` | When `true`, the button is permanently visible regardless of scroll position. |
+| `threshold` | `number` | `0` | The scroll distance (in pixels) the user must exceed before the button becomes visible. |
+
+<Callout title="Tip" className="mt-4">
+    Since the component extends the native `<button>` element, you can pass any standard button attributes like `aria-label`, `disabled`, `title`, etc. for full accessibility control.
+</Callout>
