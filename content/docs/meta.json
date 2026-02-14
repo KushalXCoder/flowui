@@ -8,6 +8,7 @@
         "components/copy-button",
         "components/debounced-input",
         "components/file-select",
+        "components/lift-button",
         "components/speaker",
         "components/text-divider",
         "---Animated Components---",

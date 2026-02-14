@@ -1,6 +1,7 @@
 // @ts-nocheck
-import * as __fd_glob_12 from "../content/docs/components/text-divider.mdx?collection=docs"
-import * as __fd_glob_11 from "../content/docs/components/speaker.mdx?collection=docs"
+import * as __fd_glob_13 from "../content/docs/components/text-divider.mdx?collection=docs"
+import * as __fd_glob_12 from "../content/docs/components/speaker.mdx?collection=docs"
+import * as __fd_glob_11 from "../content/docs/components/lift-button.mdx?collection=docs"
 import * as __fd_glob_10 from "../content/docs/components/file-select.mdx?collection=docs"
 import * as __fd_glob_9 from "../content/docs/components/debounced-input.mdx?collection=docs"
 import * as __fd_glob_8 from "../content/docs/components/copy-button.mdx?collection=docs"
@@ -20,4 +21,4 @@ const create = server<typeof Config, import("fumadocs-mdx/runtime/types").Intern
   }
 }>({"doc":{"passthroughs":["extractedReferences"]}});
 
-export const docs = await create.docs("docs", "content/docs", {"meta.json": __fd_glob_0, "animated-components/meta.json": __fd_glob_1, "components/meta.json": __fd_glob_2, }, {"installation.mdx": __fd_glob_3, "introduction.mdx": __fd_glob_4, "animated-components/changing-text.mdx": __fd_glob_5, "animated-components/scrollbar.mdx": __fd_glob_6, "components/auth-buttons.mdx": __fd_glob_7, "components/copy-button.mdx": __fd_glob_8, "components/debounced-input.mdx": __fd_glob_9, "components/file-select.mdx": __fd_glob_10, "components/speaker.mdx": __fd_glob_11, "components/text-divider.mdx": __fd_glob_12, });
+export const docs = await create.docs("docs", "content/docs", {"meta.json": __fd_glob_0, "animated-components/meta.json": __fd_glob_1, "components/meta.json": __fd_glob_2, }, {"installation.mdx": __fd_glob_3, "introduction.mdx": __fd_glob_4, "animated-components/changing-text.mdx": __fd_glob_5, "animated-components/scrollbar.mdx": __fd_glob_6, "components/auth-buttons.mdx": __fd_glob_7, "components/copy-button.mdx": __fd_glob_8, "components/debounced-input.mdx": __fd_glob_9, "components/file-select.mdx": __fd_glob_10, "components/lift-button.mdx": __fd_glob_11, "components/speaker.mdx": __fd_glob_12, "components/text-divider.mdx": __fd_glob_13, });
