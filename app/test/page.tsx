@@ -24,6 +24,7 @@ const TestPage = () => {
                     initialText="Hello"
                     finalText="World"
                     className="text-5xl font-bold"
+                    variant="default"
                 />
             </div>
             <div className="mt-5">

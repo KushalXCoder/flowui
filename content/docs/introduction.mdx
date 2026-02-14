@@ -1,29 +1,11 @@
 ---
 title: Introduction
 description: A collection of beautifully designed, copy-paste components for your next project.
+githubUrl: https://github.com/KushalXCoder/flowui
+authorUrl: https://github.com/KushalXCoder
 ---
 
 import { Laptop, Moon, Zap, Code2, Paintbrush, Box } from 'lucide-react';
-
-<div className="flex flex-col gap-4">
-  <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-    Build stunning UIs, faster.
-  </h1>
-  <p className="text-xl text-muted-foreground leading-relaxed">
-    Flow UI is a curated collection of re-usable components that you can copy and paste directly into your applications. Built on top of **Radix UI** and **Tailwind CSS**, it bridges the gap between sophisticated design and developer experience.
-  </p>
-</div>
-
-<div className="my-8">
-  <div className="flex gap-4">
-    <a href="/docs/installation" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-primary text-primary-foreground hover:bg-primary/90">
-      Get Started
-    </a>
-    <a href="/docs/components" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
-      Browse Components
-    </a>
-  </div>
-</div>
 
 ## Why Flow UI?
 
@@ -51,28 +33,3 @@ Flow UI isn't just another component library. It's properly opinionated about de
     description="Written in TypeScript with full type safety and JSDoc comments for better developer experience."
   />
 </Cards>
-
-## Frequently Asked Questions
-
-<div className="grid gap-6 mt-8">
-  <div className="p-4 border rounded-lg bg-card text-card-foreground">
-    <h3 className="text-lg font-semibold mb-2 mt-0">Why copy/paste instead of an npm package?</h3>
-    <p className="text-muted-foreground m-0">
-      The idea behind this is to give you full control over the code. When you install a UI library as an npm package, you're often fighting against the library's abstraction to make small changes. With Flow UI, the code is yours to modify, extend, or strip down as you see fit.
-    </p>
-  </div>
-
-  <div className="p-4 border rounded-lg bg-card text-card-foreground">
-    <h3 className="text-lg font-semibold mb-2 mt-0">Do I need to use Shadcn UI?</h3>
-    <p className="text-muted-foreground m-0">
-      It is highly recommended. Flow UI is designed to be an **extension registry** for the Shadcn UI ecosystem. We often reuse base components like `Button`, `Input`, or `Card` from your existing Shadcn installation to maintain design consistency.
-    </p>
-  </div>
-  
-  <div className="p-4 border rounded-lg bg-card text-card-foreground">
-    <h3 className="text-lg font-semibold mb-2 mt-0">Is it free for commercial use?</h3>
-    <p className="text-muted-foreground m-0">
-      **Yes.** Flow UI is open source and free to use for both personal and commercial projects. You don't need to pay anything or attribute us (though we love it if you do!).
-    </p>
-  </div>
-</div>
