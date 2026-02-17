@@ -13,13 +13,13 @@ const LandingPage = () => {
                 initial={{ translateY: "-100%" }}
                 animate={{ translateY: "0%" }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
-                className="absolute left-0 top-0 h-full w-px origin-top border-l border-dashed border-gray-400 dark:border-zinc-800"
+                className="absolute left-0 top-0 h-full w-px origin-top border-l border-dashed border-gray-400"
             />
             <motion.div
                 initial={{ translateY: "100%" }}
                 animate={{ translateY: "0%" }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
-                className="absolute right-0 top-0 h-full w-px origin-top border-r border-dashed border-gray-400 dark:border-zinc-800"
+                className="absolute right-0 top-0 h-full w-px origin-top border-r border-dashed border-gray-400"
             />
             {/* Content */}
             <Navbar />
