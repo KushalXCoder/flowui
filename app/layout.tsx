@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Caveat, Poppins } from "next/font/google";
+import { Caveat, Poppins, Geist_Mono, Open_Sans } from "next/font/google";
 import "./globals.css";
 import { RootProvider } from 'fumadocs-ui/provider/next';
+import { ThemeProvider } from "@/provider/theme-provider";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -11,6 +12,16 @@ const poppins = Poppins({
 
 const caveat = Caveat({
   variable: "--font-caveat",
+});
+
+const mono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
+
+const sans = Open_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
@@ -24,13 +35,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script defer src="https://cloud.umami.is/script.js" data-website-id="89816340-f6fa-4b54-9b02-88555cf74cdc"></script>
+      </head>
       <body
-        className={`${caveat.variable} ${poppins.variable} antialiased`}
+        className={`${caveat.variable} ${poppins.variable} ${mono.variable} ${sans.variable} antialiased`}
       >
-        <RootProvider>
-          {children}
-        </RootProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+        >
+          <RootProvider>
+            {children}
+          </RootProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

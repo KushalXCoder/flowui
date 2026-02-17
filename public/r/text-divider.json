@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-divider",
+  "title": "Text Divider",
+  "description": "A simple text divider component to separate content sections.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/flowui/text-divider.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\r\nimport { cva } from \"class-variance-authority\";\r\n\r\ntype CommonProps = {\r\n    variant?: \"default\" | \"thin\" | \"thick\" | \"rounded\";\r\n    lineColor?: string;\r\n}\r\n\r\ntype LineProps = CommonProps;\r\n\r\ntype TextDividerProps = {\r\n    text: string;\r\n    className?: string;\r\n} & CommonProps;\r\n\r\nconst dividerVariants = cva(\r\n    \"w-1/2\",\r\n    {\r\n        variants: {\r\n            variant: {\r\n                default: \"h-px\",\r\n                thin: \"h-[0.5px]\",\r\n                thick: \"h-2\",\r\n                rounded: \"h-px rounded-full\",\r\n            }\r\n        },\r\n        defaultVariants: {\r\n            variant: \"default\",\r\n        }\r\n    }\r\n);\r\n\r\nconst Line = (\r\n    { variant, lineColor = \"bg-border\" } : LineProps\r\n) => {\r\n    return (\r\n        <div\r\n            aria-hidden=\"true\"\r\n            className={cn(\r\n                dividerVariants({ variant }),\r\n                lineColor\r\n            )}\r\n        />\r\n    )\r\n}\r\n\r\nconst TextDivider = ({\r\n    variant = \"default\",\r\n    text,\r\n    lineColor,\r\n    className\r\n} : TextDividerProps) => {\r\n    return (\r\n        <div className={cn(\"flex items-center gap-2\", className)}>\r\n            <Line variant={variant} lineColor={lineColor} />\r\n            <span>{text}</span>\r\n            <Line variant={variant} lineColor={lineColor} />\r\n        </div>\r\n    )\r\n}\r\n\r\nexport default TextDivider;",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

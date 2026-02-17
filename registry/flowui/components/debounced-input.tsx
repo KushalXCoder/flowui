@@ -1,3 +1,5 @@
+"use client";
+
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
@@ -12,6 +14,7 @@ type DebouncedInputProps = {
 const DebouncedInput = ({ debouncing, debouncingValue = 500, onDebouncedChange, className, ...props }: DebouncedInputProps) => {
     const isControlled = props.value !== undefined;
 
+    // This is used so that user typing is not affected by the debouncing
     const [input, setInput] = useState(
         isControlled ?
         (props.value as string) :

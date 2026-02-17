@@ -3,14 +3,15 @@ import { motion } from "motion/react";
 import { Button } from "../../ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export const Content = () => {
     return (
         <motion.div
             initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 3.4 }}
-            className="w-full flex justify-center items-center px-0 py-10 dark:bg-[#0a0a0a]"
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0 }}
+            className="w-full flex justify-center items-center px-0 py-10 bg-secondary dark:bg-black"
         >
             <div className="flex flex-col gap-4 border-l border-dashed border-gray-400 dark:border-gray-800 px-10">
                 <div className="flex flex-col gap-3">
@@ -27,17 +28,19 @@ export const Content = () => {
                     {labels.map((label) => (
                         <span
                             key={label}
-                            className="px-4 py-1 rounded-2xl border border-dashed border-gray-300 dark:border-gray-800 text-sm dark:text-gray-400"
+                            className="px-4 py-1 rounded-2xl border border-dashed border-gray-300 text-sm hover:border-black"
                         >
                             {label}
                         </span>
                     ))}
                 </div>
 
-                <Button className="w-fit flex items-center gap-2 mt-2 hover:gap-4">
-                    Explore Flows
-                    <ArrowRight />
-                </Button>
+                <Link href="/docs/introduction">
+                    <Button className="w-fit flex items-center gap-2 mt-2 hover:gap-4 cursor-pointer">
+                        Explore Components
+                        <ArrowRight />
+                    </Button>
+                </Link>
             </div>
 
             <div className="relative flex items-center justify-center w-105 h-90">

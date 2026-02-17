@@ -1,9 +1,12 @@
 import { source } from '@/lib/source';
-import { DocsBody, DocsDescription, DocsPage, DocsTitle } from 'fumadocs-ui/layouts/docs/page';
+import { DocsBody, DocsDescription, DocsPage, DocsTitle, EditOnGitHub, PageBreadcrumb, PageLastUpdate } from 'fumadocs-ui/layouts/docs/page';
 import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/mdx-components';
 import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
+import Link from 'next/link';
+import { baseOptions } from '@/lib/layout.shared';
+import EditButton from '@/components/app-components/edit-button';
 
 export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   const params = await props.params;
@@ -13,9 +16,14 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   const MDX = page.data.body;
 
   return (
-    <DocsPage toc={page.data.toc} full={page.data.full} className='font-poppins'>
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription className='mb-4 text-md'>{page.data.description}</DocsDescription>
+    <DocsPage toc={page.data.toc} full={page.data.full} className='font-sans technical-docs-page'>
+      <div className="flex flex-col justify-start gap-3 mb-10">
+        <div>
+          <h1 className='text-3xl font-bold'>{page.data.title}</h1>
+          <p className='mt-2 text-gray-500 font-mono'>{page.data.description}</p>
+        </div>
+        <EditButton link={page.path} />
+      </div>
       <DocsBody>
         <MDX
           components={getMDXComponents({

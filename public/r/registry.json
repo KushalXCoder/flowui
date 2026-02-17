@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flowui",
+  "homepage": "https://flowui-ten.vercel.app",
+  "items": [
+    {
+      "name": "debounced-input",
+      "type": "registry:component",
+      "title": "Debounced Input",
+      "description": "An input component with optional debouncing support.",
+      "files": [
+        {
+          "path": "registry/flowui/components/debounced-input.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["input"]
+    },
+    {
+      "name": "text-divider",
+      "type": "registry:component",
+      "title": "Text Divider",
+      "description": "A simple text divider component to separate content sections.",
+      "files": [
+        {
+          "path": "registry/flowui/components/text-divider.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": []
+    }
+  ]
+}

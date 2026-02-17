@@ -1,0 +1,48 @@
+---
+title: Installation
+description: How to install and configure Flow UI in your project.
+---
+
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+
+<Steps>
+<Step>
+
+### Initialize Shadcn UI
+
+Flow UI acts as a registry extension to Shadcn UI. First, you need to initialize Shadcn UI in your project if you haven't already:
+
+```bash
+npx shadcn@latest init
+```
+
+</Step>
+<Step>
+
+### Configure Flow UI Registry
+
+Add the Flow UI registry to your `components.json` file. This allows the CLI to resolve specific `@flowui` components.
+
+Open `components.json` and add the `@flowui` entry to the `registries` object:
+
+```json title="components.json"
+{
+  "registries": {
+    "@flowui": "https://flowui-ten.vercel.app/r/{name}.json"
+  }
+}
+```
+
+</Step>
+<Step>
+
+### Add Components
+
+You can now add components directly using the CLI with the `@flowui` scope. For example:
+
+```bash
+npx shadcn@latest add @flowui/component-name
+```
+
+</Step>
+</Steps>

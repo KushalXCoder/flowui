@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "debounced-input",
+  "title": "Debounced Input",
+  "description": "An input component with optional debouncing support.",
+  "dependencies": [],
+  "registryDependencies": [
+    "input"
+  ],
+  "files": [
+    {
+      "path": "registry/flowui/debounced-input.tsx",
+      "content": "\"use client\";\r\n\r\nimport { Input } from \"@/components/ui/input\";\r\nimport { cn } from \"@/lib/utils\";\r\nimport { useEffect, useState } from \"react\";\r\n\r\ntype DebouncedInputProps = {\r\n    debouncing?: boolean;\r\n    debouncingValue?: number;\r\n    onDebouncedChange?: (value: string) => void;\r\n    className?: string;\r\n} & React.ComponentProps<typeof Input>;\r\n\r\nconst DebouncedInput = ({ debouncing, debouncingValue = 500, onDebouncedChange, className, ...props }: DebouncedInputProps) => {\r\n    const isControlled = props.value !== undefined;\r\n\r\n    // This is used so that user typing is not affected by the debouncing\r\n    const [input, setInput] = useState(\r\n        isControlled ?\r\n        (props.value as string) :\r\n        (props.defaultValue as string) ?? \"\"\r\n    );\r\n\r\n    useEffect(() => {\r\n        if (isControlled) {\r\n            setInput(props.value as string);\r\n        }\r\n    }, [props.value, isControlled]);\r\n\r\n    useEffect(() => {\r\n        if(!debouncing) return;\r\n\r\n        // Set timer\r\n        const timer = setTimeout(() => {\r\n            onDebouncedChange?.(input);\r\n        }, debouncingValue);\r\n\r\n        // Clear timeout\r\n        return () => clearTimeout(timer);\r\n    }, [input, debouncing, debouncingValue]);\r\n\r\n    return (\r\n        <Input\r\n            {...props}\r\n            value={isControlled ? props.value : input}\r\n            onChange={(e) => {\r\n                if(!isControlled) {\r\n                    setInput(e.target.value);\r\n                }\r\n                props.onChange?.(e);\r\n            }}\r\n            className={cn(className)}\r\n        />\r\n    )\r\n}\r\n\r\nexport default DebouncedInput;",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

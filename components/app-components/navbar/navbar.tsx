@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { Button } from "../../ui/button";
 import { Github } from "lucide-react";
-import { Sun } from "../animate-ui/icons/sun";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import Logo from "../logo";
 import NumberTicker from "../number-ticket";
+import { ModeToggle } from "../mode-toggle";
 
 export const Navbar = () => {
   const [showFixed, setShowFixed] = useState<boolean>(false);
@@ -42,18 +42,21 @@ export const Navbar = () => {
         className={`flex justify-between items-center ${showFixed ? `border-x border-dashed border-gray-400 dark:border-gray-800 px-10 py-3` : ``} dark:text-zinc-400`}
       >
         <Logo />
-        <ul className="flex items-center gap-4 text-sm font-poppins dark:text-gray-400">
-          <Link href="/docs" className="hover:text-black dark:hover:text-white transition-colors">Docs</Link>
-          <Link href="/components" className="hover:text-black dark:hover:text-white transition-colors">Components</Link>
+        <ul className="flex items-center gap-4 text-sm font-poppins">
+          <Link href="/docs/introduction">Docs</Link>
+          <Link href="/docs/installation">Components</Link>
 
           <div className="h-4 w-px border border-dashed border-gray-500 dark:border-zinc-700" />
 
-          <Button className="gap-2 bg-transparent text-black dark:text-gray-400 hover:bg-accent">
-            <Github className="size-5" />
-            <NumberTicker value={100} hasNumberAnimated={hasNumberAnimated} />
-          </Button>
-
-          <Sun animateOnHover className="size-8 p-2 rounded-lg hover:bg-accent" />
+          <div className="flex items-center gap-2">
+            <Link href="https://github.com/kushalxcoder/flowui">
+              <Button className="gap-2 bg-transparent text-black hover:bg-accent cursor-pointer">
+                  <Github />
+                <NumberTicker value={0} hasNumberAnimated={hasNumberAnimated} />
+              </Button>
+            </Link>
+            <ModeToggle />
+          </div>
         </ul>
       </motion.div>
     </>
@@ -61,7 +64,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="px-10 py-4">
+      <nav className="px-10 py-3">
         <NavContent />
       </nav>
       <AnimatePresence>

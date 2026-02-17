@@ -7,6 +7,7 @@ import { Divider } from "../divider";
 const LandingPage = () => {
     return (
         <div className="h-screen w-full flex flex-col relative">
+            <Divider type="screen" className="top-0 mt-15 bg-secondary z-0" />
             {/* Animations */}
             <motion.div
                 initial={{ translateY: "-100%" }}
@@ -22,11 +23,10 @@ const LandingPage = () => {
             />
             {/* Content */}
             <Navbar />
-            <Divider type="screen" className="top-1/11 dark:border-zinc-800" />
             <div className="flex flex-col flex-1 w-full">
-                <div className="flex-1 w-full pt-4">
-                    <div className="h-full flex items-center font-poppins bg-gray-50 dark:bg-[#050505]">
-                        <div className="relative w-full bg-white dark:bg-[#0a0a0a] border-y border-dashed border-gray-400 dark:border-zinc-800">
+                <div className="flex-1 w-full">
+                    <div className="h-full flex items-center font-poppins bg-gray-50 dark:bg-secondary">
+                        <div className="relative w-full">
                             <Animations />
                             <Content />
                         </div>

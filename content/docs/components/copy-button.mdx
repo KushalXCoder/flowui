@@ -1,0 +1,261 @@
+---
+title: Copy Button
+description: A versatile copy button component with support for animations and different states, built on top of the Shadcn Button.
+---
+
+import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Callout } from 'fumadocs-ui/components/callout';
+import CopyButtonDemo from "@/components/previews/copy-button/copy-button-demo";
+import { BasicExample, AnimatedExample } from "@/components/previews/copy-button/copy-button-examples";
+
+<div className="w-full flex items-center justify-center min-h-[350px] rounded-xl border bg-card text-card-foreground shadow-sm">
+    <CopyButtonDemo />
+</div>
+
+
+
+## Installation
+
+<Tabs items={['CLI', 'Manual']}>
+<Tab value="CLI">
+
+Run the following command to add the `copy-button` component to your project using the Flow UI registry:
+
+```bash
+npx shadcn@latest add @flowui/copy-button
+```
+
+</Tab>
+<Tab value="Manual">
+
+<Steps>
+<Step>
+
+### Install Dependencies
+Ensure you have `lucide-react` and `motion` (Framer Motion) installed.
+
+```bash
+npm install lucide-react motion
+```
+
+</Step>
+<Step>
+
+### Install Button Component
+This component is built on top of the **Shadcn UI Button**. If you haven't installed it yet, run:
+
+```bash
+npx shadcn@latest add button
+```
+
+</Step>
+<Step>
+
+### Create Animation Wrapper
+Create a helper component `animation-wrapper.tsx` for handling animations.
+
+```tsx title="components/ui/copy-button/animation-wrapper.tsx"
+import { motion, AnimatePresence } from "motion/react";
+
+type AnimatedLogicProps = {
+    children: React.ReactNode;
+    mode: "copy" | "copied";
+};
+
+const AnimationWrapper = ({ children, mode }: AnimatedLogicProps) => {
+    return (
+        <AnimatePresence mode="wait">
+            <motion.div
+                key={mode}
+                initial={{ scale: 0.6, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.6, opacity: 0 }}
+            >
+                {children}
+            </motion.div>
+        </AnimatePresence>
+    )
+}
+
+export default AnimationWrapper;
+```
+
+</Step>
+<Step>
+
+### Create Copy Button
+Create the main component `copy-button.tsx`.
+
+```tsx title="components/ui/copy-button/copy-button.tsx"
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { Check, Copy } from "lucide-react";
+import { useState } from "react";
+import AnimationWrapper from "./animation-wrapper";
+
+type AnimationWrapperProps = {
+  children: React.ReactNode;
+  mode: "copy" | "copied";
+};
+
+export type CopyButtonProps = {
+    animated?: boolean;
+    time?: number;
+    iconType?: "default" | "rotated";
+} & React.ComponentProps<typeof Button>;
+
+
+export const CopyButton = ({
+    animated = false,
+    className,
+    children,
+    time = 3000,
+    iconType = "default",
+    ...props
+}: CopyButtonProps) => {
+    // Fixed Logic for any behavior
+    const [mode, setMode] = useState<"copy" | "copied">("copy");
+
+    const handleCopy = (e: React.MouseEvent<HTMLButtonElement>) => {
+        if (props.onClick) {
+            props.onClick(e);
+        }
+
+        // Change state to copied
+        setMode("copied");
+        
+        // Change to the base state after user timer - default 3s
+        const timer = setTimeout(() => {
+            setMode("copy");
+        }, time);
+        
+        // Clear the timer
+        return () => clearTimeout(timer);
+    }
+
+    // Identify the icon to be used and create it's node
+
+    const Icon = mode === "copy" ? Copy : Check;
+
+    const iconNode = (
+        <Icon
+            className={cn(
+                "size-4 shrink-0",
+                iconType === "rotated" && mode === "copy" && "rotate-90"
+            )}
+        />
+    );
+
+    const content = animated ? (
+        <AnimationWrapper mode={mode}>
+            {iconNode}
+        </AnimationWrapper>
+    ) : (
+        iconNode
+    )
+
+    return (
+        <Button
+            {...props}
+            onClick={handleCopy}
+            className={cn("relative", className)}
+        >
+            {content}
+        </Button>
+    )
+}
+```
+
+</Step>
+<Step>
+
+### Create Animated Wrapper (Optional)
+For convenience, you can create `animated-copy-button.tsx` to pre-configure the animated version.
+
+```tsx title="components/ui/copy-button/animated-copy-button.tsx"
+import { CopyButton, CopyButtonProps } from "./copy-button"
+
+export const AnimatedCopyButton = (props: CopyButtonProps) => {
+    return (
+        <CopyButton
+            {...props}
+            animated={true}
+        />
+    )
+}
+```
+
+</Step>
+</Steps>
+
+</Tab>
+</Tabs>
+
+
+
+## Usage
+
+### Basic Usage
+
+<div className="flex items-center justify-center p-6 border rounded-lg mt-4 mb-2">
+    <BasicExample />
+</div>
+
+```tsx title=" "
+import { CopyButton } from "@/components/ui/copy-button/copy-button";
+
+export function BasicExample() {
+  return (
+    <div className="flex items-center gap-4">
+      <CopyButton variant="outline">
+        Click to Copy
+      </CopyButton>
+      <CopyButton variant="default" className="rounded-full">
+        Rounded Copy
+      </CopyButton>
+    </div>
+  )
+}
+```
+
+### Animated Usage
+
+<div className="flex items-center justify-center p-6 border rounded-lg mt-4 mb-2">
+    <AnimatedExample />
+</div>
+
+```tsx title=" "
+import { AnimatedCopyButton } from "@/components/ui/copy-button/animated-copy-button";
+
+export function AnimatedExample() {
+  return (
+    <div className="flex items-center gap-4">
+      <AnimatedCopyButton variant="outline">
+        Animated Copy
+      </AnimatedCopyButton>
+      <AnimatedCopyButton variant="secondary" iconType="rotated">
+        Rotated Icon
+      </AnimatedCopyButton>
+    </div>
+  )
+}
+```
+
+
+
+## Props
+
+The `CopyButton` component accepts all props from the standard Shadcn `Button` component, plus the following:
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `animated` | `boolean` | `false` | Whether to animate the icon transition between copy and check states. |
+| `time` | `number` | `3000` | The duration in milliseconds before the icon reverts to the copy state. |
+| `iconType` | `"default" \| "rotated"` | `"default"` | The style of the copy icon. "rotated" adds a rotation effect in the default state. |
+
+<Callout title="Note" className="mt-6">
+  The `CopyButton` does not automatically handle the actual clipboard copying logic (e.g., `navigator.clipboard.writeText`). You should implement the copy logic within the `onClick` handler, which is passed through to the underlying Button.
+</Callout>

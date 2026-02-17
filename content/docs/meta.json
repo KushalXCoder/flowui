@@ -2,7 +2,17 @@
     "pages": [
         "---Getting Started---",
         "introduction",
+        "installation",
         "---Components---",
-        "components/debounced-input"
+        "components/auth-buttons",
+        "components/copy-button",
+        "components/debounced-input",
+        "components/file-select",
+        "components/lift-button",
+        "components/speaker",
+        "components/text-divider",
+        "---Animated Components---",
+        "animated-components/changing-text",
+        "animated-components/scrollbar"
     ]
 }

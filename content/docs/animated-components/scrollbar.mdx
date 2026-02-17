@@ -1,0 +1,157 @@
+---
+title: Scrollbar
+description: A customizable scroll progress indicator that tracks the current page scroll position.
+---
+
+import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Callout } from 'fumadocs-ui/components/callout';
+import ScrollbarDemo from "@/components/previews/scrollbar/scrollbar-demo";
+import { DefaultExample, SpringExample } from "@/components/previews/scrollbar/scrollbar-examples";
+
+<div className="w-full flex items-center justify-center min-h-fit relative rounded-xl border bg-card text-card-foreground shadow-sm overflow-hidden">
+    <ScrollbarDemo />
+</div>
+
+## Installation
+
+<Tabs items={['CLI', 'Manual']}>
+<Tab value="CLI">
+
+Run the following command to add the `scrollbar` component to your project:
+
+```bash
+npx shadcn@latest add @flowui/scrollbar
+```
+
+</Tab>
+<Tab value="Manual">
+
+<Steps>
+<Step>
+
+### Install Dependencies
+Ensure you have `motion` installed.
+
+```bash
+npm install motion
+```
+
+</Step>
+<Step>
+
+### Create Scrollbar Component
+Create the component `scrollbar.tsx`.
+
+```tsx title="components/ui/scrollbar.tsx"
+"use client";
+
+import { cn } from "@/lib/utils";
+import { cva } from "class-variance-authority";
+import { motion, useScroll, useSpring } from "motion/react";
+import { ComponentProps } from "react";
+
+type ScrollbarProps = {
+    className?: string;
+    type?: "default" | "spring";
+    scrollPosition?: "X" | "Y";
+} & ComponentProps<typeof motion.div>;
+
+// Different variants based on different props
+const scrollbarVariants = cva("fixed z-50", {
+  variants: {
+    scrollPosition: {
+      X: "top-0 left-0 h-1 w-full",
+      Y: "top-0 right-0 w-1 h-full",
+    },
+  },
+});
+
+const Scrollbar = ({
+    className,
+    type = "default",
+    scrollPosition = "X",
+    ...props
+} : ScrollbarProps) => {
+    // Get the X and Y scroll progress
+    const { scrollXProgress, scrollYProgress } = useScroll();
+    const progress = scrollPosition === "X" ? scrollYProgress : scrollXProgress;
+
+    // Get the spring value
+    const springValue = useSpring(progress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
+
+    // Get the value based on the type used by the user
+    const value = type === "spring" ? springValue : progress;
+
+    // Get the style
+    const style = scrollPosition === "X" ? { scaleX: value, originX: 0 } : { scaleY: value, originY: 0 };
+    return (
+        <motion.div
+            className={cn(
+                scrollbarVariants({ scrollPosition }),
+                "bg-blue-500",
+                className
+            )}
+            style={style}
+            {...props}
+        >
+        </motion.div>
+    )
+}
+
+export default Scrollbar;
+```
+
+</Step>
+</Steps>
+
+</Tab>
+</Tabs>
+
+## Usage
+
+### Default Usage (Linear)
+
+<DefaultExample />
+
+```tsx
+import Scrollbar from "@/components/ui/scrollbar";
+
+export function DefaultExample() {
+    return (
+        <Scrollbar className="bg-blue-500" />
+    )
+}
+```
+
+### Spring Animation
+
+<SpringExample />
+
+```tsx
+import Scrollbar from "@/components/ui/scrollbar";
+
+export function SpringExample() {
+    return (
+        <Scrollbar type="spring" className="bg-green-500" />
+    )
+}
+```
+
+<Callout title="Note about scroll tracking">
+The `Scrollbar` component uses `framer-motion`'s `useScroll` hook which by default tracks the main window scroll position. This means the scrollbar will fill based on how much the user has scrolled down the entire page.
+</Callout>
+
+## Props
+
+The `Scrollbar` component accepts the following props:
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `type` | `"default" \| "spring"` | `"default"` | Determines if the scroll progress uses a spring animation. |
+| `scrollPosition` | `"X" \| "Y"` | `"X"` | Determines the orientation of the scrollbar. "X" is a horizontal bar (tracking vertical scroll), "Y" is a vertical bar (tracking horizontal scroll). |
+| `className` | `string` | `undefined` | Additional class names to apply to the component. |

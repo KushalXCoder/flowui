@@ -1,0 +1,64 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flowui",
+  "homepage": "https://flowui-ten.vercel.app",
+  "items": [
+    {
+      "name": "debounced-input",
+      "type": "registry:component",
+      "title": "Debounced Input",
+      "description": "An input component with optional debouncing support.",
+      "files": [
+        {
+          "path": "registry/flowui/debounced-input.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "input"
+      ]
+    },
+    {
+      "name": "text-divider",
+      "type": "registry:component",
+      "title": "Text Divider",
+      "description": "A simple text divider component to separate content sections.",
+      "files": [
+        {
+          "path": "registry/flowui/text-divider.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": []
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:component",
+      "title": "Copy Button",
+      "description": "A copy button component with two types: normal and animated.",
+      "files": [
+        {
+          "path": "registry/flowui/copy-button/copy-button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/flowui/copy-button/animated-copy-button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/flowui/copy-button/animation-wrapper.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "button"
+      ]
+    }
+  ]
+}
