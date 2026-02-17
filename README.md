@@ -38,7 +38,7 @@ Add the Flow UI registry to your `components.json`:
 ```json
 {
   "registries": {
-    "@flowui": "https://flowui-ten.vercel.app/r/{name}.json"
+    "@flowui": "https://flowui-registry.vercel.app/r/{name}.json"
   }
 }
 ```

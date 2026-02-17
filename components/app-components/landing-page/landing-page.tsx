@@ -12,21 +12,21 @@ const LandingPage = () => {
                 initial={{ translateY: "-100%" }}
                 animate={{ translateY: "0%" }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
-                className="absolute left-0 top-0 h-full w-px origin-top border-l border-dashed border-gray-400"
+                className="absolute left-0 top-0 h-full w-px origin-top border-l border-dashed border-gray-400 dark:border-zinc-800"
             />
             <motion.div
                 initial={{ translateY: "100%" }}
                 animate={{ translateY: "0%" }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
-                className="absolute right-0 top-0 h-full w-px origin-top border-r border-dashed border-gray-400"
+                className="absolute right-0 top-0 h-full w-px origin-top border-r border-dashed border-gray-400 dark:border-zinc-800"
             />
             {/* Content */}
             <Navbar />
-            <Divider type="screen" className="top-1/11" />
+            <Divider type="screen" className="top-1/11 dark:border-zinc-800" />
             <div className="flex flex-col flex-1 w-full">
                 <div className="flex-1 w-full pt-4">
-                    <div className="h-full flex items-center font-poppins bg-gray-50">
-                        <div className="relative w-full bg-white">
+                    <div className="h-full flex items-center font-poppins bg-gray-50 dark:bg-[#050505]">
+                        <div className="relative w-full bg-white dark:bg-[#0a0a0a] border-y border-dashed border-gray-400 dark:border-zinc-800">
                             <Animations />
                             <Content />
                         </div>
