@@ -1,8 +1,8 @@
-# <img src="public/logo.svg" width="32" height="32" align="center" /> Flow UI
+al# <img src="public/logo.svg" width="32" height="32" align="center" /> Flow UI
 
 **Beautifully designed, copy-paste components for your next project.**
 
-A professional [shadcn/ui](https://ui.shadcn.com/) extension registry featuring production-ready components, common UI patterns, and elegant animations.
+FlowUI is a developer-focused UI component collection built with modern tools like shadcn/ui, Framer Motion, and Tailwind — designed to improve your development flow.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
@@ -13,11 +13,15 @@ A professional [shadcn/ui](https://ui.shadcn.com/) extension registry featuring 
 
 ## ✨ Features
 
-- **Beautiful by Default**: Expertly crafted with a focus on micro-interactions and typography.
-- **Copy & Paste**: Zero lock-in. You own the code in your own repository.
-- **Animated**: Powered by [Framer Motion](https://www.framer.com/motion/) for silky smooth transitions.
-- **Type Safe**: First-class TypeScript support for a better developer experience.
-- **Customizable**: Built with Tailwind CSS, making it easy to adapt to your design system.
+- **Built for Real Projects**: Components you actually build in almost every project — not just another button and card collection.
+
+- **Developer Flow First**: Designed to reduce repetitive UI work and keep you focused on shipping, not rebuilding patterns.
+
+- **Motion with Purpose**: Thoughtful animations powered by [Framer Motion](https://www.framer.com/motion/) that enhance usability without distraction.
+
+- **Copy, Customize, Own**: Fully copy-paste components — no lock-in, no hidden abstractions.
+
+- **Modern by Design**: Crafted with Tailwind CSS, shadcn-inspired patterns, and clean React architecture for flexibility and control.
 
 ## 🚀 Quick Start
 
