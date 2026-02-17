@@ -3,7 +3,7 @@ import { Divider } from "./divider";
 import { motion, Variants } from "motion/react";
 
 const Footer = () => {
-    const footerAnimation : Variants = {
+    const footerAnimation: Variants = {
         hidden: {
             opacity: 0,
             filter: "blur(4px)",
@@ -18,8 +18,8 @@ const Footer = () => {
         },
     };
     return (
-        <footer className="border-x border-dashed border-gray-400 font-poppins relative">
-            <Divider type="screen" className="top-0" />
+        <footer className="border-x border-dashed border-gray-400 dark:border-zinc-800 font-poppins relative">
+            <Divider type="screen" className="top-0 dark:border-zinc-800" />
             <motion.div
                 variants={footerAnimation}
                 initial="hidden"
@@ -28,16 +28,16 @@ const Footer = () => {
                 className="pt-14 pb-10 px-10 flex justify-between items-start"
             >
                 <div>
-                    <h1 className="text-7xl font-semibold font-caveat">FLOWUI</h1>
-                    <p className="text-gray-500 text-[12px] mt-1">
+                    <h1 className="text-7xl font-semibold font-caveat dark:text-white">FLOWUI</h1>
+                    <p className="text-gray-500 dark:text-gray-400 text-[12px] mt-1">
                         Built by {""}
-                        <span className="text-gray-800">
+                        <span className="text-gray-800 dark:text-gray-200">
                             <Link href="https://kushalxcoder.vercel.app" target="_blank">
-                                TheCodster
+                                KushalXCoder
                             </Link>
                         </span>.
                         Proudly {""}
-                        <span className="text-gray-800">
+                        <span className="text-gray-800 dark:text-gray-200">
                             <Link href="https://github.com/kushalxcoder/flowui" target="_blank">
                                 Open Source
                             </Link>
