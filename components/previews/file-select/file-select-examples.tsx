@@ -1,5 +1,5 @@
 
-import { FileSelect, FileSelectLogo, FileSelectText } from "@/registry/flowui/components/file-select/file-select";
+import { FileSelect, FileSelectLogo, FileSelectText } from "@/registry/flowui/blocks/file-select/file-select";
 import { FolderUp, ImageUp, Upload, File, User, CloudUpload } from "lucide-react";
 import { cn } from "@/lib/utils";
 
