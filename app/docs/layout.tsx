@@ -8,8 +8,9 @@ export default function Layout({ children }: LayoutProps<'/docs'>) {
       tree={source.getPageTree()}
       {...baseOptions()}
       sidebar={{
-        className: 'w-[270px] max-w-[390px] shrink-0 overflow-hidden font-poppins',
+        className: "w-[270px] shrink-0 bg-background border-r font-poppins text-[15px]",
       }}
+      githubUrl='https://github.com/kushalxcoder/flowui'
     >
       {children}
     </DocsLayout>
