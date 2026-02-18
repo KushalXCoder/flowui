@@ -20,7 +20,7 @@ export const Content = () => {
                         Flow UI
                     </h1>
                     <p className="max-w-2xl text-sm text-gray-700">
-                        A shadcn/ui–based library of reusable, production-ready components, including common UI patterns and animated elements.
+                        A UI lib consisting of components that you build daily or for every project with the aim to make your development flow easier and faster.
                     </p>
                 </div>
 
