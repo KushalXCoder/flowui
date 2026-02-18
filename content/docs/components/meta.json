@@ -4,7 +4,6 @@
         "auth-buttons",
         "copy-button",
         "debounced-input",
-        "file-select",
         "lift-button",
         "text-divider"
     ]

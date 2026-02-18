@@ -1,4 +1,7 @@
 {
+    "title": "FlowUI Documentation",
+    "description": "The description of root folder (optional)",
+    "root": true,
     "pages": [
         "---Getting Started---",
         "introduction",
@@ -7,12 +10,13 @@
         "components/auth-buttons",
         "components/copy-button",
         "components/debounced-input",
-        "components/file-select",
         "components/lift-button",
         "components/speaker",
         "components/text-divider",
         "---Animated Components---",
         "animated-components/changing-text",
-        "animated-components/scrollbar"
+        "animated-components/scrollbar",
+        "---Blocks---",
+        "blocks/file-select"
     ]
 }
