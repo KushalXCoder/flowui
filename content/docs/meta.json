@@ -1,14 +1,14 @@
 {
     "title": "FlowUI Documentation",
     "pages": [
-        "---GETTING STARTED---",
+        "---Getting Started---",
         "introduction",
         "installation",
-        "---FLOWUI/CORE---",
+        "---flowui/core---",
         "core/components",
         "core/animated-components",
         "core/blocks",
-        "---FLOWUI/SHADCN---",
+        "---flowui/shadcn---",
         "shadcn/components"
     ]
 }

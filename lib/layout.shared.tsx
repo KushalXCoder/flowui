@@ -9,6 +9,6 @@ export function baseOptions(): BaseLayoutProps {
           <Logo />
         </div>
       )
-    },
+    }
   };
 }
