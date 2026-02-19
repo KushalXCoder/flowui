@@ -1,0 +1,8 @@
+{
+    "title": "Blocks",
+    "defaultOpen": true,
+    "pages": [
+        "file-select",
+        "navbar"
+    ]
+}

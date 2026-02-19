@@ -1,7 +1,5 @@
 {
     "title": "FlowUI Documentation",
-    "description": "The description of root folder (optional)",
-    "root": true,
     "pages": [
         "---Getting Started---",
         "introduction",

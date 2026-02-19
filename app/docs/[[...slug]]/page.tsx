@@ -1,11 +1,9 @@
 import { source } from '@/lib/source';
-import { DocsBody, DocsDescription, DocsPage, DocsTitle, EditOnGitHub, PageBreadcrumb, PageLastUpdate } from 'fumadocs-ui/layouts/docs/page';
+import { DocsBody, DocsPage, PageBreadcrumb } from 'fumadocs-ui/layouts/docs/page';
 import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/mdx-components';
 import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
-import Link from 'next/link';
-import { baseOptions } from '@/lib/layout.shared';
 import EditButton from '@/components/app-components/edit-button';
 
 export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {

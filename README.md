@@ -51,11 +51,10 @@ npx shadcn@latest add @flowui/copy-button
 
 ## 📦 Components
 
-| Standard Components | Animated Components |
-| :--- | :--- |
-| Auth Buttons | Changing Text |
+| Standard Components | Animated Components | Blocks |
+| :--- | :--- | :--- |
+| Auth Buttons | Changing Text | File Select |
 | Copy Button | Scrollbar |
-| File Select | Stacked Card |
 | Lift Button | |
 | Speaker | |
 | Text Divider | |

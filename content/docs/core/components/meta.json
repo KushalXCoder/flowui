@@ -1,10 +1,9 @@
 {
     "title": "Components",
+    "defaultOpen": true,
     "pages": [
-        "auth-buttons",
-        "copy-button",
-        "debounced-input",
         "lift-button",
+        "speaker",
         "text-divider"
     ]
 }
