@@ -1,22 +1,14 @@
 {
     "title": "FlowUI Documentation",
-    "description": "The description of root folder (optional)",
-    "root": true,
     "pages": [
-        "---Getting Started---",
+        "---GETTING STARTED---",
         "introduction",
         "installation",
-        "---Components---",
-        "components/auth-buttons",
-        "components/copy-button",
-        "components/debounced-input",
-        "components/lift-button",
-        "components/speaker",
-        "components/text-divider",
-        "---Animated Components---",
-        "animated-components/changing-text",
-        "animated-components/scrollbar",
-        "---Blocks---",
-        "blocks/file-select"
+        "---FLOWUI/CORE---",
+        "core/components",
+        "core/animated-components",
+        "core/blocks",
+        "---FLOWUI/SHADCN---",
+        "shadcn/components"
     ]
 }
