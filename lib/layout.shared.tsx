@@ -9,7 +9,7 @@ export function baseOptions(): BaseLayoutProps {
         <div className="flex flex-col gap-2">
           <Logo />
         </div>
-      ),
-    },
+      )
+    }
   };
 }

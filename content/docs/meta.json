@@ -6,17 +6,11 @@
         "---Getting Started---",
         "introduction",
         "installation",
-        "---Components---",
-        "components/auth-buttons",
-        "components/copy-button",
-        "components/debounced-input",
-        "components/lift-button",
-        "components/speaker",
-        "components/text-divider",
-        "---Animated Components---",
-        "animated-components/changing-text",
-        "animated-components/scrollbar",
-        "---Blocks---",
-        "blocks/file-select"
+        "---flowui/core---",
+        "core/components",
+        "core/animated-components",
+        "core/blocks",
+        "---flowui/shadcn---",
+        "shadcn/components"
     ]
 }
