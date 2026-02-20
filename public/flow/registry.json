@@ -1,0 +1,95 @@
+{
+    "name": "flowui",
+    "items": [
+        {
+            "name": "changing-text",
+            "title": "Changing Text",
+            "description": "An animated text component that transitions between two strings on hover.",
+            "files": {
+                "path": "registry/flowui/animated-components/changing-text.tsx",
+                "type": "registry:component"
+            },
+            "dependencies": [
+                "motion"
+            ],
+            "version": "1.0.0"
+        },
+        {
+            "name": "file-select",
+            "title": "File Select",
+            "description": "A customizable file upload/select component.",
+            "files": {
+                "path": "registry/flowui/blocks/file-select/file-select.tsx",
+                "type": "registry:component"
+            },
+            "dependencies": [
+                "lucide-react"
+            ],
+            "version": "1.0.0"
+        },
+        {
+            "name": "lift-button",
+            "title": "Lift Button",
+            "description": "A button that scrolls the page or a container to the top or a target element.",
+            "files": {
+                "path": "registry/flowui/components/lift-button.tsx",
+                "type": "registry:component"
+            },
+            "dependencies": [
+                "lucide-react"
+            ],
+            "version": "1.0.0"
+        },
+        {
+            "name": "navbar",
+            "title": "Navbar",
+            "description": "A flexible and polymorphic navigation bar component.",
+            "files": {
+                "path": "registry/flowui/blocks/navbar/navbar.tsx",
+                "type": "registry:component"
+            },
+            "dependencies": [],
+            "version": "1.0.0"
+        },
+        {
+            "name": "scrollbar",
+            "title": "Scrollbar",
+            "description": "An animated scroll progress bar component.",
+            "files": {
+                "path": "registry/flowui/animated-components/scrollbar.tsx",
+                "type": "registry:component"
+            },
+            "dependencies": [
+                "motion",
+                "class-variance-authority"
+            ],
+            "version": "1.0.0"
+        },
+        {
+            "name": "speaker",
+            "title": "Speaker",
+            "description": "A speaker component that uses the Web Speech API to read text aloud.",
+            "files": {
+                "path": "registry/flowui/components/speaker.tsx",
+                "type": "registry:component"
+            },
+            "dependencies": [
+                "lucide-react"
+            ],
+            "version": "1.0.0"
+        },
+        {
+            "name": "text-divider",
+            "title": "Text Divider",
+            "description": "A divider component with text in the middle.",
+            "files": {
+                "path": "registry/flowui/components/text-divider.tsx",
+                "type": "registry:component"
+            },
+            "dependencies": [
+                "class-variance-authority"
+            ],
+            "version": "1.0.0"
+        }
+    ]
+}
