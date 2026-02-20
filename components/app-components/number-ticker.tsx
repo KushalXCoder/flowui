@@ -1,36 +1,34 @@
 "use client"
 
 import { motion, useMotionValue, useTransform, animate } from "motion/react";
-import { RefObject, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 type NumberTickerProps = {
   value: number;
   duration?: number;
-  hasNumberAnimated: RefObject<boolean>;
 };
 
-const NumberTicker = ({ value, duration = 2, hasNumberAnimated }: NumberTickerProps) => {
+const NumberTicker = ({ value, duration = 2 }: NumberTickerProps) => {
   const mv = useMotionValue(0);
+  const hasAnimated = useRef(false);
 
   const rounded = useTransform(mv, (v) =>
     Math.floor(v).toLocaleString()
-  )
+  );
 
   useEffect(() => {
-    // Check if the number has already animated
-    if(hasNumberAnimated.current) {
+    if (hasAnimated.current) {
       mv.set(value);
-      rounded.set(value.toString());
       return;
     }
-    // Animate the number
+
     animate(mv, value, {
       duration,
       ease: "easeOut",
     });
 
-    hasNumberAnimated.current = true;
-  }, [value])
+    hasAnimated.current = true;
+  }, [value]);
 
   return (
     <motion.span
@@ -39,7 +37,7 @@ const NumberTicker = ({ value, duration = 2, hasNumberAnimated }: NumberTickerPr
     >
       {rounded}
     </motion.span>
-  )
-}
+  );
+};
 
 export default NumberTicker;
