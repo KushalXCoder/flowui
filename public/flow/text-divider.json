@@ -1,0 +1,13 @@
+{
+    "name": "text-divider",
+    "title": "Text Divider",
+    "description": "A divider component with text in the middle.",
+    "files": {
+        "path": "registry/flowui/components/text-divider.tsx",
+        "type": "registry:component"
+    },
+    "dependencies": [
+        "class-variance-authority"
+    ],
+    "version": "1.0.0"
+}

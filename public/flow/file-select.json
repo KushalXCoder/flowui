@@ -1,0 +1,13 @@
+{
+    "name": "file-select",
+    "title": "File Select",
+    "description": "A customizable file upload/select component.",
+    "files": {
+        "path": "registry/flowui/blocks/file-select/file-select.tsx",
+        "type": "registry:component"
+    },
+    "dependencies": [
+        "lucide-react"
+    ],
+    "version": "1.0.0"
+}

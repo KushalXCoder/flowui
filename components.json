@@ -20,6 +20,6 @@
   },
   "registries": {
     "@animate-ui": "https://animate-ui.com/r/{name}.json",
-    "@flowui": "https://flowui-ten.vercel.app/r/{name}.json"
+    "@flowui": "https://flowui-registry.vercel.app/r/{name}.json"
   }
 }

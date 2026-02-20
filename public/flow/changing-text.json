@@ -1,0 +1,13 @@
+{
+    "name": "changing-text",
+    "title": "Changing Text",
+    "description": "An animated text component that transitions between two strings on hover.",
+    "files": {
+        "path": "registry/flowui/animated-components/changing-text.tsx",
+        "type": "registry:component"
+    },
+    "dependencies": [
+        "motion"
+    ],
+    "version": "1.0.0"
+}

@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "flowui",
-  "homepage": "https://flowui-ten.vercel.app",
+  "homepage": "https://flowui-registry.vercel.app",
   "items": [
     {
       "name": "debounced-input",
@@ -10,7 +10,7 @@
       "description": "An input component with optional debouncing support.",
       "files": [
         {
-          "path": "registry/flowui/debounced-input.tsx",
+          "path": "registry/flowui/components/debounced-input.tsx",
           "type": "registry:component"
         }
       ],
@@ -20,18 +20,22 @@
       ]
     },
     {
-      "name": "text-divider",
+      "name": "auth-buttons",
       "type": "registry:component",
-      "title": "Text Divider",
-      "description": "A simple text divider component to separate content sections.",
+      "title": "Auth Buttons",
+      "description": "A set of authentication buttons (Google, Github) based on shadcn Button.",
       "files": [
         {
-          "path": "registry/flowui/text-divider.tsx",
+          "path": "registry/flowui/components/auth-buttons.tsx",
           "type": "registry:component"
         }
       ],
-      "dependencies": [],
-      "registryDependencies": []
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ]
     },
     {
       "name": "copy-button",
@@ -40,15 +44,15 @@
       "description": "A copy button component with two types: normal and animated.",
       "files": [
         {
-          "path": "registry/flowui/copy-button/copy-button.tsx",
+          "path": "registry/flowui/components/copy-button/copy-button.tsx",
           "type": "registry:component"
         },
         {
-          "path": "registry/flowui/copy-button/animated-copy-button.tsx",
+          "path": "registry/flowui/components/copy-button/animated-copy-button.tsx",
           "type": "registry:component"
         },
         {
-          "path": "registry/flowui/copy-button/animation-wrapper.tsx",
+          "path": "registry/flowui/components/copy-button/animation-wrapper.tsx",
           "type": "registry:component"
         }
       ],

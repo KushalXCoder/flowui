@@ -1,0 +1,13 @@
+{
+    "name": "lift-button",
+    "title": "Lift Button",
+    "description": "A button that scrolls the page or a container to the top or a target element.",
+    "files": {
+        "path": "registry/flowui/components/lift-button.tsx",
+        "type": "registry:component"
+    },
+    "dependencies": [
+        "lucide-react"
+    ],
+    "version": "1.0.0"
+}
