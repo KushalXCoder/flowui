@@ -4,6 +4,7 @@ import "./globals.css";
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { ThemeProvider } from "@/provider/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
+import metadataContent from "./metadata";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -25,10 +26,8 @@ const sans = Open_Sans({
   variable: "--font-sans",
 });
 
-export const metadata: Metadata = {
-  title: "FlowUI",
-  description: "A modern UI component library to build the entire flow of the component.",
-};
+// Kept the metadata in a separate file, to make it look clean
+export const metadata: Metadata = metadataContent;
 
 export default function RootLayout({
   children,
