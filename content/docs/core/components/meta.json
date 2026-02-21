@@ -2,7 +2,9 @@
     "title": "Components",
     "defaultOpen": true,
     "pages": [
+        "file-select",
         "lift-button",
+        "navbar",
         "speaker",
         "text-divider"
     ]

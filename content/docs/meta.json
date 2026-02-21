@@ -7,7 +7,6 @@
         "---flowui/core---",
         "core/components",
         "core/animated-components",
-        "core/blocks",
         "---flowui/shadcn---",
         "shadcn/components"
     ]
