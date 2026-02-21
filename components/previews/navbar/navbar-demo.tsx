@@ -1,6 +1,6 @@
 "use client";
 
-import { Navbar, NavbarContent, NavbarItem, NavbarLogo, NavbarLogoText } from "@/registry/flowui/blocks/navbar/navbar";
+import { Navbar, NavbarContent, NavbarGroup, NavbarItem, NavbarLogo, NavbarLogoText } from "@/registry/flowui/components/navbar/navbar";
 import { Command } from "lucide-react";
 
 export const NavbarDemo = () => {
@@ -14,21 +14,22 @@ export const NavbarDemo = () => {
                     FlowUI
                 </NavbarLogoText>
             </NavbarLogo>
-
-            <NavbarContent className="list-none">
-                <NavbarItem>
-                    <a href="#" className="text-muted-foreground hover:text-foreground transition-colors no-underline">Documentation</a>
-                </NavbarItem>
-                <NavbarItem>
-                    <a href="#" className="text-muted-foreground hover:text-foreground transition-colors no-underline">Components</a>
-                </NavbarItem>
-                <NavbarItem>
-                    <a href="#" className="text-muted-foreground hover:text-foreground transition-colors no-underline">Blocks</a>
-                </NavbarItem>
-                <NavbarItem as="button" className="px-4 py-1.5 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity">
-                    Get Started
-                </NavbarItem>
-            </NavbarContent>
+            <NavbarGroup>
+                <NavbarContent className="list-none">
+                    <NavbarItem>
+                        <a href="#" className="text-muted-foreground hover:text-foreground transition-colors no-underline">Documentation</a>
+                    </NavbarItem>
+                    <NavbarItem>
+                        <a href="#" className="text-muted-foreground hover:text-foreground transition-colors no-underline">Components</a>
+                    </NavbarItem>
+                    <NavbarItem>
+                        <a href="#" className="text-muted-foreground hover:text-foreground transition-colors no-underline">Blocks</a>
+                    </NavbarItem>
+                    <NavbarItem as="button" className="px-4 py-1.5 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity">
+                        Get Started
+                    </NavbarItem>
+                </NavbarContent>
+            </NavbarGroup>
         </Navbar>
     )
 }

@@ -1,5 +1,5 @@
 
-import { FileSelect, FileSelectLogo, FileSelectText } from "@/registry/flowui/blocks/file-select/file-select";
+import { FileSelect, FileSelectLogo, FileSelectText } from "@/registry/flowui/components/file-select/file-select";
 
 export const FileSelectDemo = () => {
   return (

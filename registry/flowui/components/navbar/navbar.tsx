@@ -15,7 +15,6 @@ type PolymorphicProps<T extends ElementType> = {
 } & CommonProps & Omit<ComponentPropsWithoutRef<T>, "as" | "className" | "children">;
 
 // Parent component
-
 export const Navbar = <T extends ElementType = "nav">({
     children,
     className,
@@ -26,7 +25,7 @@ export const Navbar = <T extends ElementType = "nav">({
     return (
         <Component
             className={cn(
-                "flex justify-between items-center",
+                "flex items-center gap-4",
                 className
             )}
             {...props}
@@ -36,8 +35,9 @@ export const Navbar = <T extends ElementType = "nav">({
     )
 }
 
-// Component for logo section on the left side of the navbar
+// Left side of the navbar
 
+// Component for logo section on the left side of the navbar
 export const NavbarLogo = <T extends ElementType = "a">({
     children,
     className,
@@ -59,7 +59,6 @@ export const NavbarLogo = <T extends ElementType = "a">({
 }
 
 // Component for text next to the logo
-
 export const NavbarLogoText = <T extends ElementType = "span">({
     children,
     className,
@@ -80,9 +79,54 @@ export const NavbarLogoText = <T extends ElementType = "span">({
     )
 }
 
-// Component for grouping navbar items on the right side
+// Center of the navbar
 
-export const NavbarContent = <T extends ElementType = "ul">({
+// Component to render at the center of the navbar
+export const NavbarCenter = <T extends ElementType = "div">({
+    children,
+    className,
+    as,
+    ...props
+} : PolymorphicProps<T>) => {
+    const Component = as || "div";
+    return (
+        <Component
+            className={cn(
+                "flex-1 flex justify-center items-center gap-2",
+                className
+            )}
+            {...props}
+        >
+            {children}
+        </Component>
+    )
+}
+
+// Right side of the navbar
+
+// Wrapper for the right side of the navbar
+export const NavbarContent = <T extends ElementType = "div">({
+    children,
+    className,
+    as,
+    ...props    
+}: PolymorphicProps<T>) => {
+    const Component = as || "div";
+    return (
+        <Component
+            className={cn(
+                "flex items-center ml-auto",
+                className
+            )}
+            {...props}
+        >
+            {children}
+        </Component>
+    )
+}
+
+// Component for grouping navbar items
+export const NavbarGroup = <T extends ElementType = "ul">({
     children,
     className,
     as,
@@ -103,7 +147,6 @@ export const NavbarContent = <T extends ElementType = "ul">({
 }
 
 // Component for individual navbar items
-
 export const NavbarItem = <T extends ElementType = "li">({
     children,
     className,

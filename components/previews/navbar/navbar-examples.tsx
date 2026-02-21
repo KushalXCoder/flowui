@@ -1,4 +1,4 @@
-import { Navbar, NavbarContent, NavbarItem, NavbarLogo, NavbarLogoText } from "@/registry/flowui/blocks/navbar/navbar";
+import { Navbar, NavbarContent, NavbarItem, NavbarLogo, NavbarLogoText } from "@/registry/flowui/components/navbar/navbar";
 
 // ─────────────────────────────────────────────────────────────────
 // Example 1: Clean SaaS / App Navbar
