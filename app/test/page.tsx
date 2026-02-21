@@ -1,10 +1,7 @@
 "use client";
 
-import { CopyButton } from "@/registry/flowui/components/copy-button/copy-button";
-import { GithubAuthButton, GoogleAuthButton } from "@/registry/flowui/components/auth-buttons";
-import ChangingText from "@/registry/flowui/animated-components/changing-text";
-import Speaker from "@/registry/flowui/components/speaker";
-import { Navbar, NavbarContent, NavbarItem, NavbarLogo, NavbarLogoText } from "@/registry/flowui/blocks/navbar/navbar";
+import { GoogleAuthButton } from "@/registry/flowui/components/auth-buttons";
+import { Navbar, NavbarGroup, NavbarContent, NavbarItem, NavbarLogo, NavbarLogoText, NavbarCenter } from "@/registry/flowui/components/navbar/navbar";
 import Logo from "@/components/app-components/logo";
 import { Input } from "@/components/ui/input";
 
@@ -37,18 +34,18 @@ const TestPage = () => {
                     <Logo className="size-7" />
                     <NavbarLogoText>FlowUI</NavbarLogoText>
                 </NavbarLogo>
-                <NavbarContent>
-                    <NavbarItem>
-                        <Input placeholder="Search..." />
-                    </NavbarItem>
-                </NavbarContent>
-                <NavbarContent>
-                    <NavbarItem>Home</NavbarItem>
-                    <NavbarItem>Features</NavbarItem>
-                    <NavbarItem>Pricing</NavbarItem>
-                    <NavbarItem>
-                        <GoogleAuthButton variant="ghost" text="Sign In" onClick={handleClick} />
-                    </NavbarItem>
+                <NavbarCenter>
+                    <Input placeholder="Search..." className="max-w-xs" />
+                </NavbarCenter>
+                <NavbarContent className="flex items-center">
+                    <NavbarGroup>
+                        <NavbarItem>Home</NavbarItem>
+                        <NavbarItem>Features</NavbarItem>
+                        <NavbarItem>Pricing</NavbarItem>
+                        <NavbarItem>
+                            <GoogleAuthButton variant="ghost" text="Sign In" onClick={handleClick} />
+                        </NavbarItem>
+                    </NavbarGroup>
                 </NavbarContent>
             </Navbar>
         </div>
