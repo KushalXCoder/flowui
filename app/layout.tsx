@@ -3,6 +3,7 @@ import { Caveat, Poppins, Geist_Mono, Open_Sans } from "next/font/google";
 import "./globals.css";
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { ThemeProvider } from "@/provider/theme-provider";
+import { Analytics } from "@vercel/analytics/next";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -47,6 +48,7 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
         >
+          <Analytics />
           <RootProvider>
             {children}
           </RootProvider>
