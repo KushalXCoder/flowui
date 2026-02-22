@@ -1,4 +1,4 @@
-al# <img src="public/logo.svg" width="32" height="32" align="center" /> Flow UI
+<img src="public/logo.svg" width="32" height="32" align="center" /> Flow UI
 
 **Beautifully designed, copy-paste components for your next project.**
 
