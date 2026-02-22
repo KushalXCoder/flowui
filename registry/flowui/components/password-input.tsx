@@ -52,7 +52,7 @@ export const PasswordInput = forwardRef<
                     type={visible ? "text" : "password"}
                     disabled={disabled}
                     className={cn(
-                        "flex rounded-md px-3 py-1.5 pe-10 disabled:cursor-not-allowed disabled:opacity-50",
+                        "w-full flex rounded-md px-3 py-1.5 pe-10 focus:outline-0 disabled:cursor-not-allowed disabled:opacity-50",
                         className
                     )}
                     {...props}
