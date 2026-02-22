@@ -1,6 +1,18 @@
 "use client";
 
+<<<<<<< Updated upstream
 import { Navbar, NavbarContent, NavbarItem, NavbarLogo, NavbarLogoText } from "@/registry/flowui/blocks/navbar/navbar";
+=======
+import {
+    Navbar,
+    NavbarCenter,
+    NavbarItem,
+    NavbarLogo,
+    NavbarLogoText,
+    NavbarGroup,
+    NavbarContent
+} from "@/registry/flowui/components/navbar/navbar";
+>>>>>>> Stashed changes
 import { Command } from "lucide-react";
 
 export const NavbarDemo = () => {
@@ -15,6 +27,7 @@ export const NavbarDemo = () => {
                 </NavbarLogoText>
             </NavbarLogo>
 
+<<<<<<< Updated upstream
             <NavbarContent className="list-none">
                 <NavbarItem>
                     <a href="#" className="text-muted-foreground hover:text-foreground transition-colors no-underline">Documentation</a>
@@ -25,6 +38,23 @@ export const NavbarDemo = () => {
                 <NavbarItem>
                     <a href="#" className="text-muted-foreground hover:text-foreground transition-colors no-underline">Blocks</a>
                 </NavbarItem>
+=======
+            <NavbarCenter>
+                <NavbarGroup>
+                    <NavbarItem>
+                        <a href="#" className="text-muted-foreground hover:text-foreground transition-colors no-underline">Documentation</a>
+                    </NavbarItem>
+                    <NavbarItem>
+                        <a href="#" className="text-muted-foreground hover:text-foreground transition-colors no-underline">Components</a>
+                    </NavbarItem>
+                    <NavbarItem>
+                        <a href="#" className="text-muted-foreground hover:text-foreground transition-colors no-underline">Blocks</a>
+                    </NavbarItem>
+                </NavbarGroup>
+            </NavbarCenter>
+
+            <NavbarContent>
+>>>>>>> Stashed changes
                 <NavbarItem as="button" className="px-4 py-1.5 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity">
                     Get Started
                 </NavbarItem>

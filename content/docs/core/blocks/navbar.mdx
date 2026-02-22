@@ -1,29 +1,46 @@
 ---
 title: Navbar
-description: A flexible, polymorphic navigation bar component for building consistent headers.
+description: A composable navigation layout with true center alignment and flexible slot-based structure.
 ---
 
 <Card
+<<<<<<< Updated upstream:content/docs/core/blocks/navbar.mdx
     title="Responsive Note"
     description="The current version of this block provides the structural layout. Mobile responsiveness (hamburger menu, mobile drawer) should be implemented according to your specific needs."
+=======
+    title="Design Philosophy"
+    description="Slot-based architecture with true flex-based center alignment. No enforced viewport logic, fully composable, and polymorphic."
+>>>>>>> Stashed changes:content/docs/core/components/navbar.mdx
     className="mb-8"
 />
 
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { NavbarDemo } from '@/components/previews/navbar/navbar-demo';
-import { SaaSNavbar, EditorialNavbar, StoreNavbar } from '@/components/previews/navbar/navbar-examples';
 
 <div className="w-full flex items-center justify-center min-h-[250px] rounded-xl border bg-card text-card-foreground shadow-sm p-4 md:p-10">
     <NavbarDemo />
 </div>
+
+## Highlights
+
+- **Slot-based architecture (Left / Center / Right)**: Intuitive layout positioning.
+- **True flex-based center alignment**: Guaranteed centering of the middle slot.
+- **Polymorphic as support**: Render any component or HTML element.
+- **No enforced viewport logic**: Purely layout-driven, you control responsiveness.
+- **Fully composable**: Use only the atoms you need.
+- **Router agnostic**: Works seamlessly with any library (Next.js, Remix, etc.).
 
 ## Installation
 
 <Tabs items={['CLI', 'Manual']}>
 <Tab value="CLI">
 
+<<<<<<< Updated upstream:content/docs/core/blocks/navbar.mdx
 Run the following command to add the navbar to your project:
+=======
+Run the following command to add the `navbar` component:
+>>>>>>> Stashed changes:content/docs/core/components/navbar.mdx
 
 ```bash
 npx shadcn@latest add @flowui/navbar
@@ -37,7 +54,7 @@ npx shadcn@latest add @flowui/navbar
 
 ### Create Navbar Component
 
-Create the component `navbar.tsx` in your components directory and copy the following code:
+Create `components/ui/navbar.tsx` and paste the following code:
 
 ```tsx title="components/ui/navbar.tsx"
 import { cn } from "@/lib/utils";
@@ -53,6 +70,9 @@ type PolymorphicProps<T extends ElementType> = {
     as?: T;
 } & CommonProps & Omit<ComponentPropsWithoutRef<T>, "as" | "className" | "children">;
 
+/**
+ * Main Navbar container.
+ */
 export const Navbar = <T extends ElementType = "nav">({
     children,
     className,
@@ -62,7 +82,80 @@ export const Navbar = <T extends ElementType = "nav">({
     const Component = as || "nav";
     return (
         <Component
-            className={cn("flex justify-between items-center", className)}
+            className={cn(
+                "relative flex items-center w-full",
+                className
+            )}
+            {...props}
+        >
+            {children}
+        </Component>
+    )
+}
+
+/**
+ * Left slot of the navbar.
+ */
+export const NavbarLeft = <T extends ElementType = "div">({
+    children,
+    className,
+    as,
+    ...props
+}: PolymorphicProps<T>) => {
+    const Component = as || "div";
+    return (
+        <Component
+            className={cn(
+                "flex items-center gap-2 flex-1 justify-start",
+                className
+            )}
+            {...props}
+        >
+            {children}
+        </Component>
+    )
+}
+
+/**
+ * Center slot of the navbar.
+ * Ensures its content is always in the perfect center.
+ */
+export const NavbarCenter = <T extends ElementType = "div">({
+    children,
+    className,
+    as,
+    ...props
+} : PolymorphicProps<T>) => {
+    const Component = as || "div";
+    return (
+        <Component
+            className={cn(
+                "flex items-center justify-center flex-1",
+                className
+            )}
+            {...props}
+        >
+            {children}
+        </Component>
+    )
+}
+
+/**
+ * Right slot of the navbar.
+ */
+export const NavbarRight = <T extends ElementType = "div">({
+    children,
+    className,
+    as,
+    ...props    
+}: PolymorphicProps<T>) => {
+    const Component = as || "div";
+    return (
+        <Component
+            className={cn(
+                "flex items-center justify-end gap-2 flex-1",
+                className
+            )}
             {...props}
         >
             {children}
@@ -79,7 +172,7 @@ export const NavbarLogo = <T extends ElementType = "a">({
     const Component = as || "a";
     return (
         <Component
-            className={cn("flex items-center gap-2", className)}
+            className={cn("flex items-center gap-2 shrink-0", className)}
             {...props}
         >
             {children}
@@ -96,7 +189,7 @@ export const NavbarLogoText = <T extends ElementType = "span">({
     const Component = as || "span";
     return (
         <Component
-            className={cn("text-sm", className)}
+            className={cn("text-sm font-semibold", className)}
             {...props}
         >
             {children}
@@ -104,7 +197,7 @@ export const NavbarLogoText = <T extends ElementType = "span">({
     )
 }
 
-export const NavbarContent = <T extends ElementType = "ul">({
+export const NavbarGroup = <T extends ElementType = "ul">({
     children,
     className,
     as,
@@ -113,7 +206,7 @@ export const NavbarContent = <T extends ElementType = "ul">({
     const Component = as || "ul";
     return (
         <Component
-            className={cn("flex items-center gap-4", className)}
+            className={cn("flex items-center gap-4 list-none", className)}
             {...props}
         >
             {children}
@@ -130,7 +223,10 @@ export const NavbarItem = <T extends ElementType = "li">({
     const Component = as || "li";
     return (
         <Component
-            className={cn("text-sm", className)}
+            className={cn(
+                "text-sm transition-colors hover:text-foreground/80",
+                className
+            )}
             {...props}
         >
             {children}
@@ -145,134 +241,89 @@ export const NavbarItem = <T extends ElementType = "li">({
 </Tab>
 </Tabs>
 
-## Usage
+## Structure
 
-### Basic Structure
+The `Navbar` uses a flexible slot-based architecture for consistent layouts.
 
-The `Navbar` follows a compound component pattern, allowing you to compose your header exactly how you need it.
+### Alignment Slots
+- **`NavbarLeft`**: Flushed left, takes up 1/3 of the space by default to help centering.
+- **`NavbarCenter`**: Takes the center 1/3, ensuring children are centered relative to the whole bar.
+- **`NavbarRight`**: Flushed right, takes up 1/3 of the space.
 
-```tsx
-import { 
-    Navbar, 
-    NavbarLogo, 
-    NavbarLogoText, 
-    NavbarContent, 
-    NavbarItem 
-} from "@/components/ui/navbar";
-
-export function Header() {
-    return (
-        <Navbar>
-            <NavbarLogo href="/">
-                <LogoIcon />
-                <NavbarLogoText>BrandName</NavbarLogoText>
-            </NavbarLogo>
-            
-            <NavbarContent>
-                <NavbarItem><a href="/docs">Docs</a></NavbarItem>
-                <NavbarItem><a href="/blog">Blog</a></NavbarItem>
-            </NavbarContent>
-        </Navbar>
-    )
-}
-```
+### Content Atoms
+- **`NavbarLogo`**: Wrapper for branding elements.
+- **`NavbarLogoText`**: Styled text for brand names.
+- **`NavbarGroup`**: Flex group for horizontal lists.
+- **`NavbarItem`**: Individual navigation links or buttons.
 
 ## Examples
 
-### Minimalist
-A clean, border-bottom design suitable for portfolios or minimal landing pages.
+### Basic Compose
 
-<div className="flex flex-col gap-4 p-6 border rounded-lg mt-4 mb-2 bg-muted/20">
-    <SaaSNavbar />
-</div>
+A standard layout with logo, middle links, and a call-to-action.
 
 ```tsx
-<Navbar className="w-full border-b bg-background px-8 py-4">
-    <NavbarLogo href="/">
-        <NavbarLogoText className="font-bold text-xl uppercase tracking-widest">
-            Simple
-        </NavbarLogoText>
-    </NavbarLogo>
+<Navbar className="px-6 py-4 border-b">
+    <NavbarLeft>
+        <NavbarLogo href="/">
+            <div className="w-6 h-6 bg-primary rounded" />
+            <NavbarLogoText>FlowUI</NavbarLogoText>
+        </NavbarLogo>
+    </NavbarLeft>
 
-    <NavbarContent className="gap-8">
-        <NavbarItem><a href="#" className="...">Work</a></NavbarItem>
-        <NavbarItem><a href="#" className="...">About</a></NavbarItem>
-        <NavbarItem><a href="#" className="...">Contact</a></NavbarItem>
-    </NavbarContent>
+    <NavbarCenter>
+        <NavbarGroup>
+            <NavbarItem><a href="#">Features</a></NavbarItem>
+            <NavbarItem><a href="#">Pricing</a></NavbarItem>
+        </NavbarGroup>
+    </NavbarCenter>
+
+    <NavbarRight>
+        <button className="...">Sign In</button>
+    </NavbarRight>
 </Navbar>
 ```
 
-### With Search & Actions
-A more complex layout featuring a search bar and social icons.
+### Polymorphic Usage
 
-<div className="flex flex-col gap-4 p-6 border rounded-lg mt-4 mb-2 bg-muted/20">
-    <EditorialNavbar />
-</div>
-
-### Floating Centered
-A modern, pill-shaped design often used for localized navigation or landing page "hero" sections.
-
-<div className="flex flex-col gap-4 p-6 border rounded-lg mt-4 mb-2 bg-muted/20">
-    <StoreNavbar />
-</div>
+Change the underlying element using the `as` prop.
 
 ```tsx
-<Navbar className="w-full max-w-2xl mx-auto px-4 py-2 border rounded-full bg-background/80 backdrop-blur-lg shadow-lg">
-    <NavbarLogo>
-        <Menu className="..." />
-        <NavbarLogoText className="...">FLOW</NavbarLogoText>
-    </NavbarLogo>
-
-    <NavbarContent className="justify-center flex-1">
-        <NavbarItem>Home</NavbarItem>
-        <NavbarItem>Blog</NavbarItem>
-        <NavbarItem>Pricing</NavbarItem>
-    </NavbarContent>
-
-    <NavbarContent>
-        <NavbarItem>
-            <Avatar />
-        </NavbarItem>
-    </NavbarContent>
-</Navbar>
-```
-
-## Polymorphism
-
-All navbar components support the `as` prop, allowing you to change the underlying HTML element while maintaining the same styles.
-
-```tsx
-{/* Render as a div instead of a nav */}
-<Navbar as="div" className="...">
-    {/* Render as a button instead of an anchor */}
+<Navbar as="header">
     <NavbarLogo as="button" onClick={() => ...}>
-        Logo
+        Back
     </NavbarLogo>
     
-    {/* Render as a div instead of a list item */}
-    <NavbarContent as="div">
-        <NavbarItem as="span">Item</NavbarItem>
-    </NavbarContent>
+    <NavbarCenter as="div">
+        <NavbarItem as="span">Page Title</NavbarItem>
+    </NavbarCenter>
+
+    <NavbarRight>
+        <NavbarItem as="button">Action</NavbarItem>
+    </NavbarRight>
 </Navbar>
 ```
 
 ## Props
 
 ### Common Props
-These props are available on all components: `Navbar`, `NavbarLogo`, `NavbarLogoText`, `NavbarContent`, and `NavbarItem`.
+Available on all components.
 
 | Prop | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `as` | `ElementType` | Varies | The HTML element or React component to render as. |
-| `children` | `ReactNode` | - | The content to be rendered. |
-| `className` | `string` | - | Additional CSS classes for styling. |
+| `as` | `ElementType` | Varies | Element to render as. |
+| `className` | `string` | - | Custom styling. |
+| `children` | `ReactNode` | - | Component content. |
 
 ### Default Elements
 
 | Component | Default Element |
 | :--- | :--- |
 | `Navbar` | `nav` |
+| `NavbarLeft` | `div` |
+| `NavbarCenter` | `div` |
+| `NavbarRight` | `div` |
 | `NavbarLogo` | `a` |
 | `NavbarLogoText` | `span` |
-| `NavbarContent` | `ul` |
+| `NavbarGroup` | `ul` |
 | `NavbarItem` | `li` |

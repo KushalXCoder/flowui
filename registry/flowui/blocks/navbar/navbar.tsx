@@ -82,7 +82,56 @@ export const NavbarLogoText = <T extends ElementType = "span">({
 
 // Component for grouping navbar items on the right side
 
+<<<<<<< Updated upstream:registry/flowui/blocks/navbar/navbar.tsx
 export const NavbarContent = <T extends ElementType = "ul">({
+=======
+// Component to render at the center of the navbar
+export const NavbarCenter = <T extends ElementType = "div">({
+    children,
+    className,
+    as,
+    ...props
+}: PolymorphicProps<T>) => {
+    const Component = as || "div";
+    return (
+        <Component
+            className={cn(
+                "flex-1 flex justify-center items-center gap-2",
+                className
+            )}
+            {...props}
+        >
+            {children}
+        </Component>
+    )
+}
+
+// Right side of the navbar
+
+// Wrapper for the right side of the navbar
+export const NavbarContent = <T extends ElementType = "div">({
+    children,
+    className,
+    as,
+    ...props
+}: PolymorphicProps<T>) => {
+    const Component = as || "div";
+    return (
+        <Component
+            className={cn(
+                "flex items-center ml-auto",
+                className
+            )}
+            {...props}
+        >
+            {children}
+        </Component>
+    )
+}
+
+// Component for grouping navbar items
+export const NavbarGroup = <T extends ElementType = "ul">({
+>>>>>>> Stashed changes:registry/flowui/components/navbar/navbar.tsx
     children,
     className,
     as,
