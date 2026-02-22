@@ -1,14 +1,11 @@
 "use client";
 
-import { GoogleAuthButton } from "@/registry/flowui/components/auth-buttons";
+import { AuthButton } from "@/registry/flowui/components/auth-buttons";
 import { Navbar, NavbarGroup, NavbarContent, NavbarItem, NavbarLogo, NavbarLogoText, NavbarCenter } from "@/registry/flowui/components/navbar/navbar";
 import Logo from "@/components/app-components/logo";
 import { Input } from "@/components/ui/input";
 
 const TestPage = () => {
-    const handleClick = () => {
-        console.log("Github clicked");
-    }
     return (
         <div className="h-screen flex flex-col items-center font-poppins gap-10 px-20 py-7">
             {/* <div>
@@ -43,11 +40,18 @@ const TestPage = () => {
                         <NavbarItem>Features</NavbarItem>
                         <NavbarItem>Pricing</NavbarItem>
                         <NavbarItem>
-                            <GoogleAuthButton variant="ghost" text="Sign In" onClick={handleClick} />
+                            <AuthButton variant="ghost" provider="google" text="Sign In" />
                         </NavbarItem>
                     </NavbarGroup>
                 </NavbarContent>
             </Navbar>
+            <div className="flex items-center gap-4 mt-10">
+                <AuthButton variant="outline" provider="google" text="Login with Google" />
+                <AuthButton variant="outline" provider="apple" text="Login with Apple" />
+                <AuthButton variant="outline" provider="linkedin" text="Login with LinkedIn" />
+                <AuthButton variant="outline" provider="github" text="Login with Github" />
+                <AuthButton variant="outline" provider="facebook" text="Login with Facebook" />
+            </div>
         </div>
     )
 }
