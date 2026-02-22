@@ -4,6 +4,7 @@ import { AuthButton } from "@/registry/flowui/components/auth-buttons";
 import { Navbar, NavbarGroup, NavbarContent, NavbarItem, NavbarLogo, NavbarLogoText, NavbarCenter } from "@/registry/flowui/components/navbar/navbar";
 import Logo from "@/components/app-components/logo";
 import { Input } from "@/components/ui/input";
+import { PasswordInput } from "@/registry/flowui/components/password-input";
 
 const TestPage = () => {
     return (
@@ -52,6 +53,7 @@ const TestPage = () => {
                 <AuthButton variant="outline" provider="github" text="Login with Github" />
                 <AuthButton variant="outline" provider="facebook" text="Login with Facebook" />
             </div>
+            <PasswordInput />
         </div>
     )
 }
