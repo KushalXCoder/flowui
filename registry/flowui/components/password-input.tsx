@@ -12,7 +12,7 @@ type PasswordInputProps = {
 import { cn } from "@/lib/utils";
 import { Eye, EyeOff } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { ComponentPropsWithoutRef,forwardRef, useState } from "react";
+import { ComponentPropsWithoutRef, forwardRef, useState } from "react";
 
 export const PasswordInput = forwardRef<
     HTMLInputElement,
