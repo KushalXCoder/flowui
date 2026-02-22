@@ -52,6 +52,21 @@
             "version": "1.0.0"
         },
         {
+            "name": "password-input",
+            "type": "registry:component",
+            "title": "Password Input",
+            "description": "A specialized input component for passwords with built-in visibility toggling.",
+            "files": [
+                {
+                "path": "registry/flowui/components/password-input.tsx",
+                "type": "registry:component"
+                }
+            ],
+            "dependencies": [
+                "lucide-react"
+            ]
+        },
+        {
             "name": "scrollbar",
             "title": "Scrollbar",
             "description": "An animated scroll progress bar component.",

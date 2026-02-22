@@ -5,6 +5,7 @@
         "file-select",
         "lift-button",
         "navbar",
+        "password-input",
         "speaker",
         "text-divider"
     ]
