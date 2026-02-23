@@ -5,14 +5,14 @@
 type PasswordInputProps = {
     className?: string;
     containerClassName?: string;
+    iconClassName?: string;
     visibleIcon?: LucideIcon;
     hiddenIcon?: LucideIcon;
 } & ComponentPropsWithoutRef<"input">;
 
 import { cn } from "@/lib/utils";
-import { Eye, EyeOff } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
-import { ComponentPropsWithoutRef, forwardRef, useState } from "react";
+import { Eye, EyeOff, LucideIcon } from "lucide-react";
+import { ComponentPropsWithoutRef, forwardRef, ReactNode, useState } from "react";
 
 export const PasswordInput = forwardRef<
     HTMLInputElement,
@@ -21,6 +21,7 @@ export const PasswordInput = forwardRef<
     ({
         className,
         containerClassName,
+        iconClassName,
         disabled,
         visibleIcon = Eye,
         hiddenIcon = EyeOff,
@@ -63,11 +64,15 @@ export const PasswordInput = forwardRef<
                     disabled={disabled}
                     aria-label={visible ? "Hide password" : "Show password"}
                     className={cn(
-                        "absolute right-0 me-3 inline-flex justify-center items-center text-muted-foreground hover:text-foreground focus:outline-none disabled:opacity-50"
+                        "absolute right-0 me-3 inline-flex justify-center items-center"
                     )}
                 >
                     <Icon
-                        className="size-5"
+                        className={cn(
+                            "size-5 text-muted-foreground hover:text-foreground focus:outline-none",
+                            disabled && "hover:text-red-500",
+                            iconClassName
+                        )}
                     />
                 </button>
             </div>
