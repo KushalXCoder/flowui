@@ -1,9 +1,9 @@
 "use client";
 
 import { PasswordInput } from "@/registry/flowui/components/password-input";
-import { Lock, Unlock } from "lucide-react";
+import { Eye, Lock, Unlock } from "lucide-react";
 
-export function CustomIconExample() {
+export const CustomIconExample = () => {
     return (
         <div className="w-2/4 space-y-2">
             <label className="text-sm font-medium">Custom Lock Icons</label>
@@ -16,13 +16,24 @@ export function CustomIconExample() {
     );
 }
 
-export function DisabledExample() {
+export const DisabledExample = () => {
     return (
         <div className="w-full max-w-sm mx-auto">
             <PasswordInput
                 disabled
                 value="secretpassword"
                 placeholder="Disabled input"
+            />
+        </div>
+    );
+}
+
+export const CustomizedExample = () => {
+    return (
+        <div className="w-full max-w-sm mx-auto">
+            <PasswordInput
+                containerClassName="focus-within:ring-2 focus-within:ring-accent"
+                placeholder="password"
             />
         </div>
     );
