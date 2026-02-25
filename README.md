@@ -1,4 +1,9 @@
-<img src="public/logo.svg" width="32" height="32" align="center" /> Flow UI
+<div>
+  <img src="public/logo.svg" width="32" height="32" align="center" />
+  Flow UI
+</div>
+
+</br>
 
 **Beautifully designed, copy-paste components for your next project.**
 
@@ -11,13 +16,18 @@ FlowUI is a developer-focused UI component collection built with modern tools li
 
 ---
 
+<img width="1877" height="874" alt="image" src="https://github.com/user-attachments/assets/8d87b430-6e2b-45c5-9f99-e304fc985717" />
+
+---
+
+
 ## ✨ Features
 
 - **Built for Real Projects**: Components you actually build in almost every project — not just another button and card collection.
 
 - **Developer Flow First**: Designed to reduce repetitive UI work and keep you focused on shipping, not rebuilding patterns.
 
-- **Motion with Purpose**: Thoughtful animations powered by [Framer Motion](https://www.framer.com/motion/) that enhance usability without distraction.
+- **Motion with Purpose**: Thoughtful animations powered by [Framer Motion](https://www.framer.com/motion) that enhance usability without distraction.
 
 - **Copy, Customize, Own**: Fully copy-paste components — no lock-in, no hidden abstractions.
 
@@ -26,6 +36,10 @@ FlowUI is a developer-focused UI component collection built with modern tools li
 ## 🚀 Quick Start
 
 Flow UI acts as a registry extension to Shadcn UI.
+
+Soon, will apply for the registry on [Shadcn](https://ui.shadcn.com) and then this steps will be gone. But till then, follow this steps, only if you want to use the **components from flowui/shadcn**.
+
+**Note: To use the components from flowui/core, you don't need to follow this installation.**
 
 ### 1. Initialize Shadcn UI
 If you haven't already, initialize Shadcn UI in your project:
