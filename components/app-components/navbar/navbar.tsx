@@ -59,15 +59,15 @@ export const Navbar = () => {
     >
       <Logo />
 
-      <ul className="flex items-center gap-4 text-sm font-poppins">
-        <Link href="/docs/introduction">Docs</Link>
-        <Link href="/docs/installation">Components</Link>
+      <ul className="flex items-center gap-2 text-sm font-poppins">
+        <Link href="/docs/introduction" className="hover:bg-accent p-2 rounded-md">Docs</Link>
+        <Link href="/docs/installation" className="hover:bg-accent p-2 rounded-md">Components</Link>
 
         <div className="h-4 w-px border border-dashed border-gray-500 dark:border-zinc-700" />
 
         <div className="flex items-center gap-2">
           <Link href="https://github.com/KushalXCoder/flowui">
-            <Button className="gap-2 bg-transparent text-black hover:bg-accent dark:text-white cursor-pointer">
+            <Button className="flex items-center gap-4 bg-transparent text-black hover:bg-accent dark:text-white cursor-pointer">
               <Github />
               <NumberTicker key={stars} value={stars} />
             </Button>
