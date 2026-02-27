@@ -2,6 +2,11 @@
     import { motion } from "motion/react";
     import { Divider } from "../divider";
 import Footer from "../footer";
+import { Animations } from "./animations";
+import { Content } from "./content";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { AuthButton } from "@/registry/flowui/components/auth-buttons";
 
     const LandingPage = () => {
         return (
@@ -26,21 +31,28 @@ import Footer from "../footer";
                 {/* Content */}
                 
                 {/* This height cause, I want the center container to be minimum of entire screen - navbar */}
-                <div className="min-h-[calc(100vh-76px)] flex flex-col">
+                <div className="min-h-[calc(100vh-76px)] flex flex-col gap-10 font-poppins pt-10 px-10">
+                    <Content />
+                    <div className="relative flex-1 border-x border-t border-dashed border-gray-400 px-10 py-8">
+                        <div className="flex justify-between items-center gap-3 *:w-1/6">
+                            <AuthButton variant="outline" provider="google" />
+                            <AuthButton variant="outline" provider="github" />
+                            <AuthButton variant="outline" provider="facebook" />
+                            <AuthButton variant="outline" provider="apple" />
+                            <AuthButton variant="outline" provider="linkedin" />
+                        </div>
+                        <Button
+                            variant="outline"
+                            className="absolute bottom-3 right-3 w-fit flex items-center gap-2 mt-2 hover:gap-4 cursor-pointer"
+                        >
+                            Playground
+                            <ArrowUpRight />
+                        </Button>
+                    </div>
                 </div>
 
                 <Divider type="screen" />
                 <Footer />
-                {/* <div className="flex flex-col flex-1 w-full">
-                    <div className="flex-1 w-full">
-                        <div className="h-full flex items-center font-poppins bg-gray-50 dark:bg-secondary">
-                            <div className="relative w-full">
-                                <Animations />
-                                <Content />
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
             </div>
         )
     }
