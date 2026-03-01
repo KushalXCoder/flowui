@@ -4,6 +4,7 @@ import { Button } from "../../ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { SlantedMarquee } from "../marquee";
 
 export const Content = () => {
     return (
@@ -38,6 +39,12 @@ export const Content = () => {
                         </Button>
                     </Link>
                 </div>
+            </div>
+            {/* 3 Carousel Code */}
+            <div className="w-[800px] h-[250px] relative overflow-hidden flex flex-col justify-center gap-8 pe-10">
+                <SlantedMarquee duration={18} />
+                <SlantedMarquee duration={25} reverse />
+                <SlantedMarquee duration={40} />
             </div>
             {/* <div className="relative flex items-center justify-center">
                 <Image
