@@ -51,7 +51,7 @@ export const Navbar = () => {
       initial={{ opacity: 0, y: -12, filter: "blur(4px)" }}
       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       transition={{ duration: 0.6, ease: "easeOut", delay }}
-      className={`flex justify-between items-center ${
+      className={`flex justify-between items-center bg-white ${
         showFixed
           ? "border-x border-dashed border-gray-400 dark:border-gray-800 px-10 py-3"
           : ""
@@ -92,7 +92,7 @@ export const Navbar = () => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -60, opacity: 0 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            className="fixed top-0 left-0 w-full z-50 px-30 bg-white dark:bg-black border-b border-dashed border-gray-400 dark:border-gray-800"
+            className="fixed top-0 left-0 w-full z-50 px-40 bg-accent dark:bg-black border-b border-dashed border-gray-400 dark:border-gray-800"
           >
             <NavContent />
           </motion.nav>

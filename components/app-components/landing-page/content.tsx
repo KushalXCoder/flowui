@@ -46,31 +46,6 @@ export const Content = () => {
                 <SlantedMarquee duration={25} reverse />
                 <SlantedMarquee duration={40} />
             </div>
-            {/* <div className="relative flex items-center justify-center">
-                <Image
-                    src="/peep.svg"
-                    alt="Peep Illustration"
-                    height={1000}
-                    width={1000}
-                    draggable={false}
-                    priority
-                    className="w-70 select-none"
-                />
-
-                <Image
-                    src="/arrow.svg"
-                    alt="Arrow"
-                    height={1000}
-                    width={1000}
-                    draggable={false}
-                    priority
-                    className="absolute top-10 -right-3 w-20 rotate-6"
-                />
-
-                <p className="absolute top-2 -right-25 max-w-40 text-lg text-end text-gray-600 font-caveat leading-snug -rotate-2">
-                    It just makes everything easier !
-                </p>
-            </div> */}
         </motion.div>
     )
 }
