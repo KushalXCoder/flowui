@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import ChangingText from "@/registry/flowui/animated-components/changing-text";
-import StackedCard from "@/registry/flowui/animated-components/stacked-card";
 import { CopyButton } from "@/registry/flowui/components/copy-button/copy-button";
 import DebouncedInput from "@/registry/flowui/components/debounced-input";
 import LiftButton from "@/registry/flowui/components/lift-button";
@@ -13,6 +12,9 @@ import TextDivider from "@/registry/flowui/components/text-divider";
 import { ArrowUp, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { AuthButton } from "@/registry/flowui/components/auth-buttons";
+import Speaker from "@/registry/flowui/components/speaker";
+import { FileSelect, FileSelectLogo, FileSelectText } from "@/registry/flowui/components/file-select/file-select";
 
 const BentoCell = ({
     children,
@@ -25,7 +27,7 @@ const BentoCell = ({
 }) => (
     <Tooltip>
         <TooltipTrigger asChild>
-            <div className={`group relative rounded-2xl border border-border/60 bg-card/80 backdrop-blur-sm flex items-center justify-center overflow-hidden p-5 transition-all duration-200 hover:border-border hover:shadow-sm hover:bg-card ${className}`}>
+            <div className={`group relative rounded-2xl border border-border bg-card/80 backdrop-blur-sm flex items-center justify-center overflow-hidden p-5 transition-all duration-200 hover:border-border hover:shadow-sm hover:bg-card ${className}`}>
                 {children}
             </div>
         </TooltipTrigger>
@@ -112,6 +114,32 @@ export const Showcase = () => {
                     <CellLabel>divider</CellLabel>
                     <TextDivider text="or continue with" className="w-full text-xs text-muted-foreground" />
                     <TextDivider text="·····" variant="rounded" lineColor="bg-border" className="w-full text-muted-foreground" />
+                </BentoCell>
+                <BentoCell
+                    className="col-start-1 col-span-1 row-start-3 row-span-1 flex-col gap-2"
+                    label="Speaker"
+                >
+                    <CellLabel>speaker</CellLabel>
+                    <Speaker text="Flow UI components are crafted with precision." className="size-8 cursor-pointer hover:text-primary transition-colors mt-1" />
+                </BentoCell>
+                <BentoCell
+                    className="col-start-2 col-span-2 row-start-3 row-span-1 flex-col gap-2"
+                    label="Auth Buttons"
+                >
+                    <CellLabel>auth buttons</CellLabel>
+                    <AuthButton provider="google" text="Continue without Google" variant="outline" className="w-fit rounded-lg text-[13px]" />
+                </BentoCell>
+                <BentoCell
+                    className="col-start-4 col-span-2 row-start-3 row-span-1 flex-col gap-2"
+                    label="File Select"
+                >
+                    <CellLabel>file upload</CellLabel>
+                    <FileSelect className="w-1/2 h-11 border-dashed border-border bg-background/50 hover:bg-background/80 mt-1 cursor-pointer">
+                        <div className="flex items-center gap-2.5 px-3">
+                            <FileSelectLogo className="size-4 text-muted-foreground" />
+                            <FileSelectText className="text-[13px] text-muted-foreground">Upload Files</FileSelectText>
+                        </div>
+                    </FileSelect>
                 </BentoCell>
             </div>
             <Link

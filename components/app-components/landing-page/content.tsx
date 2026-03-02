@@ -4,6 +4,7 @@ import { Button } from "../../ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { SlantedMarquee } from "../marquee";
+import { AuthButton } from "@/registry/flowui/components/auth-buttons";
 
 export const Content = () => {
     return (
