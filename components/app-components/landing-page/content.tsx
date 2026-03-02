@@ -2,24 +2,24 @@ import { labels } from "@/lib/data";
 import { motion } from "motion/react";
 import { Button } from "../../ui/button";
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
+import { SlantedMarquee } from "../marquee";
 
 export const Content = () => {
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0 }}
-            className="w-full flex justify-center items-center px-0 py-10 bg-secondary dark:bg-black"
-        >
-            <div className="flex flex-col gap-4 border-l border-dashed border-gray-400 px-10">
+        <motion.div className="w-full flex justify-between items-center bg-secondary dark:bg-black font-mono">
+            <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-3">
-                    <p className="text-gray-500 text-sm">OPEN SOURCE</p>
-                    <h1 className="font-caveat text-6xl font-semibold -mt-2">
+                    {/* <p className="text-gray-500 text-sm font-mono">Making development flow easier and faster</p> */}
+                    <div className="border border-border border-dashed w-fit p-1">
+                        <div className="h-full w-full border border-border border-dashed px-4 py-1 text-sm">
+                            v1.0.0
+                        </div>
+                    </div>
+                    <h1 className="font-caveat text-6xl font-semibold -mt-2 flex items-end gap-3">
                         Flow UI
                     </h1>
-                    <p className="max-w-2xl text-sm text-gray-700">
+                    <p className="max-w-xl text-sm text-gray-700 font-mono">
                         A UI lib consisting of components that you build daily or for every project with the aim to make your development flow easier and faster.
                     </p>
                 </div>
@@ -28,45 +28,27 @@ export const Content = () => {
                     {labels.map((label) => (
                         <span
                             key={label}
-                            className="px-4 py-1 rounded-2xl border border-dashed border-gray-300 text-sm hover:border-black"
+                            className="px-4 py-1 rounded-2xl border border-dashed border-border text-sm hover:border-gray-500 transition-all duration-200"
                         >
                             {label}
                         </span>
                     ))}
                 </div>
 
-                <Link href="/docs/introduction">
-                    <Button className="w-fit flex items-center gap-2 mt-2 hover:gap-4 cursor-pointer">
-                        Explore Components
-                        <ArrowRight />
-                    </Button>
-                </Link>
+                <div className="flex items-center gap-5">
+                    <Link href="/docs/introduction">
+                        <Button className="w-fit flex items-center gap-2 mt-2 hover:gap-4 cursor-pointer">
+                            Explore Components
+                            <ArrowRight />
+                        </Button>
+                    </Link>
+                </div>
             </div>
-
-            <div className="relative flex items-center justify-center w-105 h-90">
-                <Image
-                    src="/peep.svg"
-                    alt="Peep Illustration"
-                    height={1000}
-                    width={1000}
-                    draggable={false}
-                    priority
-                    className="w-80 select-none"
-                />
-
-                <Image
-                    src="/arrow.svg"
-                    alt="Arrow"
-                    height={1000}
-                    width={1000}
-                    draggable={false}
-                    priority
-                    className="absolute top-10 right-10 w-20 rotate-6"
-                />
-
-                <p className="absolute top-2 -right-10 max-w-40 text-lg text-end text-gray-600 font-caveat leading-snug -rotate-2">
-                    It just makes everything easier !
-                </p>
+            {/* 3 Carousel Code */}
+            <div className="w-200 h-62.5 relative overflow-hidden flex flex-col justify-center gap-8 pe-10">
+                <SlantedMarquee duration={25} reverse />
+                <SlantedMarquee duration={25} />
+                <SlantedMarquee duration={25} reverse />
             </div>
         </motion.div>
     )

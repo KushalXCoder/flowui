@@ -32,8 +32,7 @@ const NumberTicker = ({ value, duration = 2 }: NumberTickerProps) => {
 
   return (
     <motion.span
-      className="inline-block text-right"
-      style={{ minWidth: "3ch" }}
+      className="inline-block mt-0.5"
     >
       {rounded}
     </motion.span>

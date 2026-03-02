@@ -10,20 +10,14 @@ export const Divider = ({ type, className }: { type: string, className?: string 
         transition={{ duration: 1, ease: "easeInOut", delay: 0.4 }}
         className={cn(`
             pointer-events-none
-            absolute
-            inset-x-0
+            relative
+            w-screen
             left-1/2
             -translate-x-1/2
             h-4
             overflow-hidden
+            bg-background
             border-y border-dashed border-gray-400 dark:border-zinc-800
-            z-10
-
-            before:content-['']
-            before:absolute
-            before:inset-y-0
-            before:left-[-100vw]
-            before:w-[200vw]
           `, className)}
         style={{
           width: type === "full" ? "100%" : "100vw"

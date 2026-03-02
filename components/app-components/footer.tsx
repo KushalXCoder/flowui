@@ -18,14 +18,13 @@ const Footer = () => {
         },
     };
     return (
-        <footer className="border-x border-dashed border-gray-400 dark:border-zinc-800 font-poppins relative">
-            <Divider type="screen" className="top-0 dark:border-zinc-800" />
+        <footer className="bg-background border-gray-400 dark:border-zinc-800 font-poppins relative">
             <motion.div
                 variants={footerAnimation}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ amount: 0.5 }}
-                className="pt-14 pb-10 px-10 flex justify-between items-start"
+                className="p-10 flex justify-between items-start"
             >
                 <div>
                     <h1 className="text-7xl font-semibold font-caveat dark:text-white">FLOWUI</h1>
