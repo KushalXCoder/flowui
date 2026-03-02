@@ -3,14 +3,14 @@
 import { motion } from "motion/react";
 
 const components = [
-  "Auth Button",
-  "Card",
-  "Input",
-  "Avatar",
-  "Modal",
-  "Badge",
-  "Dropdown",
-  "Tooltip",
+  "Auth Buttons",
+  "Changing Text",
+  "Speaker",
+  "Lift Button",
+  "Debounced Input",
+  "Scrollbar",
+  "File Select",
+  "Password Input",
 ];
 
 interface SlantedMarqueeProps {

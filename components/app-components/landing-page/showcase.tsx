@@ -6,11 +6,13 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import ChangingText from "@/registry/flowui/animated-components/changing-text";
 import StackedCard from "@/registry/flowui/animated-components/stacked-card";
 import { CopyButton } from "@/registry/flowui/components/copy-button/copy-button";
+import DebouncedInput from "@/registry/flowui/components/debounced-input";
 import LiftButton from "@/registry/flowui/components/lift-button";
 import { PasswordInput } from "@/registry/flowui/components/password-input";
 import TextDivider from "@/registry/flowui/components/text-divider";
 import { ArrowUp, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 const BentoCell = ({
     children,
@@ -38,9 +40,10 @@ const CellLabel = ({ children }: { children: React.ReactNode }) => (
 );
 
 export const Showcase = () => {
+    const [showVal, setShowVal] = useState<string>("");
     return (
-        <div className="flex-1 relative w-full rounded-t-2xl border border-b-0 border-border/40 bg-muted/20 overflow-hidden px-7 pt-7 pb-12 font-mono">
-            <div className="grid grid-cols-6 grid-rows-[140px_100px_120px] gap-2.5">
+        <div className="">
+            <div className="grid grid-cols-6 grid-rows-[140px_100px_120px] gap-2.5 mb-5">
                 <BentoCell
                     className="col-start-1 col-span-2 row-start-1 row-span-1 flex-col items-start justify-between"
                     label="Changing Text"
@@ -88,10 +91,19 @@ export const Showcase = () => {
                     label="Debounced Input"
                 >
                     <CellLabel>debounced input</CellLabel>
-                    <Input
-                        placeholder="type and wait…"
-                        className="text-sm h-9 bg-background w-full"
-                    />
+                    <div className="w-full flex items-center gap-5">
+                        <DebouncedInput
+                            debouncing
+                            placeholder="Type something..."
+                            className="w-2/3"
+                            onDebouncedChange={(value) => setShowVal(value)}
+                        />
+                        <Input
+                            className="text-muted-foreground w-1/3 focus-visible:border-border focus-visible:ring-0"
+                            value={showVal ?? "Debounced Output"}
+                            readOnly
+                        />
+                    </div>
                 </BentoCell>
                 <BentoCell
                     className="col-start-6 col-span-1 row-start-2 row-span-2 flex-col gap-3"
@@ -100,25 +112,6 @@ export const Showcase = () => {
                     <CellLabel>divider</CellLabel>
                     <TextDivider text="or continue with" className="w-full text-xs text-muted-foreground" />
                     <TextDivider text="·····" variant="rounded" lineColor="bg-border" className="w-full text-muted-foreground" />
-                </BentoCell>
-                <BentoCell
-                    className="col-start-1 col-span-5 row-start-3 row-span-1 flex-col items-start justify-between gap-2"
-                    label="Stacked Card"
-                >
-                    <CellLabel>drag to swap</CellLabel>
-                    <div className="relative w-full flex-1 min-h-0">
-                        <StackedCard>
-                            {(["#f1f5f9", "#e2e8f0", "#cbd5e1"] as const).map((bg, i) => (
-                                <div
-                                    key={i}
-                                    className="absolute inset-0 rounded-xl border border-border flex items-center justify-center text-xs text-muted-foreground font-mono"
-                                    style={{ background: bg }}
-                                >
-                                    card {i + 1}
-                                </div>
-                            ))}
-                        </StackedCard>
-                    </div>
                 </BentoCell>
             </div>
             <Link

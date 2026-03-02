@@ -2,7 +2,6 @@ import { Navbar } from "../navbar/navbar";
 import { motion } from "motion/react";
 import { Divider } from "../divider";
 import Footer from "../footer";
-import { Animations } from "./animations";
 import { Content } from "./content";
 import { Tweets } from "../tweets";
 import { Showcase } from "./showcase";
@@ -37,7 +36,8 @@ const LandingPage = () => {
 
             <Divider type="screen" />
 
-            <div className="px-10 py-15">
+            <div className="px-10 py-5">
+                <h1 className="font-caveat text-4xl">What devs say ?</h1>
                 <Tweets />
             </div>
 
