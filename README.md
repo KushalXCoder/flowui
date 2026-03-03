@@ -15,9 +15,7 @@ FlowUI is a developer-focused UI component collection built with modern tools li
 [![Styling: Tailwind](https://img.shields.io/badge/Styling-Tailwind_CSS-38B2AC.svg)](https://tailwindcss.com/)
 
 ---
-
-<img width="1877" height="874" alt="image" src="https://github.com/user-attachments/assets/8d87b430-6e2b-45c5-9f99-e304fc985717" />
-
+<img width="1898" height="869" alt="image" src="https://github.com/user-attachments/assets/efcae18e-b14f-42df-8775-0507baa6d9b1" />
 ---
 
 
@@ -77,7 +75,7 @@ npx shadcn@latest add @flowui/copy-button
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **Primitives**: [Radix UI](https://www.radix-ui.com/)
+- **Primitives**: [Shadcn](https://ui.shadcn.com/)
 - **Animations**: [Motion](https://motion.dev/)
 - **Docs**: [FumaDocs](https://fumadocs.com/)
 
