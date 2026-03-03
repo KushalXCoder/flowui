@@ -2,7 +2,8 @@ import { Link2 } from "lucide-react";
 import { Card, CardContent, CardHeader } from "../ui/card";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import TwitterEmbed from "../twitter-embed";
+import TwitterEmbed from "./twitter-embed";
+import Image from "next/image";
 
 type Platform = "linkedin" | "x";
 
@@ -24,7 +25,7 @@ const tweetsData: Tweet[] = [
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7432328850279305216?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A7432328850279305216%2C7432352706738110465%29&dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287432352706738110465%2Curn%3Ali%3Aactivity%3A7432328850279305216%29",
     content: "awesome project, keep it up!",
     platform: "linkedin",
-    avatar: "/orcdev.webp",
+    avatar: "/user-tweets/orcdev.webp",
   },
   {
     id: "2",
@@ -33,7 +34,7 @@ const tweetsData: Tweet[] = [
     link: "https://x.com/yannick_ferire/status/2023387208028475840",
     content: "Nice project, it's on top of shadcn?",
     platform: "x",
-    avatar: "/yannick_ferire.jpg",
+    avatar: "/user-tweets/yannick_ferire.jpg",
   },
   {
     id: "3",
@@ -42,28 +43,9 @@ const tweetsData: Tweet[] = [
     link: "https://x.com/maheshnani122/status/2028470453988409496",
     content: "Then its very useful",
     platform: "x",
-    avatar: "/mahesh_nani.jpg",
+    avatar: "/user-tweets/mahesh_nani.jpg",
   }
 ];
-
-const LinkedInIcon = ({ className }: { className?: string }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 128 128"
-    aria-label="LinkedIn"
-    role="img"
-    className={cn("shrink-0", className)}
-  >
-    <path
-      fill="#0A66C2"
-      d="M116 3H12a8.91 8.91 0 0 0-9 8.8v104.42a8.91 8.91 0 0 0 9 8.78h104a8.93 8.93 0 0 0 9-8.81V11.77A8.93 8.93 0 0 0 116 3"
-    />
-    <path
-      fill="#fff"
-      d="M21.06 48.73h18.11V107H21.06zm9.06-29a10.5 10.5 0 1 1-10.5 10.49a10.5 10.5 0 0 1 10.5-10.49m20.41 29h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75v32H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53z"
-    />
-  </svg>
-);
 
 const AvatarFallback = ({ name }: { name: string }) => {
   const initials = name
@@ -76,7 +58,7 @@ const AvatarFallback = ({ name }: { name: string }) => {
   return (
     <span
       aria-hidden="true"
-      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-slate-200 to-slate-300 text-xs font-semibold text-slate-600"
+      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-slate-200 to-slate-300 text-xs font-semibold text-slate-600"
     >
       {initials}
     </span>
@@ -103,9 +85,13 @@ const TweetCard = ({ tweet, className }: TweetCardProps) => {
       <CardHeader className="flex flex-row items-center gap-3 p-0">
         {/* Avatar */}
         {tweet.avatar ? (
-          <img
+          <Image
             src={tweet.avatar}
             alt={tweet.name}
+            width={1000}
+            height={1000}
+            priority
+            draggable={false}
             className="h-9 w-9 shrink-0 rounded-full object-cover"
           />
         ) : (
