@@ -8,7 +8,7 @@ import { AuthButton } from "@/registry/flowui/components/auth-buttons";
 
 export const Content = () => {
     return (
-        <motion.div className="w-full flex justify-between items-center bg-secondary dark:bg-black font-mono">
+        <motion.div className="w-full flex justify-between items-center bg-background font-mono">
             <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-3">
                     {/* <p className="text-gray-500 text-sm font-mono">Making development flow easier and faster</p> */}
