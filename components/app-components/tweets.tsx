@@ -30,9 +30,19 @@ const tweetsData: Tweet[] = [
     id: "2",
     name: "Yannick Ferire",
     handle: "@yannickferire",
+    link: "https://x.com/yannick_ferire/status/2023387208028475840",
     content: "Nice project, it's on top of shadcn?",
     platform: "x",
     avatar: "/yannick_ferire.jpg",
+  },
+  {
+    id: "3",
+    name: "Mahesh Nani",
+    handle: "@maheshnani122",
+    link: "https://x.com/maheshnani122/status/2028470453988409496",
+    content: "Then its very useful",
+    platform: "x",
+    avatar: "/mahesh_nani.jpg",
   }
 ];
 
@@ -54,24 +64,6 @@ const LinkedInIcon = ({ className }: { className?: string }) => (
     />
   </svg>
 );
-
-const PLATFORM_ICONS: Record<Platform, React.FC<{ className?: string }>> = {
-  linkedin: LinkedInIcon,
-  x: ({ className }) => (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      aria-label="Twitter / X"
-      role="img"
-      className={cn("shrink-0", className)}
-    >
-      <path
-        fill="currentColor"
-        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-      />
-    </svg>
-  ),
-};
 
 const AvatarFallback = ({ name }: { name: string }) => {
   const initials = name
@@ -97,8 +89,6 @@ interface TweetCardProps {
 }
 
 const TweetCard = ({ tweet, className }: TweetCardProps) => {
-  const PlatformIcon = PLATFORM_ICONS[tweet.platform] ?? PLATFORM_ICONS.x;
-
   return (
     <Card
       className={cn(
