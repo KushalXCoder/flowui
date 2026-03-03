@@ -17,7 +17,7 @@ export const Divider = ({ type, className }: { type: string, className?: string 
             h-4
             overflow-hidden
             bg-background
-            border-y border-dashed border-gray-400 dark:border-zinc-800
+            border-y border-dashed border-gray-400 dark:border-border
           `, className)}
         style={{
           width: type === "full" ? "100%" : "100vw"

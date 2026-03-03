@@ -76,8 +76,8 @@ const TweetCard = ({ tweet, className }: TweetCardProps) => {
       className={cn(
         "group relative flex flex-col gap-3 rounded-2xl bg-card p-5 shadow-sm font-poppins",
         "transition-all duration-200 ease-out",
-        "hover:border-gray-300 hover:shadow-md",
-        "hover:bg-accent/70",
+        "hover:border-border hover:shadow-md",
+        "hover:bg-accent/30",
         className,
       )}
     >
@@ -142,7 +142,7 @@ export const Tweets = () => {
           <TweetCard key={tweet.id} tweet={tweet} />
         ))}
         <div className="flex flex-1 justify-center items-center rounded-lg relative">
-          <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,#e5e7eb_0px,#e5e7eb_1px,transparent_1px,transparent_12px)]" />
+          <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,currentColor_0px,currentColor_1px,transparent_1px,transparent_12px)] opacity-[0.05] dark:opacity-[0.1]" />
           <h1 className="font-mono text-sm text-gray-500 text-center z-10">
             Waiting for more feedbacks :)
           </h1>

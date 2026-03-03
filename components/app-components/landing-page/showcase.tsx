@@ -11,7 +11,7 @@ import { PasswordInput } from "@/registry/flowui/components/password-input";
 import TextDivider from "@/registry/flowui/components/text-divider";
 import { ArrowUp, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { AuthButton } from "@/registry/flowui/components/auth-buttons";
 import Speaker from "@/registry/flowui/components/speaker";
 import { FileSelect, FileSelectLogo, FileSelectText } from "@/registry/flowui/components/file-select/file-select";
@@ -43,6 +43,8 @@ const CellLabel = ({ children }: { children: React.ReactNode }) => (
 
 export const Showcase = () => {
     const [showVal, setShowVal] = useState<string>("");
+    const [input, setInput] = useState<string>("secret");
+    
     return (
         <div className="">
             <div className="grid grid-cols-6 grid-rows-[140px_100px_120px] gap-2.5 mb-5">
@@ -64,9 +66,10 @@ export const Showcase = () => {
                 >
                     <CellLabel>password input</CellLabel>
                     <PasswordInput
-                        value="secret"
+                        value={input}
                         className="text-sm bg-background h-9"
                         containerClassName="w-full"
+                        onChange={(e) => setInput(e.target.value)}
                     />
                 </BentoCell>
                 <BentoCell
