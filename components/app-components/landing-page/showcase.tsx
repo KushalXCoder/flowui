@@ -120,13 +120,16 @@ export const Showcase = () => {
                     label="Speaker"
                 >
                     <CellLabel>speaker</CellLabel>
-                    <Speaker text="Flow UI components are crafted with precision." className="size-8 cursor-pointer hover:text-primary transition-colors mt-1" />
+                    <Speaker
+                        text="Flow UI components are crafted with precision."
+                        className="border rounded-full size-9 p-2 cursor-pointer hover:text-primary transition-colors mt-1"
+                    />
                 </BentoCell>
                 <BentoCell
                     className="col-start-2 col-span-2 row-start-3 row-span-1 flex-col gap-2"
                     label="Auth Buttons"
                 >
-                    <CellLabel>auth buttons</CellLabel>
+                    <CellLabel>auth button</CellLabel>
                     <AuthButton provider="google" text="Continue without Google" variant="outline" className="w-fit rounded-lg text-[13px]" />
                 </BentoCell>
                 <BentoCell
