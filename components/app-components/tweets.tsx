@@ -163,7 +163,7 @@ export const Tweets = () => {
             </p>
           </div>
           <Link
-            href="https://www.linkedin.com/feed/update/urn:li:activity:7432328850279305216?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A7432328850279305216%2C7432352706738110465%29&dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287432352706738110465%2Curn%3Ali%3Aactivity%3A7432328850279305216%29"
+            href="https://x.com/orcdev/status/2026616239427039580"
             target="_blank"
             className="cursor-pointer z-10"
           >

@@ -4,16 +4,14 @@ import { Button } from "../../ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { SlantedMarquee } from "../marquee";
-import { AuthButton } from "@/registry/flowui/components/auth-buttons";
 
 export const Content = () => {
     return (
         <motion.div className="w-full flex justify-between items-center bg-background font-mono">
             <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-3">
-                    {/* <p className="text-gray-500 text-sm font-mono">Making development flow easier and faster</p> */}
-                    <div className="border border-border border-dashed w-fit p-1">
-                        <div className="h-full w-full border border-border border-dashed px-4 py-1 text-sm">
+                    <div className="border border-gray-300 dark:border-border border-dashed w-fit p-1">
+                        <div className="h-full w-full border border-gray-300 dark:border-border border-dashed px-4 py-1 text-sm">
                             v1.0.0
                         </div>
                     </div>
@@ -29,7 +27,7 @@ export const Content = () => {
                     {labels.map((label) => (
                         <span
                             key={label}
-                            className="px-4 py-1 rounded-2xl border border-dashed border-border text-sm hover:border-gray-500 transition-all duration-200"
+                            className="px-4 py-1 rounded-2xl border border-dashed border-gray-300 dark:border-border text-sm hover:border-gray-600 dark:hover:border-gray-500 transition-all duration-200"
                         >
                             {label}
                         </span>
