@@ -16,7 +16,6 @@ FlowUI is a developer-focused UI component collection built with modern tools li
 
 ---
 <img width="1898" height="869" alt="image" src="https://github.com/user-attachments/assets/efcae18e-b14f-42df-8775-0507baa6d9b1" />
----
 
 ## ✨ Features
 
