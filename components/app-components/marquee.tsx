@@ -24,8 +24,10 @@ export const SlantedMarquee = ({
   reverse = false,
   className = "",
 }: SlantedMarqueeProps) => {
+  const repeatedComponents = [...components, ...components];
+
   return (
-    <div className={`rotate-[-45deg] w-[140%] ${className}`}>
+    <div className={`-rotate-45 overflow-hidden ${className}`}>
       <motion.div
         animate={{ x: reverse ? ["-50%", "0%"] : ["0%", "-50%"] }}
         transition={{
@@ -33,12 +35,12 @@ export const SlantedMarquee = ({
           duration,
           ease: "linear",
         }}
-        className="flex gap-16 whitespace-nowrap border-y border-dashed bg-accent"
+        className="flex gap-16 whitespace-nowrap border-y border-dashed bg-accent w-fit"
       >
-        {[...components, ...components].map((item, i) => (
+        {repeatedComponents.map((item, i) => (
           <span
             key={i}
-            className="text-sm tracking-wide border-x border-dashed px-8 bg-background"
+            className="text-sm tracking-wide border-x border-dashed px-8 py-1 bg-background shrink-0"
           >
             {item}
           </span>
