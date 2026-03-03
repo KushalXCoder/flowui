@@ -1,4 +1,4 @@
-import { Link2 } from "lucide-react";
+import { CheckCircle2, Link2 } from "lucide-react";
 import { Card, CardContent, CardHeader } from "../ui/card";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -74,10 +74,9 @@ const TweetCard = ({ tweet, className }: TweetCardProps) => {
   return (
     <Card
       className={cn(
-        "group relative flex flex-col gap-3 rounded-2xl bg-card p-5 shadow-sm font-poppins",
+        "group relative flex flex-col gap-3 rounded-2xl bg-card p-5 shadow-sm font-mono",
+        "hover:bg-accent/80 hover:border-border hover:shadow-md",
         "transition-all duration-200 ease-out",
-        "hover:border-border hover:shadow-md",
-        "hover:bg-accent/30",
         className,
       )}
     >
@@ -100,8 +99,9 @@ const TweetCard = ({ tweet, className }: TweetCardProps) => {
 
         {/* Name + handle */}
         <div className="min-w-0 flex-1">
-          <p className="truncate text-sm font-semibold leading-tight text-foreground">
+          <p className="flex items-center gap-1.5 truncate text-sm font-semibold leading-tight text-foreground">
             {tweet.name}
+            <CheckCircle2 className="size-4 fill-blue-500" />
           </p>
           {tweet.handle && (
             <p className="truncate text-xs text-muted-foreground">
@@ -135,18 +135,60 @@ const TweetCard = ({ tweet, className }: TweetCardProps) => {
 
 export const Tweets = () => {
   return (
-    <div className="flex items-stretch gap-5">
-      <TwitterEmbed />
-      <div className="flex flex-1 flex-col gap-3 my-6">
+    <div className="flex items-stretch gap-5 mt-5">
+      <Card
+        className={cn(
+          "max-w-1/2 font-mono",
+          "hover:bg-accent/80 hover:border-border hover:shadow-md",
+          "transition-all duration-200 ease-out"
+        )}
+      >
+        <CardHeader className="flex flex-row items-center gap-3">
+          <Image
+            src="/user-tweets/orcdev.webp"
+            alt="OrcDev's avatar"
+            width={1000}
+            height={1000}
+            priority
+            draggable={false}
+            className="h-9 w-9 shrink-0 rounded-full object-cover"
+          />
+          <div className="min-w-0 flex-1">
+            <p className="flex items-center gap-1.5 truncate text-sm font-semibold leading-tight text-foreground">
+              OrcDev
+              <CheckCircle2 className="size-4 fill-blue-500" />
+            </p>
+            <p className="truncate text-xs text-muted-foreground">
+              @theorcdev
+            </p>
+          </div>
+          <Link
+            href="https://www.linkedin.com/feed/update/urn:li:activity:7432328850279305216?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A7432328850279305216%2C7432352706738110465%29&dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287432352706738110465%2Curn%3Ali%3Aactivity%3A7432328850279305216%29"
+            target="_blank"
+            className="cursor-pointer z-10"
+          >
+            <Link2 className="h-5 w-5 opacity-80" />
+          </Link>
+        </CardHeader>
+        <CardContent className="flex flex-col gap-2">
+          <h1>
+            Episode 17 of Community Open Source Reviews, I reviewed 8 awesome projects ⚔️
+          </h1>
+          <p className="flex flex-col">
+            <span className="text-green-500">- Flow UI by @_TheCodster</span>
+            <span>- Web Development Resources by @denicmarko</span>
+            <span>- QDock by @Saltan_PK</span>
+            <span>- ikiform by @preetsuthar17</span>
+            <span>- Vesper Launcher</span>
+            <span>- Warcraftcn by me</span>
+            <span>- Pillage first, ask questions later by Show more</span>
+          </p>
+        </CardContent>
+      </Card>
+      <div className="flex flex-1 flex-col gap-3">
         {tweetsData.map((tweet) => (
           <TweetCard key={tweet.id} tweet={tweet} />
         ))}
-        <div className="flex flex-1 justify-center items-center rounded-lg relative">
-          <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,currentColor_0px,currentColor_1px,transparent_1px,transparent_12px)] opacity-[0.05] dark:opacity-[0.1]" />
-          <h1 className="font-mono text-sm text-gray-500 text-center z-10">
-            Waiting for more feedbacks :)
-          </h1>
-        </div>
       </div>
     </div>
   );

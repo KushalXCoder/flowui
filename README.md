@@ -16,60 +16,42 @@ FlowUI is a developer-focused UI component collection built with modern tools li
 
 ---
 <img width="1898" height="869" alt="image" src="https://github.com/user-attachments/assets/efcae18e-b14f-42df-8775-0507baa6d9b1" />
----
-
 
 ## ✨ Features
 
-- **Built for Real Projects**: Components you actually build in almost every project — not just another button and card collection.
-
-- **Developer Flow First**: Designed to reduce repetitive UI work and keep you focused on shipping, not rebuilding patterns.
-
-- **Motion with Purpose**: Thoughtful animations powered by [Framer Motion](https://www.framer.com/motion) that enhance usability without distraction.
-
-- **Copy, Customize, Own**: Fully copy-paste components — no lock-in, no hidden abstractions.
-
-- **Modern by Design**: Crafted with Tailwind CSS, shadcn-inspired patterns, and clean React architecture for flexibility and control.
+- **Practical Components**: Focuses on components you actually build daily, like Auth buttons, search inputs, and password toggles.
+- **Dual Support**: Works with both our custom CLI and as a registry for the Shadcn CLI.
+- **Copy-Paste Flow**: Designed for speed—copy the code, paste it into your project, and start building.
+- **Lightweight Design**: Built with Tailwind CSS and standard React patterns to keep things fast and easy to tweak.
+- **Subtle Interactions**: Uses Motion (Framer Motion) for specific components where animations add real value.
 
 ## 🚀 Quick Start
 
-Flow UI acts as a registry extension to Shadcn UI.
+Soon, will apply for the registry on Shadcn and then this steps will be gone. But till then, follow this steps, only if you want to use the components from flowui/shadcn.
 
-Soon, will apply for the registry on [Shadcn](https://ui.shadcn.com) and then this steps will be gone. But till then, follow this steps, only if you want to use the **components from flowui/shadcn**.
+Note: To use the components from flowui/core, you don't need to follow this installation.
 
-**Note: To use the components from flowui/core, you don't need to follow this installation.**
-
-### 1. Initialize Shadcn UI
-If you haven't already, initialize Shadcn UI in your project:
 ```bash
-npx shadcn@latest init
+npx shadcn@latest add https://flowui-registry.vercel.app/r/copy-button.json
 ```
 
-### 2. Configure Registry
-Add the Flow UI registry to your `components.json`:
-```json
-{
-  "registries": {
-    "@flowui": "https://flowui-registry.vercel.app/r/{name}.json"
-  }
-}
-```
+### Manual Installation
+If you prefer not to use the CLI, you can simply find the component in our [documentation](https://flowui.vercel.app) and copy-paste the source code directly into your project.
 
-### 3. Add Components
-Install any component directly via CLI:
-```bash
-npx shadcn@latest add @flowui/copy-button
-```
+> Most components are built with standard Tailwind and React. Animations are powered by **Motion**, which is only required for specific components that use advanced interactions.
+
 
 ## 📦 Components
 
-| Standard Components | Animated Components | Blocks |
+| Utilities | Animated | Layout |
 | :--- | :--- | :--- |
 | Auth Buttons | Changing Text | File Select |
-| Copy Button | Scrollbar |
-| Lift Button | |
-| Speaker | |
-| Text Divider | |
+| Password Input | Text Divider |
+| Debounced Input | Scrollbar |
+| Copy Button | | Speaker |
+| Lift Button |
+
+
 
 ## 🛠 Tech Stack
 
@@ -85,6 +67,4 @@ Licensed under the [MIT License](LICENSE).
 
 ---
 
-<p align="center">
-  Built with ❤️ by <a href="https://github.com/KushalXCoder">KushalXCoder</a>
-</p>
+Built with ❤️ by <a href="https://github.com/KushalXCoder">KushalXCoder</a>

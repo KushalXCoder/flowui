@@ -20,7 +20,7 @@ export const Content = () => {
                     <h1 className="font-caveat text-6xl font-semibold -mt-2 flex items-end gap-3">
                         Flow UI
                     </h1>
-                    <p className="max-w-xl text-sm text-gray-700 font-mono">
+                    <p className="max-w-xl text-sm text-gray-700 dark:text-gray-500 font-mono">
                         A UI lib consisting of components that you build daily or for every project with the aim to make your development flow easier and faster.
                     </p>
                 </div>
@@ -46,10 +46,10 @@ export const Content = () => {
                 </div>
             </div>
             {/* 3 Carousel Code */}
-            <div className="w-200 h-62.5 relative overflow-hidden flex flex-col justify-center gap-8 pe-10">
-                <SlantedMarquee duration={25} reverse />
-                <SlantedMarquee duration={25} />
-                <SlantedMarquee duration={25} reverse />
+            <div className="w-150 h-62.5 relative overflow-hidden flex flex-col justify-center gap-8">
+                <SlantedMarquee duration={40} reverse />
+                <SlantedMarquee duration={40} />
+                <SlantedMarquee duration={40} reverse />
             </div>
         </motion.div>
     )
