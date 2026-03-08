@@ -1,63 +1,49 @@
 import { Metadata } from "next";
 
 const metadataContent: Metadata = {
-    title: {
-        default: "FlowUI - Beautifully designed components for your next project",
-        template: "%s | FlowUI",
-    },
+  metadataBase: new URL("https://flowui.vercel.app"),
+
+  title: {
+    default: "FlowUI — Copy-Paste UI Components for Next.js & Tailwind",
+    template: "%s | FlowUI",
+  },
+
+  description:
+    "Beautiful UI components built with shadcn/ui, Tailwind CSS, and Framer Motion. Copy, paste, and build faster.",
+
+  alternates: {
+    canonical: "https://flowui.vercel.app",
+  },
+
+  openGraph: {
+    type: "website",
+    url: "https://flowui.vercel.app",
+    siteName: "FlowUI",
+    title: "FlowUI — Copy-Paste UI Components",
     description:
-        "FlowUI is a developer-focused UI component collection built with shadcn/ui, Framer Motion, and Tailwind CSS — designed to accelerate your development flow with copy-paste components.",
-    keywords: [
-        "Next.js",
-        "React",
-        "Tailwind CSS",
-        "Framer Motion",
-        "Shadcn UI",
-        "UI Components",
-        "Developer Flow",
-        "FlowUI",
-        "Design System",
-        "Component Library",
-        "Copy-Paste Components",
+      "Developer-focused UI components built with modern tools to improve your development flow.",
+    images: [
+      {
+        url: "https://flowui.vercel.app/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "FlowUI UI Components Library",
+      },
     ],
-    authors: [
-        {
-            name: "KushalXCoder",
-            url: "https://github.com/KushalXCoder",
-        },
-    ],
-    creator: "KushalXCoder",
-    openGraph: {
-        type: "website",
-        locale: "en_US",
-        url: "https://flowui.vercel.app",
-        title: "FlowUI - Beautifully designed components for your next project",
-        description:
-            "A developer-focused UI component collection built with modern tools to improve your development flow.",
-        siteName: "FlowUI",
-        images: [
-            {
-                url: "/logo.svg",
-                width: 1200,
-                height: 630,
-                alt: "FlowUI",
-            },
-        ],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: "FlowUI - Beautifully designed components for your next project",
-        description:
-            "A developer-focused UI component collection built with modern tools to improve your development flow.",
-        images: ["/logo.svg"],
-        creator: "@KushalXCoder",
-    },
-    icons: {
-        icon: "/logo.svg",
-        shortcut: "/logo.svg",
-        apple: "/logo.svg",
-    },
-    metadataBase: new URL("https://flowui.vercel.app"),
-}
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "FlowUI — Copy-Paste UI Components",
+    description:
+      "Developer-focused UI components built with shadcn/ui, Tailwind, and Framer Motion.",
+    images: ["https://flowui.vercel.app/og-image.png"],
+    creator: "@KushalXCoder",
+  },
+
+  icons: {
+    icon: "/logo.svg",
+  },
+};
 
 export default metadataContent;
