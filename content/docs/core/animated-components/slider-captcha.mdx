@@ -1,0 +1,113 @@
+---
+title: Slider Captcha
+description: A smooth, interactive sliding puzzle for lightweight human verification and bot prevention.
+---
+
+import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Callout } from 'fumadocs-ui/components/callout';
+import SliderCaptchaDemo from "@/components/previews/slider-captcha/slider-captcha-demo";
+
+<div className="w-full h-[400px] flex items-center justify-center rounded-xl border bg-card text-card-foreground shadow-sm bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)]">
+    <SliderCaptchaDemo />
+</div>
+
+The **Slider Captcha** is a modern, user-friendly alternative to traditional "Select all squares with traffic lights" captchas. It uses butter-smooth Framer Motion physics to create an interactive verification step that's easy for humans but difficult for simple automation scripts.
+
+## Installation
+
+<Tabs items={['CLI', 'Manual']}>
+<Tab value="CLI">
+
+Run the following command to add the `slider-captcha` component to your project:
+
+```bash
+npx shadcn@latest add @flowui/slider-captcha
+```
+
+</Tab>
+<Tab value="Manual">
+
+<Steps>
+<Step>
+
+### Install Dependencies
+This component requires `motion` (Framer Motion) and `lucide-react`.
+
+```bash
+npm install motion lucide-react
+```
+
+</Step>
+<Step>
+
+## Features
+
+- **Smooth Draggable**: Powered by Framer Motion for natural fluid movement.
+- **Customizable Appearance**: Every part (track, puzzle piece, target) is fully themeable through standard Tailwind classes.
+- **Randomized Seeding**: The puzzle target position is randomized on every mount to prevent static solving.
+- **Accessibility Focused**: Includes a `tolerance` prop to adjust difficulty for users with varying motor skills.
+
+### Create Component
+Copy the implementation from your registry into `components/ui/slider-captcha.tsx`.
+
+```tsx title="components/ui/slider-captcha.tsx"
+"use client";
+
+import { cn } from "@/lib/utils";
+import { Puzzle } from "lucide-react";
+import { motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+
+type SliderCaptchaProps = {
+    className?: string,
+    puzzleClassName?: string,
+    targetClassName?: string,
+    puzzleIcon?: React.ReactNode;
+    tolerance?: number,
+    handleDrag?: () => void,
+    onSuccess?: () => void,
+    onFailure?: () => void,
+};
+
+export const SliderCaptcha = ({
+    className,
+    puzzleClassName,
+    targetClassName,
+    puzzleIcon,
+    tolerance = 5,
+    handleDrag,
+    onSuccess,
+    onFailure,
+}: SliderCaptchaProps) => {
+    // Implementation as provided in the registry...
+}
+```
+
+</Step>
+</Steps>
+
+</Tab>
+</Tabs>
+
+## Props
+
+The component is designed to be highly declarative and fits right into your existing Shadcn-styled forms.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `tolerance` | `number` | `5` | Margin of error (in pixels) for successful alignment. |
+| `puzzleIcon` | `React.ReactNode` | `<Puzzle />` | The component centered inside the slider. |
+| `onSuccess` | `() => void` | - | Triggered when the puzzle is correctly aligned. |
+| `onFailure` | `() => void` | - | Triggered when the slider is released outside the target. |
+| `className` | `string` | - | Classes for the outer track container. |
+| `puzzleClassName`| `string` | - | Classes for the draggable slider thumb. |
+| `targetClassName`| `string` | - | Classes for the dotted target zone. |
+
+<Callout type="info" className="mt-8">
+**Best Practice**: Use the `onSuccess` callback to unlock form submission buttons or reveal sensitive form segments. This provides a clear, interactive hurdle for bots without degrading the user experience.
+</Callout>
+
+### References
+
+Inspired by StealthWritter Slider

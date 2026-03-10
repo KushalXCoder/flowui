@@ -3,6 +3,7 @@
     "defaultOpen": true,
     "pages": [
         "changing-text",
-        "scrollbar"
+        "scrollbar",
+        "slider-captcha"
     ]
 }
