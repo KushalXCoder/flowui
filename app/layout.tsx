@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Caveat, Poppins, Geist_Mono, Open_Sans } from "next/font/google";
+import { Caveat, Poppins, Open_Sans, Mona_Sans } from "next/font/google";
 import "./globals.css";
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { ThemeProvider } from "@/provider/theme-provider";
@@ -16,7 +16,7 @@ const caveat = Caveat({
   variable: "--font-caveat",
 });
 
-const mono = Geist_Mono({
+const mono = Mona_Sans({
   subsets: ["latin"],
   variable: "--font-mono",
 });

@@ -5,7 +5,6 @@
         "file-select",
         "lift-button",
         "password-input",
-        "speaker",
-        "text-divider"
+        "speaker"
     ]
 }

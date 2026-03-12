@@ -17,8 +17,8 @@ const DebouncedInput = ({ debouncing, debouncingValue = 500, onDebouncedChange, 
     // This is used so that user typing is not affected by the debouncing
     const [input, setInput] = useState(
         isControlled ?
-        (props.value as string) :
-        (props.defaultValue as string) ?? ""
+            (props.value as string) :
+            (props.defaultValue as string) ?? ""
     );
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const DebouncedInput = ({ debouncing, debouncingValue = 500, onDebouncedChange, 
     }, [props.value, isControlled]);
 
     useEffect(() => {
-        if(!debouncing) return;
+        if (!debouncing) return;
 
         // Set timer
         const timer = setTimeout(() => {
@@ -44,7 +44,7 @@ const DebouncedInput = ({ debouncing, debouncingValue = 500, onDebouncedChange, 
             {...props}
             value={isControlled ? props.value : input}
             onChange={(e) => {
-                if(!isControlled) {
+                if (!isControlled) {
                     setInput(e.target.value);
                 }
                 props.onChange?.(e);
