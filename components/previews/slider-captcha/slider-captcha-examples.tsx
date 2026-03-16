@@ -1,66 +1,102 @@
 "use client";
 
-import { SliderCaptcha } from "@/registry/flowui/components/slider-captcha";
-import { Lock, ArrowRight, ShieldCheck, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { SliderCaptcha } from "@/registry/flowui/components/slider-captcha";
+import { Fingerprint, Lock, Puzzle, RefreshCw, ShieldCheck } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
 
-// 1. Basic Example - The clean minimal setup
-export const BasicSlider = () => (
-    <div className="w-80 h-10 space-y-4">
-        <SliderCaptcha
-            className="w-full h-10 shadow-sm"
-            onSuccess={() => alert("Verified")}
-        />
-    </div>
-);
+type VerifyState = "idle" | "success" | "error";
 
-// 2. Form Integration - A realistic login chunk
-export const FormExample = () => {
-    const [verified, setVerified] = useState(false);
+// Example 1
+export const SliderCaptchaInline = () => {
+    const [isVerified, setIsVerified] = useState(false);
 
     return (
-        <div className="w-full max-w-sm space-y-4 rounded-lg border p-6 bg-card">
-            <div className="space-y-1.5">
-                <Label htmlFor="email" className="text-sm font-medium">Email address</Label>
-                <Input id="email" placeholder="name@example.com" type="email" />
+        <div className="w-full max-w-md rounded-xl border bg-card p-4">
+            <div className="mb-3 flex items-center justify-between">
+                <p className="flex items-center gap-2 text-sm font-medium">
+                    <Fingerprint className="size-4 text-muted-foreground" />
+                    Quick Verification
+                </p>
+                <span
+                    className={cn(
+                        "rounded-full border px-2 py-0.5 text-xs",
+                        isVerified
+                            ? "border-emerald-200 bg-emerald-50 text-emerald-700"
+                            : "border-muted bg-muted/50 text-muted-foreground"
+                    )}
+                >
+                    {isVerified ? "Verified" : "Pending"}
+                </span>
             </div>
-            <div className="space-y-1.5 pb-2 pt-2">
-                <Label className="text-sm font-medium text-muted-foreground/70 tracking-tight">Human Verification</Label>
-                <SliderCaptcha
-                    onSuccess={() => setVerified(true)}
-                    className="bg-muted/30 border-dashed transition-all"
-                />
-            </div>
-            <Button className="w-full font-semibold shadow-sm" disabled={!verified}>
-                Submit Data
-            </Button>
+
+            <SliderCaptcha
+                className="h-10"
+                puzzleIcon={<Fingerprint className="size-4" />}
+                onSuccess={() => setIsVerified(true)}
+                onFailure={() => setIsVerified(false)}
+            />
         </div>
     );
 };
 
-// 3. Custom Theming & Accessibility
-export const AccessibilityExample = () => (
-    <div className="flex flex-col gap-6 w-full max-w-[320px]">
-        <div className="space-y-1.5">
-            <span className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest pl-1">High Tolerance (Easier)</span>
-            <SliderCaptcha
-                tolerance={15}
-                targetClassName="border-blue-400 bg-blue-50/50"
-                puzzleIcon={<ShieldCheck className="size-4 text-blue-500" />}
-                className="w-full h-11 border-blue-100"
-            />
-        </div>
-        <div className="space-y-1.5">
-            <span className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest pl-1">Minimalist Style</span>
-            <SliderCaptcha
-                puzzleIcon={<ArrowRight className="size-4" />}
-                puzzleClassName="rounded-xl bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 border-none hover:bg-zinc-800"
-                className="w-full h-10 border-muted placeholder:text-muted-foreground"
-            />
-        </div>
-    </div>
-);
+// Example 3
+export const SliderCaptchaForm = () => {
+    const [captchaKey, setCaptchaKey] = useState(0);
+    const [isVerified, setIsVerified] = useState(false);
+
+    const resetVerification = () => {
+        setIsVerified(false);
+        setCaptchaKey((prev) => prev + 1);
+    };
+
+    return (
+        <Card className="w-full max-w-md">
+            <CardHeader>
+                <CardTitle className="font-poppins text-lg">Secure Sign In</CardTitle>
+                <CardDescription>
+                    Complete the slider check before continuing.
+                </CardDescription>
+            </CardHeader>
+
+            <CardContent>
+                <form className="space-y-4" onSubmit={(event) => event.preventDefault()}>
+                    <div className="space-y-2">
+                        <Label htmlFor="slider-captcha-email">Email</Label>
+                        <Input id="slider-captcha-email" type="email" placeholder="you@example.com" />
+                    </div>
+
+                    <div className="space-y-2">
+                        <Label>Human check</Label>
+                        <SliderCaptcha
+                            key={captchaKey}
+                            className="h-10"
+                            tolerance={8}
+                            puzzleIcon={<Lock className="size-4" />}
+                            onSuccess={() => setIsVerified(true)}
+                            onFailure={() => setIsVerified(false)}
+                        />
+                        <p className="text-xs text-muted-foreground">
+                            {isVerified ? "Verification passed." : "Drag to align and unlock submit."}
+                        </p>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                        <Button type="submit" disabled={!isVerified} className="min-w-28">
+                            Continue
+                        </Button>
+                        <Button type="button" variant="outline" onClick={resetVerification}>
+                            <RefreshCw className="size-4" />
+                            Reset
+                        </Button>
+                    </div>
+                </form>
+            </CardContent>
+        </Card>
+    );
+};

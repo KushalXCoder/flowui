@@ -7,6 +7,11 @@ import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { Callout } from 'fumadocs-ui/components/callout';
 import SliderCaptchaDemo from "@/components/previews/slider-captcha/slider-captcha-demo";
+import {
+    SliderCaptchaInline,
+    SliderCaptchaForm,
+    SliderCaptchaSoft,
+} from "@/components/previews/slider-captcha/slider-captcha-examples";
 
 <div className="w-full h-[400px] flex items-center justify-center rounded-xl border bg-card text-card-foreground shadow-sm bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)]">
     <SliderCaptchaDemo />
@@ -89,6 +94,51 @@ export const SliderCaptcha = ({
 
 </Tab>
 </Tabs>
+
+## Examples
+
+### Inline Status Example
+
+<div className="w-full min-h-[220px] flex items-center justify-center rounded-xl border bg-card text-card-foreground shadow-sm p-6">
+    <SliderCaptchaInline />
+</div>
+
+```tsx title=" "
+export const SliderCaptchaInline = () => {
+    const [isVerified, setIsVerified] = useState(false);
+
+    return (
+        <SliderCaptcha
+            puzzleIcon={<Fingerprint className="size-4" />}
+            onSuccess={() => setIsVerified(true)}
+            onFailure={() => setIsVerified(false)}
+        />
+    );
+}
+```
+
+### Form Lock Example
+
+<div className="w-full min-h-[360px] flex items-center justify-center rounded-xl border bg-card text-card-foreground shadow-sm p-6">
+    <SliderCaptchaForm />
+</div>
+
+```tsx title=" "
+export const SliderCaptchaForm = () => {
+    const [isVerified, setIsVerified] = useState(false);
+
+    return (
+        <form>
+            <SliderCaptcha
+                puzzleIcon={<Lock className="size-4" />}
+                onSuccess={() => setIsVerified(true)}
+                onFailure={() => setIsVerified(false)}
+            />
+            <Button disabled={!isVerified}>Continue</Button>
+        </form>
+    );
+}
+```
 
 ## Props
 

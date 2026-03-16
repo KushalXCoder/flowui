@@ -16,9 +16,9 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   return (
     <DocsPage toc={page.data.toc} full={page.data.full} className='font-sans technical-docs-page'>
       <div className="flex flex-col justify-start gap-3 mb-10">
-        <div>
+        <div className='font-mono'>
           <h1 className='text-3xl font-bold'>{page.data.title}</h1>
-          <p className='mt-2 text-gray-500 font-mono'>{page.data.description}</p>
+          <p className='mt-2 text-gray-500'>{page.data.description}</p>
         </div>
         <EditButton link={page.path} />
       </div>
