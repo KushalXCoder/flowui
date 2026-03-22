@@ -11,6 +11,12 @@ import { ModeToggle } from "../mode-toggle";
 import { fetchStars } from "@/lib/getStars";
 
 export const Navbar = () => {
+  const navLinks = [
+    { name: "Docs", href: "/docs/introduction" },
+    { name: "Components", href: "/docs/installation" },
+    { name: "Blocks", href: "/blocks" },
+  ];
+
   const [showFixed, setShowFixed] = useState<boolean>(false);
   const [delay, setDelay] = useState<number>(2.4);
   const [stars, setStars] = useState<number>(0);
@@ -59,8 +65,15 @@ export const Navbar = () => {
       <Logo />
 
       <ul className="flex items-center gap-2 text-sm font-poppins">
-        <Link href="/docs/introduction" className="hover:bg-accent p-2 rounded-md">Docs</Link>
-        <Link href="/docs/installation" className="hover:bg-accent p-2 rounded-md">Components</Link>
+        {navLinks.map((link) => (
+          <Link
+            key={link.name}
+            href={link.href}
+            className="hover:bg-accent p-2 rounded-md"
+          >
+            {link.name}
+          </Link>
+        ))}
 
         <div className="h-4 w-px border border-dashed border-gray-500 dark:border-zinc-700" />
 
