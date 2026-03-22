@@ -1,31 +1,12 @@
-import { Navbar } from "../navbar/navbar";
-import { motion } from "motion/react";
-import { Divider } from "../divider";
-import Footer from "../footer";
 import { Content } from "./content";
 import { Tweets } from "../tweets";
 import { Showcase } from "./showcase";
+import { CommonLayout } from "../common-layout";
+import { Divider } from "../divider";
 
 const LandingPage = () => {
     return (
-        <div className="min-h-screen w-full bg-background flex flex-col relative">
-            {/* Left and Right Border Animations */}
-            <motion.div
-                initial={{ translateY: "-100%" }}
-                animate={{ translateY: "0%" }}
-                transition={{ duration: 1.2, ease: "easeInOut" }}
-                className="absolute left-0 top-0 h-full w-px origin-top border-l border-dashed border-gray-400 dark:border-border z-10"
-            />
-            <motion.div
-                initial={{ translateY: "100%" }}
-                animate={{ translateY: "0%" }}
-                transition={{ duration: 1.2, ease: "easeInOut" }}
-                className="absolute right-0 top-0 h-full w-px origin-top border-r border-dashed border-gray-400 dark:border-border z-10"
-            />
-            {/* Content */}
-            <Navbar />
-            <Divider type="screen" />
-
+        <CommonLayout>
             {/* Content */}
 
             {/* This height cause, I want the center container to be minimum of entire screen - navbar */}
@@ -46,10 +27,7 @@ const LandingPage = () => {
                     </h1>
                 </div>
             </div>
-
-            <Divider type="screen" />
-            <Footer />
-        </div>
+        </CommonLayout>
     )
 }
 
