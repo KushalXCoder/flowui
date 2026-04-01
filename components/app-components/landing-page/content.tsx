@@ -1,4 +1,4 @@
-import { labels } from "@/lib/data";
+import { labels } from "@/lib/helper/data";
 import { motion } from "motion/react";
 import { Button } from "../../ui/button";
 import { ArrowRight } from "lucide-react";

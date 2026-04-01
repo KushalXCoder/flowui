@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import Logo from "../logo";
 import NumberTicker from "../number-ticker";
 import { ModeToggle } from "../mode-toggle";
-import { fetchStars } from "@/lib/getStars";
+import { fetchStars } from "@/lib/helper/getStars";
 
 export const Navbar = () => {
   const navLinks = [

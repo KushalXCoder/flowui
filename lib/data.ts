@@ -1,1 +1,0 @@
-export const labels = ["UI","Reusable", "Shadcn", "Motion"];
