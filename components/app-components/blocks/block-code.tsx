@@ -1,15 +1,20 @@
-import { getBlockTree } from "@/lib/block-tree"
-import { useEffect } from "react"
+import getBlockFiles from "@/lib/helper/block-tree";
+import { useEffect, useMemo, useState } from "react";
+import { CodeViewer } from "./code-viewer";
 
 export const BlockCode = () => {
-    useEffect(() => {
-        getBlockTree();
-    }, []);
-    return (
-        <div className="min-h-screen grid grid-cols-10 border rounded-lg">
-            <div className="col-span-2 border-r">
+    const [files, setFiles] = useState<string[]>([]);
+    const blockFiles = useMemo(() => getBlockFiles("auth-flow", "auth01"), []);
 
-            </div>
-        </div>
+    useEffect(() => {
+        if (blockFiles) {
+            setFiles(blockFiles);
+        }
+    }, [blockFiles]);
+
+
+
+    return (
+        <CodeViewer files={files} />
     )
 }
