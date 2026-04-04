@@ -18,7 +18,8 @@ export const CodeDisplay = ({
         <div className="size-full">
             <pre className="p-3">
                 {content.tokens.map((line, i) => (
-                    <div key={i}>
+                    <div key={i} className="flex gap-8 font-code mt-1">
+                        <span className="text-gray-500">{i}</span>
                         <div>
                             {line.map((token, j) => (
                                 <span key={j} style={{ color: token.color }}>

@@ -81,6 +81,7 @@ export const CodeViewer = ({ files }: CodeViewerProps) => {
             <DivContainer
               key={file}
               className={`${activeFile === file ? "bg-accent" : ""}`}
+              onClick={() => setActiveFile(file)}
             >
               <FileLogo filename={file} className="size-4" />
               <h1>{file.split("/").pop()}</h1>
@@ -98,7 +99,10 @@ export const CodeViewer = ({ files }: CodeViewerProps) => {
           </DivContainer>
           {/* Store all component files */}
           {folderOpen && components.map((file) => (
-            <DivContainer key={file} className="px-14 truncate">
+            <DivContainer
+              key={file} className="px-14 truncate"
+              onClick={() => setActiveFile(file)}
+            >
               <FileLogo filename={file} className="size-4" />
               <h1>{file.split("/").pop()}</h1>
             </DivContainer>
