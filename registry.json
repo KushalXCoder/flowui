@@ -63,6 +63,44 @@
       "registryDependencies": [
         "button"
       ]
+    },
+    {
+      "name": "auth01",
+      "type": "registry:component",
+      "title": "Auth 01",
+      "description": "Auth flow block with main entry and nested auth components.",
+      "files": [
+        {
+          "path": "registry/flowui/blocks/auth-flow/auth01/auth01.tsx",
+          "type": "registry:component",
+          "target": "components/flowui/blocks/auth-flow/auth01/auth01.tsx"
+        },
+        {
+          "path": "registry/flowui/blocks/auth-flow/auth01/components/login.tsx",
+          "type": "registry:component",
+          "target": "components/flowui/blocks/auth-flow/auth01/components/login.tsx"
+        },
+        {
+          "path": "registry/flowui/blocks/auth-flow/auth01/components/signup.tsx",
+          "type": "registry:component",
+          "target": "components/flowui/blocks/auth-flow/auth01/components/signup.tsx"
+        },
+        {
+          "path": "components/ui/field.tsx",
+          "type": "registry:component",
+          "target": "components/ui/field.tsx"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label",
+        "separator"
+      ]
     }
   ]
 }
