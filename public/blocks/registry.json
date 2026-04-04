@@ -1,0 +1,28 @@
+{
+  "categories": [
+    {
+      "name": "auth-flow",
+      "title": "Auth Flow",
+      "path": "/registry/flowui/blocks/auth-flow",
+      "blocks": [
+        {
+          "name": "auth01",
+          "files": [
+            {
+              "path": "/registry/flowui/blocks/auth-flow/auth01/auth01.tsx",
+              "content": "import { cn } from \"@/lib/utils\";\r\nimport { Button } from \"@/components/ui/button\";\r\nimport {\r\n  Card,\r\n  CardContent,\r\n  CardDescription,\r\n  CardHeader,\r\n  CardTitle,\r\n} from \"@/components/ui/card\";\r\nimport {\r\n  Field,\r\n  FieldDescription,\r\n  FieldGroup,\r\n  FieldLabel,\r\n} from \"@/components/ui/field\";\r\nimport { Input } from \"@/components/ui/input\";\r\n\r\nexport const Auth01 = ({\r\n  className,\r\n  ...props\r\n}: React.ComponentProps<\"div\">) => {\r\n  return (\r\n    <div className={cn(\"min-w-md flex flex-col gap-6\", className)} {...props}>\r\n      <Card>\r\n        <CardHeader>\r\n          <CardTitle>Login to your account</CardTitle>\r\n          <CardDescription>\r\n            Enter your email below to login to your account\r\n          </CardDescription>\r\n        </CardHeader>\r\n        <CardContent>\r\n          <form>\r\n            <FieldGroup>\r\n              <Field>\r\n                <FieldLabel htmlFor=\"email\">Email</FieldLabel>\r\n                <Input\r\n                  id=\"email\"\r\n                  type=\"email\"\r\n                  placeholder=\"m@example.com\"\r\n                  required\r\n                />\r\n              </Field>\r\n              <Field>\r\n                <div className=\"flex items-center\">\r\n                  <FieldLabel htmlFor=\"password\">Password</FieldLabel>\r\n                  <a\r\n                    href=\"#\"\r\n                    className=\"ml-auto inline-block text-sm underline-offset-4 hover:underline\"\r\n                  >\r\n                    Forgot your password?\r\n                  </a>\r\n                </div>\r\n                <Input id=\"password\" type=\"password\" required />\r\n              </Field>\r\n              <Field>\r\n                <Button type=\"submit\">Login</Button>\r\n                <Button variant=\"outline\" type=\"button\">\r\n                  Login with Google\r\n                </Button>\r\n                <FieldDescription className=\"text-center\">\r\n                  Don&apos;t have an account? <a href=\"#\">Sign up</a>\r\n                </FieldDescription>\r\n              </Field>\r\n            </FieldGroup>\r\n          </form>\r\n        </CardContent>\r\n      </Card>\r\n    </div>\r\n  )\r\n}"
+            },
+            {
+              "path": "/registry/flowui/blocks/auth-flow/auth01/components/login.tsx",
+              "content": ""
+            },
+            {
+              "path": "/registry/flowui/blocks/auth-flow/auth01/components/signup.tsx",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

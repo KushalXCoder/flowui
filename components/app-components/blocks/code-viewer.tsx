@@ -1,14 +1,14 @@
 import { FileLogo } from "@/lib/helper/file-logo";
 import { cn } from "@/lib/utils";
-import { ArrowBigDownDashIcon, ArrowDown, File, Folder } from "lucide-react";
-import { HTMLAttributes, HTMLProps, useEffect, useRef, useState } from "react";
+import { ArrowDown, Folder } from "lucide-react";
+import { HTMLAttributes, useEffect, useRef, useState } from "react";
 import { CodeDisplay } from "./code-display";
-import { readFileAction } from "@/lib/actions/read-file";
 import { highlightTokens } from "@/lib/actions/code-highlighter";
 import { TokensResult } from "shiki";
+import { FileType } from "@/lib/types/global.types";
 
 type CodeViewerProps = {
-  files: string[];
+  files: FileType[];
 };
 
 // Common div container as this code gets repeated
@@ -37,15 +37,15 @@ const DivContainer = ({
 
 export const CodeViewer = ({ files }: CodeViewerProps) => {
   // Store the active file
-  const [activeFile, setActiveFile] = useState<string>("");
+  const [activeFile, setActiveFile] = useState<FileType | null>(null);
   const [activeFileContent, setActiveFileContent] = useState<TokensResult | null>(null);
   const [folderOpen, setFolderOpen] = useState<boolean>(true);
 
   const cache = useRef<Record<string,TokensResult>>({});
 
   // Filter once, so that we don't need to apply map inside redering
-  const items = files.filter((file) => !file.includes("components"));
-  const components = files.filter((file) => file.includes("components"));
+  const items = files.filter((file) => !file.path.includes("components"));
+  const components = files.filter((file) => file.path.includes("components"));
 
   useEffect(() => {
     if (files.length > 0) {
@@ -57,15 +57,15 @@ export const CodeViewer = ({ files }: CodeViewerProps) => {
     if(!activeFile) return;
 
     const load = async () => {
-      if(cache.current[activeFile]) {
-        setActiveFileContent(cache.current[activeFile]);
+      if(cache.current[activeFile.path]) {
+        setActiveFileContent(cache.current[activeFile.path]);
         return;
       }
 
-      const data = await readFileAction(activeFile);
+      const data = activeFile.content;
       const tokens = await highlightTokens(data ?? "", "ts");
 
-      cache.current[activeFile] = tokens;
+      cache.current[activeFile.path] = tokens;
       setActiveFileContent(tokens);
     };
 
@@ -79,12 +79,12 @@ export const CodeViewer = ({ files }: CodeViewerProps) => {
           {/* Load all the files at the root location */}
           {items.map((file) => (
             <DivContainer
-              key={file}
-              className={`${activeFile === file ? "bg-accent" : ""}`}
+              key={file.path}
+              className={`${activeFile?.path === file.path ? "bg-accent" : ""}`}
               onClick={() => setActiveFile(file)}
             >
-              <FileLogo filename={file} className="size-4" />
-              <h1>{file.split("/").pop()}</h1>
+              <FileLogo filename={file.path} className="size-4" />
+              <h1>{file.path.split("/").pop()}</h1>
             </DivContainer>
           ))}
           <DivContainer
@@ -100,11 +100,11 @@ export const CodeViewer = ({ files }: CodeViewerProps) => {
           {/* Store all component files */}
           {folderOpen && components.map((file) => (
             <DivContainer
-              key={file} className="px-14 truncate"
+              key={file.path} className="px-14 truncate"
               onClick={() => setActiveFile(file)}
             >
-              <FileLogo filename={file} className="size-4" />
-              <h1>{file.split("/").pop()}</h1>
+              <FileLogo filename={file.path} className="size-4" />
+              <h1>{file.path.split("/").pop()}</h1>
             </DivContainer>
           ))}
         </div>

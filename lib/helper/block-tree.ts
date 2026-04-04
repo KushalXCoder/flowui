@@ -1,14 +1,4 @@
-import registry from "@/registry/flowui/blocks/registry.json";
-
-type BlockList = {
-    name: string;
-    slug: string;
-}
-
-type Category = {
-    name: string;
-    blocks: BlockList;
-};
+import registry from "@/public/blocks/registry.json";
 
 export default function getBlockFiles (
     category: string,
@@ -19,7 +9,7 @@ export default function getBlockFiles (
     for (const categoryItem of registry.categories) {
         if(categoryItem.name === category) {
             console.log("Found category:", categoryItem);
-            for (const block of categoryItem.items) {
+            for (const block of categoryItem.blocks) {
                 if(block.name === title) {
                     console.log("Found block:", block);
                     return block.files;
