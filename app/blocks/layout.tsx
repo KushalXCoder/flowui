@@ -24,7 +24,7 @@ const Layout = ({
                             </p>
                         </div>
 
-                        <div className="sticky top-40 z-0 flex gap-8 border-y border-dashed px-10 mt-8 mb-4">
+                        <div className="sticky top-40 z-0 flex gap-8 border-y border-dashed px-10 mt-8">
                             {blocks.map((block) => (
                                 <h1
                                     key={block}
@@ -35,7 +35,7 @@ const Layout = ({
                             ))}
                         </div>
                     </div>
-                    <div className="px-10">
+                    <div className="px-10 mt-3 mb-5">
                         {children}
                     </div>
                 </div>
