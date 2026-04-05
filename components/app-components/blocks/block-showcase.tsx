@@ -41,7 +41,7 @@ export const BlockShowcase = ({
                     <BlockPreview title={title} type={type} slug={slug} />
                 </TabsContent>
                 <TabsContent value="code">
-                    <BlockCode />
+                    <BlockCode type={type} slug={slug} />
                 </TabsContent>
             </Tabs>
         </div>
