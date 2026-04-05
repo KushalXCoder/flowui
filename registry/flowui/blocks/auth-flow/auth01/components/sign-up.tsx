@@ -14,9 +14,8 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { ForgotPassword } from "./forgot-password";
 
-export const Login = ({
+export const SignUp = ({
     className,
     ...props
 }: React.ComponentProps<"div">) => {
@@ -24,9 +23,9 @@ export const Login = ({
         <div className={cn("min-w-md flex flex-col gap-6", className)} {...props}>
             <Card>
                 <CardHeader>
-                    <CardTitle>Login to your account</CardTitle>
+                    <CardTitle>Sign up to your account</CardTitle>
                     <CardDescription>
-                        Enter your email below to login to your account
+                        Enter your email below to sign up to your account
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -44,14 +43,13 @@ export const Login = ({
                             <Field>
                                 <div className="flex items-center">
                                     <FieldLabel htmlFor="password">Password</FieldLabel>
-                                    <ForgotPassword />
                                 </div>
                                 <Input id="password" type="password" required />
                             </Field>
                             <Field>
-                                <Button type="submit">Login</Button>
+                                <Button type="submit">Sign Up</Button>
                                 <Button variant="outline" type="button">
-                                    Login with Google
+                                    Sign Up with Google
                                 </Button>
                             </Field>
                         </FieldGroup>
