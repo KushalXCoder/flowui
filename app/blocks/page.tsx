@@ -7,15 +7,8 @@ const Page = () => {
                 title="Auth01"
                 type="auth-flow"
                 slug="auth01"
-                description="A simple authentication form"
+                description="An authentication flow block with tabs."
                 code="npx shadcn@latest install auth01"
-            />
-            <BlockShowcase
-                title="Auth02"
-                type="auth-flow"
-                slug="auth02"
-                description="Another authentication form"
-                code="npx shadcn@latest install auth02"
             />
         </div>
     )

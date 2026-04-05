@@ -109,7 +109,7 @@ export const CodeViewer = ({ files }: CodeViewerProps) => {
           ))}
         </div>
       </div>
-      <div className="col-span-8 p-1 bg-accent/50 overflow-hidden overflow-y-scroll">
+      <div className="col-span-8 p-1 bg-accent/50 overflow-hidden overflow-y-auto">
         <CodeDisplay content={activeFileContent} />
       </div>
     </div>
