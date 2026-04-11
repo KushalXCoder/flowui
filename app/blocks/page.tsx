@@ -1,22 +1,27 @@
+"use client";
+
 import { BlockShowcase } from "@/components/app-components/blocks/block-showcase";
+import { useBlockStore } from "@/store/blocks.store";
 
 const Page = () => {
-    const blocks = [
-        { title: "Auth01", type: "auth-flow", slug: "auth01", description: "An authentication flow block with tabs."},
-        { title: "Auth02", type: "auth-flow", slug: "auth02", description: "An authentication flow block with a different design."},
-        { title: "DeleteBox", type: "other", slug: "delete-box", description: "A delete box block"}
-    ]
+    const { blocks } = useBlockStore();
     return (
-        <div className="flex flex-col gap-5">
-            {blocks.map((block) => (
-                <BlockShowcase
-                    title={block.title}
-                    type={block.type}
-                    slug={block.slug}
-                    description={block.description}
-                    reset={true}
-                />
-            ))}
+        <div className="flex flex-col gap-5 min-h-screen w-full">
+            {blocks.length > 0 ? (
+                blocks.map((block) => (
+                    <BlockShowcase
+                        title={block.title}
+                        type={block.type}
+                        slug={block.slug}
+                        description={block.description}
+                        reset={true}
+                    />
+                ))
+            ) : (
+                <div className="flex-1 w-full flex justify-center items-center rounded-lg border bg-[radial-gradient(circle,#d1d5db_0.5px,transparent_1px)] bg-size-[14px_14px]">
+                    <p>No blocks found.</p>
+                </div>
+            )}
         </div>
     )
 }
