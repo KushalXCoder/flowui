@@ -1,12 +1,10 @@
-"use client";
-
+import { BlockSearch } from "@/components/app-components/blocks/block-search";
 import { CommonLayout } from "@/components/app-components/common-layout";
-import { Divider } from "@/components/app-components/divider";
 
 const Layout = ({
     children
 }: { children: React.ReactNode }) => {
-    const blocks = ["Auth Flow", "Payment Flow"];
+    // const blocks = ["Auth Flow", "Payment Flow"];
     return (
         <div className="min-h-screen flex flex-col overflow-hidden px-40 bg-accent">
             <CommonLayout>
@@ -24,18 +22,12 @@ const Layout = ({
                             </p>
                         </div>
 
-                        <div className="sticky top-40 z-0 flex gap-8 border-y border-dashed px-10 mt-8">
-                            {blocks.map((block) => (
-                                <h1
-                                    key={block}
-                                    className="font-mono text-muted-foreground hover:text-foreground cursor-pointer border-x border-dashed px-4 py-1 hover:border-gray-400 hover:bg-accent transition-all"
-                                >
-                                    {block}
-                                </h1>
-                            ))}
+                        <div className="flex justify-between items-center px-10 mt-5 border-y border-dashed">
+                            <div />
+                            <BlockSearch />
                         </div>
                     </div>
-                    <div className="px-10 mt-3 mb-5">
+                    <div className="px-10 mb-5">
                         {children}
                     </div>
                 </div>
