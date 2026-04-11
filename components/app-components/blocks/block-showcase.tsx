@@ -4,13 +4,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Installation } from "./installation";
 import { BlockPreview } from "./block-preview";
 import { BlockCode } from "./block-code";
+import { Loader2 } from "lucide-react";
 
 type BlockShowcaseProps = {
     title: string;
     type: string;
     slug: string;
     description: string;
-    code: string;
+    reset?: boolean;
 }
 
 export const BlockShowcase = ({
@@ -18,7 +19,7 @@ export const BlockShowcase = ({
     type,
     slug,
     description,
-    code,
+    reset = false
 }: BlockShowcaseProps) => {
     return (
         <div className="w-full flex flex-col gap-3">
@@ -33,15 +34,18 @@ export const BlockShowcase = ({
                         <p className="text-foreground text-sm">{description}</p>
                     </div>
 
-                    <div className="shrink-0">
-                        <Installation code={code} />
+                    <div className="shrink-0 flex items-center gap-3 h-full">
+                        {reset && (
+                            <Loader2 className="hover:bg-accent h-8 w-8 rounded-sm p-1.5" />
+                        )}
+                        <Installation slug={slug} />
                     </div>
                 </div>
                 <TabsContent value="preview" className="w-full">
                     <BlockPreview title={title} type={type} slug={slug} />
                 </TabsContent>
                 <TabsContent value="code">
-                    <BlockCode />
+                    <BlockCode type={type} slug={slug} />
                 </TabsContent>
             </Tabs>
         </div>
