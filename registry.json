@@ -66,29 +66,25 @@
     },
     {
       "name": "auth01",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Auth 01",
-      "description": "Auth flow block with main entry and nested auth components.",
+      "description": "Auth flow block with login and sign up tabs.",
       "files": [
         {
           "path": "registry/flowui/blocks/auth-flow/auth01/auth01.tsx",
-          "type": "registry:component",
-          "target": "components/flowui/blocks/auth-flow/auth01/auth01.tsx"
+          "type": "registry:component"
         },
         {
           "path": "registry/flowui/blocks/auth-flow/auth01/components/login.tsx",
-          "type": "registry:component",
-          "target": "components/flowui/blocks/auth-flow/auth01/components/login.tsx"
+          "type": "registry:component"
         },
         {
-          "path": "registry/flowui/blocks/auth-flow/auth01/components/signup.tsx",
-          "type": "registry:component",
-          "target": "components/flowui/blocks/auth-flow/auth01/components/signup.tsx"
+          "path": "registry/flowui/blocks/auth-flow/auth01/components/sign-up.tsx",
+          "type": "registry:component"
         },
         {
-          "path": "components/ui/field.tsx",
-          "type": "registry:component",
-          "target": "components/ui/field.tsx"
+          "path": "registry/flowui/blocks/auth-flow/auth01/components/forgot-password.tsx",
+          "type": "registry:component"
         }
       ],
       "dependencies": [
@@ -99,8 +95,108 @@
         "card",
         "input",
         "label",
-        "separator"
+        "dialog",
+        "tabs"
       ]
+    },
+    {
+      "name": "auth02",
+      "type": "registry:block",
+      "title": "Auth 02",
+      "description": "Split-screen auth flow block with login form on one side.",
+      "files": [
+        {
+          "path": "registry/flowui/blocks/auth-flow/auth02/auth02.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/flowui/blocks/auth-flow/auth02/components/login.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/flowui/blocks/auth-flow/auth01/components/forgot-password.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "dialog"
+      ]
+    },
+    {
+      "name": "delete-box",
+      "type": "registry:block",
+      "title": "Delete Box",
+      "description": "A confirmation dialog box that requires typing a specific phrase to delete content.",
+      "files": [
+        {
+          "path": "registry/flowui/blocks/other/delete-box/delete-box.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/flowui/blocks/other/delete-box/components/form.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "button",
+        "card",
+        "input"
+      ]
+    },
+    {
+      "name": "changing-text",
+      "type": "registry:component",
+      "title": "Changing Text",
+      "description": "An animated component that cycles through text with smooth transitions.",
+      "files": [
+        {
+          "path": "registry/flowui/animated-components/changing-text.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "scrollbar",
+      "type": "registry:component",
+      "title": "Scrollbar",
+      "description": "A stylized scrollbar animation component.",
+      "files": [
+        {
+          "path": "registry/flowui/animated-components/scrollbar.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "stacked-card",
+      "type": "registry:component",
+      "title": "Stacked Card",
+      "description": "An animated stacked card component with layered presentation.",
+      "files": [
+        {
+          "path": "registry/flowui/animated-components/stacked-card.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": []
     }
   ]
 }

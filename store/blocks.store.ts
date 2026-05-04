@@ -1,4 +1,4 @@
-import { initialBlocks } from "@/lib/blocks";
+import { initialBlocks } from "@/lib/blocks-data";
 import { create } from "zustand";
 
 type BlockData = {
