@@ -24,11 +24,15 @@ function getAllFilesWithContent(dir: string, baseUrl: string): { path: string; c
 // Define your categories here
 const categories = [
   {
-    name: 'auth-flow',
+    name: 'auth',
     title: 'Auth Flow',
-    path: '/registry/flowui/blocks/auth-flow'
+    path: '/registry/flowui/blocks/auth'
+  },
+  {
+    name: 'other',
+    title: 'Other',
+    path: '/registry/flowui/blocks/other'
   }
-  // Add more categories as needed
 ];
 
 const sourceBaseDir = path.join(process.cwd(), 'registry', 'flowui', 'blocks');

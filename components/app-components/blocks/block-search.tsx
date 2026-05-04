@@ -1,6 +1,6 @@
 "use client";
 
-import { initialBlocks } from "@/lib/blocks";
+import { initialBlocks } from "@/lib/blocks-data";
 import DebouncedInput from "@/registry/flowui/components/debounced-input";
 import { useBlockStore } from "@/store/blocks.store";
 import { useState } from "react";
