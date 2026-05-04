@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "delete-box",
+  "type": "registry:block",
+  "title": "Delete Box",
+  "description": "A confirmation dialog box that requires typing a specific phrase to delete content.",
+  "files": [
+    {
+      "path": "registry/flowui/blocks/other/delete-box/delete-box.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/flowui/blocks/other/delete-box/components/form.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "card",
+    "input"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "changing-text",
+  "type": "registry:component",
+  "title": "Changing Text",
+  "description": "An animated component that cycles through text with smooth transitions.",
+  "files": [
+    {
+      "path": "registry/flowui/animated-components/changing-text.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": []
+}

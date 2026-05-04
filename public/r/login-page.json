@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "login-page",
+  "title": "Login Page",
+  "description": "A complete login page with forgot-password functionality.",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "card",
+    "input",
+    "label",
+    "sheet"
+  ],
+  "files": [
+    {
+      "path": "registry/flowui/blocks/auth/login-page.tsx",
+      "content": "\"use client\";\r\n\r\nimport { useState } from \"react\";\r\nimport { ForgotPasswordSheet } from \"./forgot-password-sheet\";\r\nimport { Login } from \"./login\";\r\n\r\nexport const LoginPage = () => {\r\n    const [forgotOpen, setForgotOpen] = useState(false);\r\n\r\n    return (\r\n        <>\r\n            <Login\r\n                onForgotPassword={() => setForgotOpen(true)}\r\n                onSwitchToSignUp={() => {\r\n                    // Hook this into your router or sign-up state.\r\n                }}\r\n            />\r\n            <ForgotPasswordSheet open={forgotOpen} onOpenChange={setForgotOpen} />\r\n        </>\r\n    );\r\n};\r\n",
+      "type": "registry:component",
+      "target": "components/flowui/auth/login-page.tsx"
+    },
+    {
+      "path": "registry/flowui/blocks/auth/login.tsx",
+      "content": "import { Button } from \"@/components/ui/button\";\r\nimport {\r\n    Card,\r\n    CardAction,\r\n    CardContent,\r\n    CardDescription,\r\n    CardHeader,\r\n    CardTitle,\r\n} from \"@/components/ui/card\";\r\nimport { Input } from \"@/components/ui/input\";\r\nimport { Label } from \"@/components/ui/label\";\r\n\r\nexport type LoginProps = {\r\n    onForgotPassword?: () => void;\r\n    onSwitchToSignUp?: () => void;\r\n};\r\n\r\nexport const Login = ({ onForgotPassword, onSwitchToSignUp }: LoginProps) => {\r\n    return (\r\n        <Card className=\"w-full max-w-md\">\r\n            <CardHeader>\r\n                <CardTitle>Login</CardTitle>\r\n                <CardDescription>Enter your details to login to your account.</CardDescription>\r\n                <CardAction>\r\n                    <Button type=\"button\" variant=\"link\" onClick={onSwitchToSignUp}>\r\n                        Sign Up\r\n                    </Button>\r\n                </CardAction>\r\n            </CardHeader>\r\n            <CardContent>\r\n                <form className=\"space-y-6\">\r\n                    <div className=\"grid gap-2\">\r\n                        <Label htmlFor=\"email\">Email</Label>\r\n                        <Input id=\"email\" type=\"email\" placeholder=\"m@example.com\" required />\r\n                    </div>\r\n                    <div className=\"grid gap-2\">\r\n                        <div className=\"flex items-center\">\r\n                            <Label htmlFor=\"password\">Password</Label>\r\n                            <Button\r\n                                type=\"button\"\r\n                                variant=\"link\"\r\n                                className=\"ml-auto h-auto p-0 text-sm\"\r\n                                onClick={onForgotPassword}\r\n                            >\r\n                                Forgot your password?\r\n                            </Button>\r\n                        </div>\r\n                        <Input id=\"password\" type=\"password\" required />\r\n                    </div>\r\n                    <Button type=\"submit\" className=\"w-full\">\r\n                        Continue\r\n                    </Button>\r\n                </form>\r\n            </CardContent>\r\n        </Card>\r\n    );\r\n};\r\n\r\n// Backward-compatible alias while transitioning from the previous exported name.\r\nexport const Login1 = Login;",
+      "type": "registry:component",
+      "target": "components/flowui/auth/login.tsx"
+    },
+    {
+      "path": "registry/flowui/blocks/auth/forgot-password-sheet.tsx",
+      "content": "\"use client\";\r\n\r\nimport { Button } from \"@/components/ui/button\";\r\nimport {\r\n    Sheet,\r\n    SheetClose,\r\n    SheetContent,\r\n    SheetDescription,\r\n    SheetFooter,\r\n    SheetHeader,\r\n    SheetTitle,\r\n} from \"@/components/ui/sheet\";\r\nimport { Input } from \"@/components/ui/input\";\r\nimport { Label } from \"@/components/ui/label\";\r\n\r\nexport type ForgotPasswordSheetProps = {\r\n    open: boolean;\r\n    onOpenChange: (open: boolean) => void;\r\n};\r\n\r\nexport const ForgotPasswordSheet = ({ open, onOpenChange }: ForgotPasswordSheetProps) => {\r\n    return (\r\n        <Sheet open={open} onOpenChange={onOpenChange}>\r\n            <SheetContent side=\"right\" className=\"sm:max-w-md\">\r\n                <SheetHeader>\r\n                    <SheetTitle>Reset password</SheetTitle>\r\n                    <SheetDescription>\r\n                        Enter your email and we will send you a reset link.\r\n                    </SheetDescription>\r\n                </SheetHeader>\r\n\r\n                <form className=\"mt-6 space-y-4\">\r\n                    <div className=\"grid gap-2\">\r\n                        <Label htmlFor=\"reset-email\">Email</Label>\r\n                        <Input\r\n                            id=\"reset-email\"\r\n                            type=\"email\"\r\n                            placeholder=\"m@example.com\"\r\n                            required\r\n                        />\r\n                    </div>\r\n\r\n                    <SheetFooter className=\"mt-6 gap-2 sm:justify-start\">\r\n                        <Button type=\"submit\">Send reset link</Button>\r\n                        <SheetClose asChild>\r\n                            <Button type=\"button\" variant=\"ghost\">\r\n                                Cancel\r\n                            </Button>\r\n                        </SheetClose>\r\n                    </SheetFooter>\r\n                </form>\r\n            </SheetContent>\r\n        </Sheet>\r\n    );\r\n};\r\n",
+      "type": "registry:component",
+      "target": "components/flowui/auth/forgot-password-sheet.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "copy-button",
+  "type": "registry:component",
+  "title": "Copy Button",
+  "description": "A copy button component with two types: normal and animated.",
+  "files": [
+    {
+      "path": "registry/flowui/components/copy-button/copy-button.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/flowui/components/copy-button/animated-copy-button.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/flowui/components/copy-button/animation-wrapper.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "dependencies": [
+    "lucide-react",
+    "motion"
+  ],
+  "registryDependencies": [
+    "button"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "auth01",
+  "type": "registry:block",
+  "title": "Auth 01",
+  "description": "Auth flow block with login and sign up tabs.",
+  "files": [
+    {
+      "path": "registry/flowui/blocks/auth/auth01/auth01.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/flowui/blocks/auth/auth01/components/login.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/flowui/blocks/auth/auth01/components/sign-up.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/flowui/blocks/auth/auth01/components/forgot-password.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "input",
+    "label",
+    "dialog",
+    "tabs"
+  ]
+}

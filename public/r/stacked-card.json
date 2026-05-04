@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stacked-card",
+  "type": "registry:component",
+  "title": "Stacked Card",
+  "description": "An animated stacked card component with layered presentation.",
+  "files": [
+    {
+      "path": "registry/flowui/animated-components/stacked-card.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": []
+}

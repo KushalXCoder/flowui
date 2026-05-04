@@ -7,17 +7,55 @@
       "name": "debounced-input",
       "type": "registry:component",
       "title": "Debounced Input",
-      "description": "An input component with optional debouncing support.",
-      "files": [
-        {
-          "path": "registry/flowui/components/debounced-input.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "dependencies": [],
-      "registryDependencies": [
-        "input"
-      ]
+      "description": "An input component with optional debouncing support."
+    },
+    {
+      "name": "auth-buttons",
+      "type": "registry:component",
+      "title": "Auth Buttons",
+      "description": "A set of authentication buttons (Google, Github) based on shadcn Button."
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:component",
+      "title": "Copy Button",
+      "description": "A copy button component with two types: normal and animated."
+    },
+    {
+      "name": "auth01",
+      "type": "registry:block",
+      "title": "Auth 01",
+      "description": "Auth flow block with login and sign up tabs."
+    },
+    {
+      "name": "auth02",
+      "type": "registry:block",
+      "title": "Auth 02",
+      "description": "Split-screen auth flow block with login form on one side."
+    },
+    {
+      "name": "delete-box",
+      "type": "registry:block",
+      "title": "Delete Box",
+      "description": "A confirmation dialog box that requires typing a specific phrase to delete content."
+    },
+    {
+      "name": "changing-text",
+      "type": "registry:component",
+      "title": "Changing Text",
+      "description": "An animated component that cycles through text with smooth transitions."
+    },
+    {
+      "name": "scrollbar",
+      "type": "registry:component",
+      "title": "Scrollbar",
+      "description": "A stylized scrollbar animation component."
+    },
+    {
+      "name": "stacked-card",
+      "type": "registry:component",
+      "title": "Stacked Card",
+      "description": "An animated stacked card component with layered presentation."
     }
   ]
 }

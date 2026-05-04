@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scrollbar",
+  "type": "registry:component",
+  "title": "Scrollbar",
+  "description": "A stylized scrollbar animation component.",
+  "files": [
+    {
+      "path": "registry/flowui/animated-components/scrollbar.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": []
+}

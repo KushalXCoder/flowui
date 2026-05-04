@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "auth02",
+  "type": "registry:block",
+  "title": "Auth 02",
+  "description": "Split-screen auth flow block with login form on one side.",
+  "files": [
+    {
+      "path": "registry/flowui/blocks/auth/auth02/auth02.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/flowui/blocks/auth/auth02/components/login.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/flowui/blocks/auth/auth01/components/forgot-password.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "button",
+    "input",
+    "label",
+    "dialog"
+  ]
+}

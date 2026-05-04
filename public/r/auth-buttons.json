@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "auth-buttons",
+  "type": "registry:component",
+  "title": "Auth Buttons",
+  "description": "A set of authentication buttons (Google, Github) based on shadcn Button.",
+  "files": [
+    {
+      "path": "registry/flowui/components/auth-buttons.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ]
+}
