@@ -1,9 +1,8 @@
 "use client";
 
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { Sun } from "./animate-ui/icons/sun";
-import { Moon } from "../animate-ui/icons/moon";
 
 export const ModeToggle = () => {
     const { theme, setTheme } = useTheme();
@@ -16,13 +15,11 @@ export const ModeToggle = () => {
         <>
             {theme === "light" ?
                 <Sun
-                    animateOnHover
                     className="size-8 p-2 rounded-lg hover:bg-accent"
                     onClick={() => setTheme("dark")}
                 />
                 : 
                 <Moon
-                    animateOnHover
                     className="size-8 p-2 rounded-lg hover:bg-accent"
                     onClick={() => setTheme("light")}
                 />

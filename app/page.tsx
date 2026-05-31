@@ -8,6 +8,7 @@ import Image from "next/image";
 import { drop001Sound } from "@/lib/drop-001";
 import { useSound } from "use-sound";
 import { useState } from "react";
+import { Navbar } from "@/components/app-components/navbar/navbar";
 
 function LogoTooltip({
   name,
@@ -52,8 +53,9 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col overflow-hidden px-40">
+    <div className="min-h-screen flex flex-col items-center overflow-hidden">
       {/* <LandingPage /> */}
+      <Navbar />
       <div className="flex justify-center items-center text-center gap-20 my-25">
         <div className="max-w-2xl">
           <div className="space-y-6">
