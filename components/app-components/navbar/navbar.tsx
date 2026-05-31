@@ -3,8 +3,7 @@
 import Link from "next/link";
 import { Button } from "../../ui/button";
 import { Github } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "../logo";
 import NumberTicker from "../number-ticker";
 import { ModeToggle } from "../mode-toggle";
@@ -17,11 +16,7 @@ export const Navbar = () => {
     { name: "Blocks", href: "/blocks" },
   ];
 
-  const [showFixed, setShowFixed] = useState<boolean>(false);
-  const [delay, setDelay] = useState<number>(2.4);
   const [stars, setStars] = useState<number>(0);
-
-  const isFirstTime = useRef<boolean>(true);
 
   // Fetch GitHub stars
   useEffect(() => {
@@ -34,36 +29,9 @@ export const Navbar = () => {
     getStarsData();
   }, []);
 
-  // Scroll detection
-  useEffect(() => {
-    const onScroll = () => {
-      setShowFixed(window.scrollY > 60);
-    };
-
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Remove initial delay after first render
-  useEffect(() => {
-    if (isFirstTime.current) {
-      isFirstTime.current = false;
-      setDelay(0);
-    }
-  }, []);
-
-  const NavContent = () => (
-    <motion.div
-      initial={{ opacity: 0, y: -12, filter: "blur(4px)" }}
-      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      transition={{ duration: 0.6, ease: "easeOut", delay }}
-      className={`flex justify-between items-center bg-background ${showFixed
-          ? "border-x border-dashed border-gray-400 dark:border-border px-10 py-3"
-          : ""
-        } dark:text-zinc-400`}
-    >
+  return (
+    <nav className="min-w-7xl px-10 py-5 flex justify-between items-center bg-background dark:text-zinc-400">
       <Logo />
-
       <ul className="flex items-center gap-2 text-sm font-poppins">
         {navLinks.map((link) => (
           <Link
@@ -74,9 +42,7 @@ export const Navbar = () => {
             {link.name}
           </Link>
         ))}
-
         <div className="h-4 w-px border border-dashed border-gray-500 dark:border-zinc-700" />
-
         <div className="flex items-center gap-2">
           <Link href="https://github.com/KushalXCoder/flowui">
             <Button className="flex items-center gap-4 bg-transparent text-black hover:bg-accent dark:text-white cursor-pointer">
@@ -84,32 +50,9 @@ export const Navbar = () => {
               <NumberTicker key={stars} value={stars} />
             </Button>
           </Link>
-
           <ModeToggle />
         </div>
       </ul>
-    </motion.div>
-  );
-
-  return (
-    <>
-      <nav className="px-10 py-3">
-        <NavContent />
-      </nav>
-
-      <AnimatePresence>
-        {showFixed && (
-          <motion.nav
-            initial={{ y: -60, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -60, opacity: 0 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
-            className="fixed top-0 left-0 w-full z-50 px-40 bg-background dark:bg-background border-b border-dashed border-gray-400 dark:border-border"
-          >
-            <NavContent />
-          </motion.nav>
-        )}
-      </AnimatePresence>
-    </>
+    </nav>
   );
 };
