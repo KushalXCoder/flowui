@@ -9,6 +9,7 @@ import { drop001Sound } from "@/lib/drop-001";
 import { useSound } from "use-sound";
 import { useState } from "react";
 import { Navbar } from "@/components/app-components/navbar/navbar";
+import Link from "next/link";
 
 function LogoTooltip({
   name,
@@ -77,17 +78,19 @@ export default function Home() {
             <DashedBox>
               npx shadcn@latest add flowui
             </DashedBox>
-            <div className="px-4 py-2 flex items-center gap-2 bg-gray-200 group">
-              Docs
-              <span className="relative overflow-hidden size-4 group">
-                <ArrowUpRight
-                  className="absolute top-0 left-0 size-4 transition-transform duration-500 group-hover:translate-x-full group-hover:-translate-y-full"
-                />
-                <ArrowUpRight
-                  className="absolute top-full left-0 size-4 transition-transform duration-500 group-hover:-translate-y-full"
-                />
-              </span>
-            </div>
+            <Link href="/docs/introduction">
+              <div className="px-4 py-2 flex items-center gap-2 bg-gray-200 group">
+                Docs
+                <span className="relative overflow-hidden size-4 group">
+                  <ArrowUpRight
+                    className="absolute top-0 left-0 size-4 transition-transform duration-500 group-hover:translate-x-full group-hover:-translate-y-full"
+                  />
+                  <ArrowUpRight
+                    className="absolute top-full left-0 size-4 transition-transform duration-500 group-hover:-translate-y-full"
+                  />
+                </span>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
