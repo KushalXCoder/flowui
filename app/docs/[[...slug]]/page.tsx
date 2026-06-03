@@ -22,7 +22,7 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
         </div>
         <EditButton link={page.path} />
       </div>
-      <DocsBody className='font-mono'>
+      <DocsBody className='font-primary'>
         <MDX
           components={getMDXComponents({
             a: createRelativeLink(source, page),
