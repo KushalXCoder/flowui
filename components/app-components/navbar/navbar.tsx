@@ -30,7 +30,7 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <nav className="min-w-7xl px-10 py-5 flex justify-between items-center bg-background dark:text-zinc-400">
+    <nav className="sticky top-0 px-10 py-5 flex justify-between items-center bg-background border-b border-dashed border-muted z-10">
       <Logo />
       <ul className="flex items-center gap-2 text-sm font-poppins">
         {navLinks.map((link) => (

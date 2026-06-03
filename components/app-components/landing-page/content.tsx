@@ -10,8 +10,8 @@ export const Content = () => {
         <motion.div className="w-full flex justify-between items-center bg-background font-mono">
             <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-3">
-                    <div className="border border-gray-300 dark:border-border border-dashed w-fit p-1">
-                        <div className="h-full w-full border border-gray-300 dark:border-border border-dashed px-4 py-1 text-sm">
+                    <div className="border border-muted dark:border-border border-dashed w-fit p-1">
+                        <div className="h-full w-full border border-muted dark:border-border border-dashed px-4 py-1 text-sm">
                             v1.0.0
                         </div>
                     </div>
@@ -27,7 +27,7 @@ export const Content = () => {
                     {labels.map((label) => (
                         <span
                             key={label}
-                            className="px-4 py-1 rounded-2xl border border-dashed border-gray-300 dark:border-border text-sm hover:border-gray-600 dark:hover:border-gray-500 transition-all duration-200"
+                            className="px-4 py-1 rounded-2xl border border-dashed border-muted dark:border-border text-sm hover:border-gray-600 dark:hover:border-gray-500 transition-all duration-200"
                         >
                             {label}
                         </span>

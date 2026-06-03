@@ -12,7 +12,7 @@ export const DashedBox = ({
   return (
     <div
       className={cn(
-        "relative w-fit font-secondary text-muted border px-4 py-2 border-dashed hover:text-primary hover:border-blue-700 transition-all",
+        "relative w-fit font-secondary text-muted border px-4 py-2 border-dashed hover:text-primary transition-all",
         className,
       )}
     >
