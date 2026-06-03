@@ -11,7 +11,7 @@ import { useState } from "react";
 import { Navbar } from "@/components/app-components/navbar/navbar";
 import Link from "next/link";
 import { Showcase } from "@/components/app-components/landing-page/showcase";
-import { OpenSourceEffect } from "@/components/app-components/open-source-effect";
+import { FlowUIFooter } from "@/components/app-components/flow-ui";
 
 function LogoTooltip({
   name,
@@ -110,7 +110,7 @@ export default function Home() {
           </DashedBox>
         </div>
         <div className="h-50 w-full overflow-hidden mt-10">
-          <OpenSourceEffect />
+          <FlowUIFooter />
         </div>
       </div>
     </div>
