@@ -2,6 +2,9 @@
     "title": "Components",
     "defaultOpen": true,
     "pages": [
+        "auth-buttons",
+        "copy-button",
+        "debounced-input",
         "file-select",
         "lift-button",
         "password-input",

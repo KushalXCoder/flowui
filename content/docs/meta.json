@@ -4,10 +4,8 @@
         "---Getting Started---",
         "introduction",
         "installation",
-        "---flowui/core---",
+        "--- Components ---",
         "core/components",
-        "core/animated-components",
-        "---flowui/shadcn---",
-        "shadcn/components"
+        "core/animated-components"
     ]
 }

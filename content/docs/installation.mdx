@@ -3,83 +3,15 @@ title: Installation
 description: How to install and configure Flow UI in your project.
 ---
 
-import { Step, Steps } from 'fumadocs-ui/components/steps';
-import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
-
 Flow UI is divided into two parts to give you maximum flexibility in how you build your project:
 
-1.  **flowui/core**: Standalone components that are entirely self-contained. They only require Tailwind CSS and Framer Motion.
-2.  **flowui/shadcn**: Components built on top of [shadcn/ui](https://ui.shadcn.com) primitives. These require a shadcn/ui setup.
+1.  **flowui/components**: The normal daily use components.
+2.  **flowui/animated-components**: Everyday use component, but with some animations using the famous motion.dev
 
-Choose the installation method that matches the part of Flow UI you want to use:
+Use the below installation method to use the components:
 
-<Tabs items={['flowui/core (Standalone)', 'flowui/shadcn (Shadcn)']}>
-  <Tab value="flowui/core (Standalone)">
-    ## Installing Core Components
-    These components don't need shadcn/ui. This is ideal for lightweight projects or when you want to avoid adding the shadcn base.
+```bash
+npx shadcn@latest add flowui
+```
 
-    <Steps>
-    <Step>
-    ### Install Core Dependencies
-    Install the required dependencies for animations and styling utilities:
-    ```bash
-    npm install clsx tailwind-merge lucide-react
-    ```
-    </Step>
-
-    <Step>
-    ### Add Utility Function
-    Ensure you have a `lib/utils.ts` (or `.js`) file to handle class merging. This is used by all Flow UI components:
-    ```typescript title="lib/utils.ts"
-    import { clsx, type ClassValue } from "clsx"
-    import { twMerge } from "tailwind-merge"
-
-    export function cn(...inputs: ClassValue[]) {
-      return twMerge(clsx(inputs))
-    }
-    ```
-    </Step>
-
-    <Step>
-    ### Copy and Paste
-    Navigate to any component under the **flowui/core** section, copy the source code, and paste it into your project (usually under `components/flowui/*`).
-    </Step>
-    </Steps>
-  </Tab>
-
-  <Tab value="flowui/shadcn (Shadcn)">
-    ## Installing Shadcn Components
-    These components leverage shadcn/ui registry features for easy installation and dependency management.
-
-    <Steps>
-    <Step>
-    ### Initialize Shadcn UI
-    If you haven't already, initialize shadcn/ui in your project:
-    ```bash
-    npx shadcn@latest init
-    ```
-    </Step>
-
-    <Step>
-    ### Configure Flow UI Registry
-    Add our registry to your `components.json`. This allows the shadcn CLI to find and install Flow UI components:
-
-    ```json title="components.json"
-    {
-      "registries": {
-        "@flowui": "https://flowui-ten.vercel.app/r/{name}.json"
-      }
-    }
-    ```
-    </Step>
-
-    <Step>
-    ### Add Components
-    Install components directly using the shadcn CLI:
-    ```bash
-    npx shadcn@latest add @flowui/component-name
-    ```
-    </Step>
-    </Steps>
-  </Tab>
-</Tabs>
+And you are done, enjoy using the FlowUI components.
