@@ -15,6 +15,7 @@ import { ChangeEvent, useState } from "react";
 import { AuthButton } from "@/registry/flowui/components/auth-buttons";
 import Speaker from "@/registry/flowui/components/speaker";
 import { FileSelect, FileSelectLogo, FileSelectText } from "@/registry/flowui/components/file-select/file-select";
+import { cn } from "@/lib/utils";
 
 const BentoCell = ({
     children,
@@ -27,7 +28,7 @@ const BentoCell = ({
 }) => (
     <Tooltip>
         <TooltipTrigger asChild>
-            <div className={`group relative border border-muted rounded-2xl bg-card/80 backdrop-blur-sm flex justify-center items-center overflow-hidden p-8 transition-all duration-200 hover:border-blue-200 hover:shadow-sm hover:bg-card ${className}`}>
+            <div className={cn("group relative border border-dashed border-muted rounded-2xl bg-card/80 backdrop-blur-sm flex justify-center items-center overflow-hidden p-8 transition-all duration-200 hover:border-blue-200 hover:shadow-sm hover:bg-card", className)}>
                 {children}
             </div>
         </TooltipTrigger>
@@ -50,7 +51,7 @@ export const Showcase = () => {
     return (
         <div className="w-full font-primary grid grid-cols-6 grid-rows-[140px_100px_120px] gap-2.5 mb-5">
             <BentoCell
-                className="col-start-1 col-span-2 row-start-1 row-span-1 flex-col justify-between"
+                className="col-start-1 col-span-2 row-start-1 row-span-1"
                 label="Changing Text"
             >
                 {/* <CellLabel>hover me</CellLabel> */}

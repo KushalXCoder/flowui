@@ -14,7 +14,7 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   const MDX = page.data.body;
 
   return (
-    <DocsPage toc={page.data.toc} full={page.data.full} className='font-sans technical-docs-page'>
+    <DocsPage toc={page.data.toc} full={page.data.full} className='font-primary technical-docs-page'>
       <div className="flex flex-col justify-start gap-3 mb-10">
         <div className='font-mono'>
           <h1 className='text-3xl font-bold'>{page.data.title}</h1>

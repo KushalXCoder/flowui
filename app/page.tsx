@@ -57,7 +57,7 @@ export default function Home() {
 
   return (
     <div className="bg-[repeating-linear-gradient(45deg,#e1e1e1_0px,#e1e1e1_1px,transparent_1px,transparent_10px)]
-  dark:bg-[repeating-linear-gradient(45deg,#3f3f3f_0px,#3f3f3f_1px,transparent_1px,transparent_10px)]">
+  dark:bg-[repeating-linear-gradient(45deg,#2f2f2f_0px,#2f2f2f_1px,transparent_1px,transparent_10px)]">
       <div className="relative min-h-screen max-w-360 mx-auto flex flex-col items-center border-muted bg-background">
         <div className="h-full absolute top-0 -left-2 w-2 border-x border-dashed border-muted bg-secondary" />
         <div className="h-full absolute top-0 -right-2 w-2 border-x border-dashed border-muted bg-secondary" />

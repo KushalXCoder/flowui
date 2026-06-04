@@ -13,7 +13,6 @@ export const Navbar = () => {
   const navLinks = [
     { name: "Docs", href: "/docs/introduction" },
     { name: "Components", href: "/docs/installation" },
-    { name: "Blocks", href: "/blocks" },
   ];
 
   const [stars, setStars] = useState<number>(0);

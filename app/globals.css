@@ -144,7 +144,8 @@
 }
 
 code {
-  font-family: var(--font-mono) !important;
+  font-family: var(--font-secondary) !important;
+  font-size: 0.9rem !important;
 }
 
 .fd-step h3 {
